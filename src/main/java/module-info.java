@@ -10,4 +10,6 @@ module com.example.ushtrime1 {
     exports com.example.ushtrime1;
     exports JAVA1 to javafx.graphics;
     exports LogIn to javafx.graphics;
+    exports Controller to javafx.graphics;
+    opens Controller to javafx.fxml;
 }
