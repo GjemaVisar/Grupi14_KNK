@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Cars.TabPaneCars">
+    <children>
+        <TabPane layoutY="46.0" prefHeight="564.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Audi">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <SplitPane dividerPositions="0.16460723742277136" layoutX="-3.0" layoutY="-4.0" prefHeight="542.0" prefWidth="908.0">
+                                    <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="542.0" prefWidth="304.0" style="-fx-background-color: lightblue;">
+                                            <children>
+                                                <VBox layoutX="-5.0" layoutY="3.0" prefHeight="506.0" prefWidth="155.0">
+                                                    <children>
+                                                        <ToggleButton mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="SUV">
+                                                            <VBox.margin>
+                                                                <Insets left="30.0" top="50.0" />
+                                                            </VBox.margin>
+                                                        </ToggleButton>
+                                                        <ToggleButton mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Luxury">
+                                                            <VBox.margin>
+                                                                <Insets left="30.0" top="50.0" />
+                                                            </VBox.margin>
+                                                        </ToggleButton>
+                                                        <ToggleButton mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Sedan">
+                                                            <VBox.margin>
+                                                                <Insets left="30.0" top="50.0" />
+                                                            </VBox.margin>
+                                                        </ToggleButton>
+                                                        <ToggleButton mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Coupe">
+                                                            <VBox.margin>
+                                                                <Insets left="30.0" top="50.0" />
+                                                            </VBox.margin>
+                                                        </ToggleButton>
+                                                    </children>
+                                                </VBox>
+                                            </children></AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="542.0" prefWidth="714.0" />
+                                    </items>
+                                </SplitPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="BMW">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="881.0">
+                            <children>
+                                <SplitPane dividerPositions="0.16821396993810783" layoutX="-6.0" layoutY="-6.0" prefHeight="543.0" prefWidth="906.0">
+                                    <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: lightblue;">
+                                            <children>
+                                                <VBox layoutX="-2.0" layoutY="5.0" prefHeight="506.0" prefWidth="152.0">
+                                                    <children>
+                                                        <ToggleButton mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="SUV">
+                                                            <VBox.margin>
+                                                                <Insets left="30.0" top="50.0" />
+                                                            </VBox.margin>
+                                                        </ToggleButton>
+                                                        <ToggleButton mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Luxury">
+                                                            <VBox.margin>
+                                                                <Insets left="30.0" top="50.0" />
+                                                            </VBox.margin>
+                                                        </ToggleButton>
+                                                        <ToggleButton mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Sedan">
+                                                            <VBox.margin>
+                                                                <Insets left="30.0" top="50.0" />
+                                                            </VBox.margin>
+                                                        </ToggleButton>
+                                                        <ToggleButton mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Coupe">
+                                                            <VBox.margin>
+                                                                <Insets left="30.0" top="50.0" />
+                                                            </VBox.margin>
+                                                        </ToggleButton>
+                                                    </children>
+                                                </VBox>
+                                            </children></AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+                                    </items>
+                                </SplitPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Mercedes">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <SplitPane dividerPositions="0.16495992876224397" layoutX="-1.0" prefHeight="505.0" prefWidth="900.0">
+                                    <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: lightblue;">
+                                            <children>
+                                                <VBox layoutX="-7.0" prefHeight="508.0" prefWidth="155.0">
+                                                    <children>
+                                                        <ToggleButton mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="SUV">
+                                                            <VBox.margin>
+                                                                <Insets left="30.0" top="50.0" />
+                                                            </VBox.margin>
+                                                        </ToggleButton>
+                                                        <ToggleButton mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Luxury">
+                                                            <VBox.margin>
+                                                                <Insets left="30.0" top="50.0" />
+                                                            </VBox.margin>
+                                                        </ToggleButton>
+                                                        <ToggleButton mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Sedan">
+                                                            <VBox.margin>
+                                                                <Insets left="30.0" top="50.0" />
+                                                            </VBox.margin>
+                                                        </ToggleButton>
+                                                        <ToggleButton mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Coupe">
+                                                            <VBox.margin>
+                                                                <Insets left="30.0" top="50.0" />
+                                                            </VBox.margin>
+                                                        </ToggleButton>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+                                    </items>
+                                </SplitPane>
+                            </children></AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>
