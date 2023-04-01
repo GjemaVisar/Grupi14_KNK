@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Cars.cars">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" >
    <children>
       <VBox layoutX="113.0" prefHeight="82.0" prefWidth="634.0" style="-fx-background-color: Beige;" AnchorPane.leftAnchor="113.0">
          <children>
@@ -45,7 +45,7 @@
       </VBox>
       <ImageView fitHeight="100.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../resources/images/logo.jpg" />
+            <Image url="@../Images/logo.jpg" />
          </image>
       </ImageView>
       <VBox layoutY="82.0" prefHeight="318.0" prefWidth="147.0" style="-fx-background-color: Beige;">
@@ -78,7 +78,7 @@
       </VBox>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="181.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../resources/images/G-cclass.jpeg" />
+            <Image url="@../Images/G-cclass.jpeg" />
          </image>
       </ImageView>
    </children>
