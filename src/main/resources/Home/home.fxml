@@ -94,7 +94,7 @@
                   <Line endX="-100.0" endY="37.0" layoutX="177.0" layoutY="8.0" startX="-100.0" stroke="#fffcfc" strokeWidth="1.5" />
                   <ImageView fitHeight="38.0" fitWidth="54.0" layoutX="14.0" layoutY="48.0" onMouseClicked="#profilePage" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/images/home/profile.png" />
+                        <Image url="@../../resources/images/home/profile.png " />
                      </image>
                   </ImageView>
                   <Label layoutX="76.0" layoutY="59.0" text="Miresevjen " textFill="#fffefe" />
@@ -102,17 +102,17 @@
             </Pane>
             <ImageView fitHeight="32.0" fitWidth="74.0" layoutX="134.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/images/home/home2.png" />
+                  <Image url="@../../resources/images/home/home2.png " />
                </image>
             </ImageView>
             <ImageView fitHeight="32.0" fitWidth="74.0" layoutX="279.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/images/home/help.png" />
+                  <Image url="@../../resources/images/home/help.png " />
                </image>
             </ImageView>
             <ImageView fitHeight="32.0" fitWidth="74.0" layoutX="206.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/images/home/carLogo.png" />
+                  <Image url="@../../resources/images/home/carLogo.png " />
                </image>
             </ImageView>
             <Button layoutX="125.0" layoutY="55.0" mnemonicParsing="false" style="-fx-background-color: #818589;" text="HOME">
