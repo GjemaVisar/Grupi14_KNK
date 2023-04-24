@@ -3,6 +3,9 @@
 <?import com.gluonhq.charm.glisten.control.TextField?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -72,7 +75,7 @@
          </children>
       </Pane>
       <HBox layoutX="53.0" layoutY="283.0" prefHeight="21.0" prefWidth="200.0" />
-      <AnchorPane prefHeight="69.0" prefWidth="600.0" style="-fx-background-color: #818589;">
+      <AnchorPane layoutY="27.0" prefHeight="69.0" prefWidth="600.0" style="-fx-background-color: #818589;">
          <children>
             <ImageView fitHeight="93.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -136,5 +139,24 @@
             <Line endX="7.5999755859375" endY="56.600006103515625" layoutX="325.0" layoutY="13.0" startX="7.5999755859375" startY="-3.814697265625E-6" />
          </children>
       </AnchorPane>
+      <MenuBar layoutX="-3.0" layoutY="1.0" prefHeight="26.0" prefWidth="624.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
    </children>
 </AnchorPane>

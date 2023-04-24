@@ -18,7 +18,7 @@
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="64.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../resources/images/logo.jpg" />
+                  <Image url="@../Images/logo.jpg" />
                </image>
             </ImageView>
          </children>
@@ -37,12 +37,12 @@
             <Hyperlink layoutX="86.0" layoutY="297.0" text="New Here? Create Account" />
             <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="38.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../resources/images/account.png" />
+                  <Image url="@../Images/account.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="26.0" fitWidth="31.0" layoutX="41.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../resources/images/key.png" />
+                  <Image url="@../Images/key.png" />
                </image>
             </ImageView>
             <Label layoutX="122.0" layoutY="80.0" prefHeight="30.0" prefWidth="65.0" text="Log In">
