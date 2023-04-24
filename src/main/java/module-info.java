@@ -5,6 +5,7 @@ module com.example.ushtrime1 {
     requires org.controlsfx.controls;
     requires org.kordamp.bootstrapfx.core;
 
+    opens Cars to javafx.fxml;
     opens Home to javafx.fxml;
     opens LogIn to javafx.fxml;
     opens com.example.ushtrime1 to javafx.fxml;
