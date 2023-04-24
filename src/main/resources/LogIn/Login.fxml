@@ -11,13 +11,14 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
+
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <left>
       <AnchorPane prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #212121;" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="64.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/logo.jpg" />
+                  <Image url="@../../../../resources/images/logo.jpg" />
                </image>
             </ImageView>
          </children>
@@ -36,12 +37,12 @@
             <Hyperlink layoutX="86.0" layoutY="297.0" text="New Here? Create Account" />
             <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="38.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/account.png" />
+                  <Image url="@../../../../resources/images/account.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="26.0" fitWidth="31.0" layoutX="41.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/key.png" />
+                  <Image url="@../../../../resources/images/key.png" />
                </image>
             </ImageView>
             <Label layoutX="122.0" layoutY="80.0" prefHeight="30.0" prefWidth="65.0" text="Log In">
