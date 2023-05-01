@@ -7,6 +7,8 @@ package Cars;
         import javafx.scene.Scene;
         import javafx.scene.control.SplitMenuButton;
         import javafx.scene.control.MenuItem;
+        import javafx.scene.layout.AnchorPane;
+        import javafx.scene.layout.Pane;
         import javafx.scene.layout.StackPane;
         import javafx.stage.Stage;
 
@@ -40,11 +42,6 @@ public class SplitMenuButtonExample extends Application {
         option3.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 System.out.println("Ju zgjodhet SEDAN");
-            }
-        });
-        option4.setOnAction(new EventHandler<ActionEvent>() {
-            @Override public void handle(ActionEvent e) {
-                System.out.println("Ju zgjodhet COUPE");
             }
         });
         // Create a StackPane with the SplitMenuButton and set it as the root of the scene
