@@ -21,12 +21,11 @@ public class RepositoryUser implements UserRepositoryInterface {
             statement.setString(3,user.getSalt());
             statement.executeUpdate();
 
-            return this.getByUsername(user.getUsername());
+            return RepositoryUser.getByUsername(user.getUsername());
         }
     }
 
-    @Override
-    public User getByUsername(String username) throws SQLException {
+    public static User getByUsername(String username) throws SQLException {
         String sql = "Select * from users where username = ?";
         try (Connection connection = ConnectionUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -36,7 +35,8 @@ public class RepositoryUser implements UserRepositoryInterface {
                 int id = resultSet.getInt("id");
                 String saltedHash = resultSet.getString("salted_hash");
                 String salt = resultSet.getString("salt");
-                return new User(id, username, saltedHash, salt);
+                boolean is_admin = resultSet.getBoolean("is_admin");
+                return new User(id, username, saltedHash, salt, is_admin);
             } else {
                 return null;
             }

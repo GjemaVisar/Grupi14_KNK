@@ -7,11 +7,12 @@ public class User {
     private String salt;
     private boolean is_admin;
 
-    public User(Integer id, String username, String saltedHash, String salt) {
+    public User(Integer id, String username, String saltedHash, String salt,boolean is_admin) {
         this.id = id;
         this.username = username;
         this.saltedHash = saltedHash;
         this.salt = salt;
+        this.is_admin = is_admin;
     }
     public String getUsername() {
         return username;
