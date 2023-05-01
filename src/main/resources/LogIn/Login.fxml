@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <left>
       <AnchorPane prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #212121;" BorderPane.alignment="CENTER">
@@ -34,7 +33,7 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Hyperlink layoutX="86.0" layoutY="297.0" text="New Here? Create Account" />
+            <Hyperlink layoutX="86.0" layoutY="297.0" />
             <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="38.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Images/account.png" />
@@ -50,6 +49,17 @@
                   <Font size="20.0" />
                </font>
             </Label>
+            <Button layoutX="187.0" layoutY="129.0" mnemonicParsing="false" text="Sign Up" />
+            <Label layoutX="84.0" layoutY="299.0" text="New here?">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button layoutX="152.0" layoutY="294.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Sign Up!" textFill="#260bbc">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </center>
