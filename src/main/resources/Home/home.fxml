@@ -29,7 +29,7 @@
                   </Label>
                   <ImageView fitHeight="25.0" fitWidth="21.0" layoutX="68.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/home/logo.jpg" />
+                        <Image url="@../../resources/images/home/logo.jpg" />
                      </image>
                   </ImageView>
                   <Label layoutX="100.0" layoutY="6.0" text="2023 FiekMOTORS" textFill="WHITE">
@@ -47,17 +47,17 @@
             </Label>
             <ImageView fitHeight="25.0" fitWidth="21.0" layoutX="246.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/home/facebook.png" />
+                  <Image url="@../../resources/images/home/facebook.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="22.0" fitWidth="36.0" layoutX="276.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/home/instagram.png" />
+                  <Image url="@../../resources/images/home/instagram.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="307.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/home/linkedin.png" />
+                  <Image url="@../../resources/images/home/linkedin.png" />
                </image>
             </ImageView>
             <Line endX="-100.0" endY="47.0" layoutX="440.0" layoutY="15.0" startX="-100.0" />
@@ -79,7 +79,7 @@
          <children>
             <ImageView fitHeight="93.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/home/logo.jpg" />
+                  <Image url="@../../resources/images/home/logo.jpg" />
                </image>
             </ImageView>
             <Pane layoutX="469.0" prefHeight="94.0" prefWidth="154.0" style="-fx-background-color: #191919;">
@@ -97,7 +97,7 @@
                   <Line endX="-100.0" endY="37.0" layoutX="177.0" layoutY="8.0" startX="-100.0" stroke="#fffcfc" strokeWidth="1.5" />
                   <ImageView fitHeight="38.0" fitWidth="54.0" layoutX="14.0" layoutY="48.0" onMouseClicked="#profilePage" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/home/profile.png " />
+                        <Image url="@../../resources/images/home/profile.png " />
                      </image>
                   </ImageView>
                   <Label layoutX="76.0" layoutY="59.0" text="Miresevjen " textFill="#fffefe" />
@@ -105,17 +105,17 @@
             </Pane>
             <ImageView fitHeight="32.0" fitWidth="74.0" layoutX="134.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/home/home2.png " />
+                  <Image url="@../../resources/images/home/home2.png " />
                </image>
             </ImageView>
             <ImageView fitHeight="32.0" fitWidth="74.0" layoutX="279.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/home/help.png " />
+                  <Image url="@../../resources/images/home/help.png " />
                </image>
             </ImageView>
             <ImageView fitHeight="32.0" fitWidth="74.0" layoutX="206.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/home/carLogo.png " />
+                  <Image url="@../../resources/images/home/carLogo.png " />
                </image>
             </ImageView>
             <Button layoutX="125.0" layoutY="55.0" mnemonicParsing="false" style="-fx-background-color: #818589;" text="HOME">
