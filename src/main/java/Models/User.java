@@ -5,6 +5,7 @@ public class User {
     private String username;
     private String saltedHash;
     private String salt;
+    private boolean is_admin;
 
     public User(Integer id, String username, String saltedHash, String salt) {
         this.id = id;
@@ -12,7 +13,6 @@ public class User {
         this.saltedHash = saltedHash;
         this.salt = salt;
     }
-
     public String getUsername() {
         return username;
     }
@@ -35,5 +35,13 @@ public class User {
 
     public void setSalt(String salt) {
         this.salt = salt;
+    }
+
+    public void set_admin_status(boolean is_admin){
+        this.is_admin = is_admin;
+    }
+
+    public boolean get_admin_status(){
+        return this.is_admin;
     }
 }
