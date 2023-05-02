@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.RegLogController">
    <left>
       <AnchorPane prefHeight="400.0" prefWidth="287.0" style="-fx-background-color: #212121;" BorderPane.alignment="CENTER">
          <children>
@@ -66,7 +65,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button layoutX="208.0" layoutY="339.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Log In!" textFill="#260bbc">
+            <Button layoutX="208.0" layoutY="339.0" mnemonicParsing="false" onAction="#switchToLogin" style="-fx-background-color: transparent;" text="Log In!" textFill="#260bbc">
                <font>
                   <Font size="14.0" />
                </font>
