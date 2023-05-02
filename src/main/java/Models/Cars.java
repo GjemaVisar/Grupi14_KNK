@@ -15,13 +15,12 @@ public class Cars {
     private Date inserted_on;
     private Date updated_on;
 
-    public Cars(Integer id, String name, double price, String manufacturer, int num_doors, double max_speed,
+    public Cars(int serial_no, String name, double price, String manufacturer,double max_speed,
                 String car_image, Date inserted_on, Date updated_on){
-        this.id=id;
+        this.serial_no=serial_no;
         this.name = name;
         this.price = price;
         this.manufacturer = manufacturer;
-        this.num_doors = num_doors;
         this.max_speed = max_speed;
         this.car_image = car_image;
         this.inserted_on = inserted_on;
@@ -50,12 +49,7 @@ public class Cars {
         return this.manufacturer;
     }
 
-    public void setNum_doors(int doors){
-        this.num_doors = doors;
-    }
-    public int getNum_doors(){
-        return this.num_doors;
-    }
+
 
     public void setMax_speed(double speed){
         this.max_speed = speed;
