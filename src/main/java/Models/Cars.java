@@ -4,13 +4,13 @@ import java.util.Date;
 
 public class Cars {
 
-    private int id;
+    private int serial_no;
     private String name;
     private double price;
     private  String manufacturer;
-    private int num_doors;
     private double max_speed;
 
+    private int year_made;
     private String car_image;
     private Date inserted_on;
     private Date updated_on;
