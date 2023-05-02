@@ -15,7 +15,7 @@ public class RegLogController {
     private Scene scene;
     private Parent root;
 
-    private String
+
 
     public void switchToLogin(ActionEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));

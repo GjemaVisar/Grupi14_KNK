@@ -11,6 +11,11 @@ public class PasswordHasher {
     private static final String HASH_ALGORITHM = "SHA-256";
 
     //    TODO: Create method that generates salt
+
+    public static void main(String [] args){
+        System.out.println(generateSalt());
+        System.out.println(generateSaltedHash("Pershendetje",generateSalt()));
+    }
     public static String generateSalt() {
         SecureRandom random = new SecureRandom();
         byte[] salt = new byte[SALT_LENGTH];

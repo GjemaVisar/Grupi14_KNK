@@ -9,6 +9,7 @@ CREATE TABLE users (
 );
 -- shtimi i kolones per status--
 alter table users add column is_active boolean not null;
+alter table users add column date_registered date not null;
 
 
 -- shtimi i tabeles per status user apo admin --
