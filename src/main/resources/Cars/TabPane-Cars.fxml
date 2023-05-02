@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
@@ -12,10 +14,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="906.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Cars.TabPaneCars">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="932.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Cars.TabPane-Cars">
     <children>
-        <TabPane layoutX="-6.0" layoutY="65.0" prefHeight="539.0" prefWidth="908.0" tabClosingPolicy="UNAVAILABLE">
+        <TabPane layoutX="1.0" layoutY="108.0" prefHeight="566.0" prefWidth="932.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
                 <Tab text="Audi">
                     <content>
@@ -32,12 +36,12 @@
                                                                 <Insets left="30.0" top="50.0" />
                                                             </VBox.margin>
                                                         </ToggleButton>
-                                                        <ToggleButton mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Luxury">
+                                                        <ToggleButton fx:id="lxrCrs" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Luxury">
                                                             <VBox.margin>
                                                                 <Insets left="30.0" top="50.0" />
                                                             </VBox.margin>
                                                         </ToggleButton>
-                                                        <ToggleButton mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Sedan">
+                                                        <ToggleButton fx:id="sdnCrs" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Sedan">
                                                             <VBox.margin>
                                                                 <Insets left="30.0" top="50.0" />
                                                             </VBox.margin>
@@ -46,7 +50,7 @@
                                                 </VBox>
                                             </children>
                               </AnchorPane>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="591.0" prefWidth="800.0">
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="510.0" prefWidth="766.0">
                                  <children>
                                     <Pane layoutX="268.0" layoutY="268.0" prefHeight="232.0" prefWidth="236.0" style="-fx-border-color: black;">
                                        <children>
@@ -88,7 +92,7 @@
                                           <TextField layoutX="10.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="AUDI Q5 2023           35.000 $" />
                                        </children>
                                     </Pane>
-                                    <Pane layoutX="518.0" layoutY="268.0" prefHeight="226.0" prefWidth="219.0" style="-fx-border-color: black;">
+                                    <Pane layoutX="518.0" layoutY="268.0" prefHeight="231.0" prefWidth="219.0" style="-fx-border-color: black;">
                                        <children>
                                           <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
                                           <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -109,10 +113,10 @@
                                           <TextField layoutX="19.0" layoutY="148.0" prefHeight="53.0" prefWidth="201.0" text="AUDI Q3 2023           29.000 $" />
                                        </children>
                                     </Pane>
-                                    <ScrollBar layoutX="733.0" orientation="VERTICAL" prefHeight="506.0" prefWidth="14.0" />
                                  </children></AnchorPane>
                                     </items>
                                 </SplitPane>
+                        <ScrollBar layoutX="910.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="506.0" prefWidth="16.0" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -207,6 +211,7 @@
                                           <TextField layoutX="21.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="BMW X6 2022           68.000 $" />
                                        </children>
                                     </Pane>
+                                    <ScrollBar layoutX="740.0" layoutY="7.0" orientation="VERTICAL" prefHeight="506.0" prefWidth="14.0" />
                                  </children></AnchorPane>
                                     </items>
                                 </SplitPane>
@@ -305,6 +310,7 @@
                                           <TextField layoutX="21.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="MERCEDES-BENZ Glb220   33.000 $" />
                                        </children>
                                     </Pane>
+                                    <ScrollBar layoutX="751.0" layoutY="1.0" orientation="VERTICAL" prefHeight="506.0" prefWidth="14.0" />
                                  </children></AnchorPane>
                                     </items>
                                 </SplitPane>
@@ -313,5 +319,57 @@
                 </Tab>
             </tabs>
         </TabPane>
+      <AnchorPane prefHeight="94.0" prefWidth="932.0" style="-fx-background-color: #818589;">
+         <children>
+            <ImageView fitHeight="93.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/home/logo.jpg" />
+               </image>
+            </ImageView>
+            <Pane layoutX="777.0" layoutY="-2.0" prefHeight="94.0" prefWidth="154.0" style="-fx-background-color: #191919;">
+               <children>
+                  <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #191919;" text="Shqip" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="89.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #191919;" text="English" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Line endX="-100.0" endY="37.0" layoutX="177.0" layoutY="8.0" startX="-100.0" stroke="#fffcfc" strokeWidth="1.5" />
+                  <ImageView fitHeight="38.0" fitWidth="54.0" layoutX="14.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/home/profile.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="76.0" layoutY="59.0" text="Miresevjen " textFill="#fffefe" />
+               </children>
+            </Pane>
+            <ImageView fitHeight="32.0" fitWidth="74.0" layoutX="134.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/home/home2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="32.0" fitWidth="74.0" layoutX="206.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/home/carLogo.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="125.0" layoutY="55.0" mnemonicParsing="false" style="-fx-background-color: #818589;" text="HOME">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnCars1" layoutX="196.0" layoutY="55.0" mnemonicParsing="false" style="-fx-background-color: #818589;" text="CARS">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Line endX="7.5999755859375" endY="56.600006103515625" layoutX="178.0" layoutY="17.0" startX="7.5999755859375" startY="-3.814697265625E-6" />
+            <Line endX="7.5999755859375" endY="56.600006103515625" layoutX="252.0" layoutY="18.0" startX="7.5999755859375" startY="-3.814697265625E-6" />
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>
