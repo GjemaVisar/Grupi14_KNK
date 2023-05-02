@@ -14,5 +14,6 @@ module com.example.ushtrime1 {
 
     opens Controllers to javafx.fxml;
     exports Controllers to javafx.fxml, javafx.graphics;
+    exports Cars to javafx.graphics;
 
 }
