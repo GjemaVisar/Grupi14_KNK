@@ -298,7 +298,7 @@
                                                       <Image url="@../Images/LUXURY/bmw7.jpg" />
                                                    </image>
                                                 </ImageView>
-                                                <TextField layoutX="18.0" layoutY="154.0" prefHeight="53.0" prefWidth="201.0" text="BMW 7 2023         35.000 $" />
+                                                <TextField layoutX="18.0" layoutY="154.0" prefHeight="53.0" prefWidth="201.0" text="BMW 7 2023         135.000 $" />
                                              </children>
                                           </Pane>
                                           <Pane prefHeight="223.0" prefWidth="236.0" style="-fx-border-color: black;">
