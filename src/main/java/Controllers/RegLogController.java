@@ -30,9 +30,6 @@ public class RegLogController {
         stage.setScene(scene);
         stage.show();
     }
-    public void signUp(ActionEvent e) throws IOException{
-
-    }
 }
 
 
