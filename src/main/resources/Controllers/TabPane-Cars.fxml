@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
@@ -124,7 +123,7 @@
                                              <children>
                                                 <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="18.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../Images/LUXURY/audi%20tt.jpeg" />
+                                                      <Image url="@../Images/LUXURY/audi tt.jpeg" />
                                                    </image>
                                                 </ImageView>
                                                 <TextField layoutX="18.0" layoutY="154.0" prefHeight="53.0" prefWidth="201.0" text="AUDI TT 2023         35.000 $" />
@@ -134,7 +133,7 @@
                                              <children>
                                                 <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="18.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../Images/LUXURY/audi%20a8.jpeg" />
+                                                      <Image url="@../Images/LUXURY/audi a8.jpeg" />
                                                    </image>
                                                 </ImageView>
                                                 <TextField layoutX="18.0" layoutY="164.0" prefHeight="53.0" prefWidth="201.0" text="AUDI A8 2023           83.000 $" />
@@ -510,7 +509,7 @@
                                              <children>
                                                 <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../Images/Sedan/EQS%20(1).jpg" />
+                                                      <Image url="@../Images/Sedan/EQS (1).jpg" />
                                                    </image>
                                                 </ImageView>
                                                 <TextField layoutX="21.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="EQS 500                   150.000$" />
@@ -562,7 +561,7 @@
                         <Image url="@../Images/home/profile.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="76.0" layoutY="59.0" text="Miresevjen " textFill="#fffefe" />
+                  <Button layoutX="78.0" layoutY="55.0" mnemonicParsing="false" onAction="#switchToLogin" text="LogIn" />
                </children>
             </Pane>
             <ImageView fitHeight="32.0" fitWidth="74.0" layoutX="134.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -575,7 +574,7 @@
                   <Image url="@../Images/home/carLogo.png" />
                </image>
             </ImageView>
-            <Button layoutX="125.0" layoutY="55.0" mnemonicParsing="false" style="-fx-background-color: #818589;" text="HOME">
+            <Button layoutX="125.0" layoutY="55.0" mnemonicParsing="false" onAction="#switchToHome" style="-fx-background-color: #818589;" text="HOME">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
