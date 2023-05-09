@@ -10,7 +10,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage ) throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("home.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TabPane-Cars.fxml"));
         Scene scene = new Scene(fxmlLoader.load(),840,670);
         stage.setScene(scene);
         stage.setTitle("FiekMOTORS");
