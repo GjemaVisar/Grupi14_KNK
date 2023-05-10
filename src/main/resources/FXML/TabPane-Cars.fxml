@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="932.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.carController">
+    <children>
+        <TabPane layoutX="1.0" layoutY="108.0" prefHeight="566.0" prefWidth="926.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Audi">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="532.0" prefWidth="914.0">
+                            <children>
+                                <SplitPane dividerPositions="0.17117117117117114" layoutX="-3.0" layoutY="-4.0" prefHeight="511.0" prefWidth="914.0">
+                                    <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="607.0" prefWidth="447.0" style="-fx-background-color: lightblue;">
+                                            <children>
+                                                <VBox layoutX="-5.0" layoutY="3.0" prefHeight="506.0" prefWidth="155.0">
+                                                    <children>
+                                                        <ToggleButton mnemonicParsing="false" onAction="#suvSwitchA" prefHeight="30.0" prefWidth="100.0" text="SUV">
+                                                            <VBox.margin>
+                                                                <Insets left="30.0" top="50.0" />
+                                                            </VBox.margin>
+                                                        </ToggleButton>
+                                                        <ToggleButton fx:id="lxrCrs" mnemonicParsing="false" onAction="#luxSwitchA" prefHeight="30.0" prefWidth="100.0" text="Luxury">
+                                                            <VBox.margin>
+                                                                <Insets left="30.0" top="50.0" />
+                                                            </VBox.margin>
+                                                        </ToggleButton>
+                                                        <ToggleButton fx:id="sdnCrs" mnemonicParsing="false" onAction="#sedanSwitchA" prefHeight="30.0" prefWidth="100.0" text="Sedan">
+                                                            <VBox.margin>
+                                                                <Insets left="30.0" top="50.0" />
+                                                            </VBox.margin>
+                                                        </ToggleButton>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                              </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="510.0" prefWidth="766.0">
+                                 <children>
+                                    <FlowPane fx:id="suvPaneA" hgap="19.5" prefHeight="509.0" prefWidth="750.0" vgap="10.0">
+                                       <children>
+                                          <Pane prefHeight="232.0" prefWidth="236.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="18.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/suv/sq2-au2q-22.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="18.0" layoutY="154.0" prefHeight="53.0" prefWidth="201.0" text="AUDI Q2 2023           25.000 $" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="223.0" prefWidth="236.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="18.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/suv/Q8.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="18.0" layoutY="164.0" prefHeight="53.0" prefWidth="201.0" text="AUDI Q8 2023           83.000 $" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="222.0" prefWidth="240.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/suv/Audi-Q7.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="21.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="AUDI Q7 2023           75.000 $" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="219.0" prefWidth="220.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="140.0" fitWidth="200.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/suv/Q5.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="10.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="AUDI Q5 2023           35.000 $" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="231.0" prefWidth="219.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/suv/audi_etron.jpeg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="10.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="AUDI Q7 2023           75.000 $" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="227.0" prefWidth="239.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/suv/Q3.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="19.0" layoutY="148.0" prefHeight="53.0" prefWidth="201.0" text="AUDI Q3 2023           29.000 $" />
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </FlowPane>
+                                    <FlowPane fx:id="luxPaneA" alignment="TOP_CENTER" hgap="19.5" layoutY="20.0" opacity="0.0" prefHeight="509.0" prefWidth="750.0" vgap="10.0">
+                                       <children>
+                                          <Pane prefHeight="232.0" prefWidth="236.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="18.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/LUXURY/audi tt.jpeg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="18.0" layoutY="154.0" prefHeight="53.0" prefWidth="201.0" text="AUDI TT 2023         35.000 $" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="223.0" prefWidth="236.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="18.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/LUXURY/audi a8.jpeg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="18.0" layoutY="164.0" prefHeight="53.0" prefWidth="201.0" text="AUDI A8 2023           83.000 $" />
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </FlowPane>
+                                    <FlowPane fx:id="sedanPaneA" hgap="19.5" opacity="0.0" prefHeight="509.0" prefWidth="750.0" vgap="10.0">
+                                       <children>
+                                          <Pane prefHeight="232.0" prefWidth="236.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="18.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/Sedan/rs3.jpeg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="18.0" layoutY="154.0" prefHeight="53.0" prefWidth="201.0" text="AUDI RS 3                  50.000$" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="223.0" prefWidth="236.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="18.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/Sedan/rs4.jpeg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="18.0" layoutY="164.0" prefHeight="53.0" prefWidth="201.0" text="AUDI RS 4                  50.000$" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="222.0" prefWidth="240.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/Sedan/rs6.jpeg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="21.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="AUDI RS 6                        50.000$" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="219.0" prefWidth="220.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="140.0" fitWidth="200.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/Sedan/rs7.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="10.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="AUDI RS 7                        50.000$" />
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </FlowPane>
+                                 </children></AnchorPane>
+                                    </items>
+                                </SplitPane>
+                        <ScrollBar layoutX="910.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="506.0" prefWidth="16.0" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="BMW">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="881.0">
+                     <children>
+                        <SplitPane dividerPositions="0.17117117117117114" prefHeight="511.0" prefWidth="914.0">
+                           <items>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="607.0" prefWidth="447.0" style="-fx-background-color: lightblue;">
+                                 <children>
+                                    <VBox layoutX="-5.0" layoutY="3.0" prefHeight="506.0" prefWidth="155.0">
+                                       <children>
+                                          <ToggleButton fx:id="toggleSuvBMW" mnemonicParsing="false" onAction="#suvSwitchB" prefHeight="30.0" prefWidth="100.0" text="SUV">
+                                             <VBox.margin>
+                                                <Insets left="30.0" top="50.0" />
+                                             </VBox.margin>
+                                          </ToggleButton>
+                                          <ToggleButton fx:id="toggleluxBMW" mnemonicParsing="false" onAction="#luxSwitchB" prefHeight="30.0" prefWidth="100.0" text="Luxury">
+                                             <VBox.margin>
+                                                <Insets left="30.0" top="50.0" />
+                                             </VBox.margin>
+                                          </ToggleButton>
+                                          <ToggleButton fx:id="toggleSdnBMW" mnemonicParsing="false" onAction="#sedanSwitchB" prefHeight="30.0" prefWidth="100.0" text="Sedan">
+                                             <VBox.margin>
+                                                <Insets left="30.0" top="50.0" />
+                                             </VBox.margin>
+                                          </ToggleButton>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="510.0" prefWidth="766.0">
+                                 <children>
+                                    <FlowPane fx:id="suvPaneB" hgap="19.5" prefHeight="509.0" prefWidth="750.0" vgap="10.0">
+                                       <children>
+                                          <Pane prefHeight="222.0" prefWidth="240.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <TextField layoutX="21.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="BMW X7 2023           88.000 $" />
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/suv/x7_suv.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="222.0" prefWidth="231.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/suv/x6.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="21.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="BMW X4 2023           35.000 $" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="222.0" prefWidth="240.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/suv/x1.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="21.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="BMW X1 2023           32.000 $" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="222.0" prefWidth="240.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/suv/x3.jpeg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="21.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="BMW X3 2023       43.000$" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="222.0" prefWidth="232.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/suv/x5.jpeg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="21.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="BMW X5 2023           75.000 $" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="222.0" prefWidth="240.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/suv/x6.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="21.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="BMW X6 2022           68.000 $" />
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </FlowPane>
+                                    <FlowPane fx:id="luxPaneB" alignment="TOP_CENTER" hgap="19.5" layoutY="20.0" opacity="0.0" prefHeight="509.0" prefWidth="750.0" vgap="10.0">
+                                       <children>
+                                          <Pane prefHeight="232.0" prefWidth="236.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="18.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/LUXURY/bmw7.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="18.0" layoutY="154.0" prefHeight="53.0" prefWidth="201.0" text="BMW 7 2023         135.000 $" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="223.0" prefWidth="236.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="18.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/LUXURY/bmw8.jpeg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="18.0" layoutY="164.0" prefHeight="53.0" prefWidth="201.0" text="BMW 8 2023           83.000 $" />
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </FlowPane>
+                                    <FlowPane fx:id="sedanPaneB" hgap="19.5" opacity="0.0" prefHeight="509.0" prefWidth="750.0" vgap="10.0">
+                                       <children>
+                                          <Pane prefHeight="232.0" prefWidth="236.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="18.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/Sedan/m3.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="18.0" layoutY="154.0" prefHeight="53.0" prefWidth="201.0" text="BMW M3                  150.000$" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="223.0" prefWidth="236.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="18.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/Sedan/bmwAlpina.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="18.0" layoutY="164.0" prefHeight="53.0" prefWidth="201.0" text="BMW 7                            60.000$" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="222.0" prefWidth="240.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/Sedan/BMW-M4.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="21.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="BMW M4                        170.000$" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="219.0" prefWidth="220.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="140.0" fitWidth="200.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/Sedan/bmw5.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="10.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="BMW 5                        50.000$" />
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </FlowPane>
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                     </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="mercedesTab" text="Mercedes">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="562.0" prefWidth="978.0">
+                     <children>
+                        <SplitPane dividerPositions="0.17117117117117114" prefHeight="511.0" prefWidth="914.0">
+                           <items>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="607.0" prefWidth="447.0" style="-fx-background-color: lightblue;">
+                                 <children>
+                                    <VBox layoutX="-5.0" layoutY="3.0" prefHeight="506.0" prefWidth="155.0">
+                                       <children>
+                                          <ToggleButton mnemonicParsing="false" onAction="#suvSwitchM" prefHeight="30.0" prefWidth="100.0" text="SUV">
+                                             <VBox.margin>
+                                                <Insets left="30.0" top="50.0" />
+                                             </VBox.margin>
+                                          </ToggleButton>
+                                          <ToggleButton fx:id="lxrCrs1" mnemonicParsing="false" onAction="#luxSwitchM" prefHeight="30.0" prefWidth="100.0" text="Luxury">
+                                             <VBox.margin>
+                                                <Insets left="30.0" top="50.0" />
+                                             </VBox.margin>
+                                          </ToggleButton>
+                                          <ToggleButton fx:id="sdnCrs1" mnemonicParsing="false" onAction="#sedanSwitchM" prefHeight="30.0" prefWidth="100.0" text="Sedan">
+                                             <VBox.margin>
+                                                <Insets left="30.0" top="50.0" />
+                                             </VBox.margin>
+                                          </ToggleButton>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="510.0" prefWidth="766.0">
+                                 <children>
+                                    <FlowPane fx:id="suvPaneM" hgap="15.0" prefHeight="509.0" prefWidth="750.0" vgap="10.0">
+                                       <children>
+                                          <Pane prefHeight="222.0" prefWidth="240.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/suv/gClass.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="21.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="MERCEDES BENZ G63       155.000$" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="222.0" prefWidth="240.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/suv/Mercedes-Benz-GLE.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="21.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="MERCEDES-BENZ gle63   88.000 $" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="222.0" prefWidth="240.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/suv/gls.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="21.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="MERCEDES-BENZ GLS500  95.000 $" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="222.0" prefWidth="233.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/suv/gleMl.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="21.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="MERCEDES-BENZ GLEcp   65.000 $" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="222.0" prefWidth="240.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/suv/Mercedes-Benz-GLA-.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="21.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="MERCEDES-BENZ Gla300   28.000 $" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="222.0" prefWidth="233.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/suv/glb.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="21.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="MERCEDES-BENZ Glb220   33.000 $" />
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </FlowPane>
+                                    <FlowPane fx:id="luxPaneM" alignment="TOP_CENTER" hgap="19.5" layoutY="20.0" opacity="0.0" prefHeight="509.0" prefWidth="750.0" vgap="10.0">
+                                       <children>
+                                          <Pane prefHeight="232.0" prefWidth="236.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="18.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/LUXURY/maybach_S.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="18.0" layoutY="154.0" prefHeight="53.0" prefWidth="201.0" text="Maybach                       200.000$" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="223.0" prefWidth="236.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="18.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/LUXURY/Mercedes-Benz-S-Class-.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="18.0" layoutY="164.0" prefHeight="53.0" prefWidth="201.0" text="S500 L                            130.000$" />
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </FlowPane>
+                                    <FlowPane fx:id="sedanPaneM" hgap="19.5" opacity="0.0" prefHeight="509.0" prefWidth="750.0" vgap="10.0">
+                                       <children>
+                                          <Pane prefHeight="232.0" prefWidth="236.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="18.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/Sedan/mercedes-benz-c-class-.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="18.0" layoutY="154.0" prefHeight="53.0" prefWidth="201.0" text="C300                             70.000$" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="223.0" prefWidth="236.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="18.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/Sedan/Mercedes-Benz-E-Class-.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="18.0" layoutY="164.0" prefHeight="53.0" prefWidth="201.0" text="E220                              90.000$" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="222.0" prefWidth="240.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/Sedan/EQS (1).jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="21.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="EQS 500                   150.000$" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="219.0" prefWidth="234.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <ImageView fitHeight="140.0" fitWidth="200.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/Sedan/images.jpeg" />
+                                                   </image>
+                                                </ImageView>
+                                                <TextField layoutX="10.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="GT-RS                        180.000$" />
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </FlowPane>
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                     </children></AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+      <AnchorPane prefHeight="94.0" prefWidth="932.0" style="-fx-background-color: #818589;">
+         <children>
+            <ImageView fitHeight="93.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/home/logo.jpg" />
+               </image>
+            </ImageView>
+            <Pane layoutX="777.0" layoutY="-2.0" prefHeight="94.0" prefWidth="154.0" style="-fx-background-color: #191919;">
+               <children>
+                  <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #191919;" text="Shqip" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="89.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #191919;" text="English" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Line endX="-100.0" endY="37.0" layoutX="177.0" layoutY="8.0" startX="-100.0" stroke="#fffcfc" strokeWidth="1.5" />
+                  <ImageView fitHeight="38.0" fitWidth="54.0" layoutX="14.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/home/profile.png" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="78.0" layoutY="55.0" mnemonicParsing="false" onAction="#switchToLogin" text="LogIn" />
+               </children>
+            </Pane>
+            <ImageView fitHeight="32.0" fitWidth="74.0" layoutX="134.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/home/home2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="32.0" fitWidth="74.0" layoutX="206.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/home/carLogo.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="125.0" layoutY="55.0" mnemonicParsing="false" onAction="#switchToHome" style="-fx-background-color: #818589;" text="HOME">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnCars1" layoutX="196.0" layoutY="55.0" mnemonicParsing="false" style="-fx-background-color: #818589;" text="CARS">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Line endX="7.5999755859375" endY="56.600006103515625" layoutX="178.0" layoutY="17.0" startX="7.5999755859375" startY="-3.814697265625E-6" />
+            <Line endX="7.5999755859375" endY="56.600006103515625" layoutX="252.0" layoutY="18.0" startX="7.5999755859375" startY="-3.814697265625E-6" />
+         </children>
+      </AnchorPane>
+    </children>
+</AnchorPane>

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.RegLogController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.RegLogController">
    <left>
       <AnchorPane prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #212121;" BorderPane.alignment="CENTER">
          <children>
@@ -54,7 +54,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button layoutX="152.0" layoutY="294.0" mnemonicParsing="false" onAction="#switchToRegister" style="-fx-background-color: transparent;" text="Sign Up!" textFill="#260bbc">
+            <Button layoutX="153.0" layoutY="294.0" mnemonicParsing="false" onAction="#switchToRegister" style="-fx-background-color: transparent;" text="Sign Up!" textFill="#260bbc">
                <font>
                   <Font size="14.0" />
                </font>
