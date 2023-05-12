@@ -11,6 +11,7 @@ module com.jmc.AutoSalon {
 //    opens com.example.ushtrime1 to javafx.fxml;
       opens com.jmc.AutoSalon to javafx.fxml;
       opens Controllers to javafx.fxml;
+    opens com.jmc.AutoSalon.Controllers.Client;
 
     exports com.jmc.AutoSalon ;
     exports com.jmc.AutoSalon.Controllers ;

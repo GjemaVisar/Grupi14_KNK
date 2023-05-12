@@ -1,4 +1,4 @@
-package Models;
+package com.jmc.AutoSalon.Models;
 
 import java.time.LocalDate;
 
@@ -73,7 +73,6 @@ public class CarModelClass {
         return updatedOn;
     }
 
-    // Override the toString() method to display the car information in the UI
     @Override
     public String toString() {
         return c_name + " " + model + " (" + year + ") - " + color + " - $" + price;

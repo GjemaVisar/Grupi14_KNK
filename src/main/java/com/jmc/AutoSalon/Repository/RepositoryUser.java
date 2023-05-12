@@ -1,14 +1,11 @@
 package com.jmc.AutoSalon.Repository;
 
-import Models.CarModelClass;
 import Models.User;
 import Models.dto.CreateUserDto;
 import Services.ConnectionUtil;
 import com.jmc.AutoSalon.Repository.Interfaces.UserRepositoryInterface;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class RepositoryUser implements UserRepositoryInterface {
     @Override

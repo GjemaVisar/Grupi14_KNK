@@ -1,9 +1,7 @@
 package Controllers;
 
 
-import Models.CarModelClass;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import com.jmc.AutoSalon.Models.CarModelClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

@@ -1,6 +1,6 @@
 package com.jmc.AutoSalon.Controllers.Client;
 
-import Models.CarModelClass;
+import com.jmc.AutoSalon.Models.CarModelClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

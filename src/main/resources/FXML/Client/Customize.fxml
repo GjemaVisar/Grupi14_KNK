@@ -33,7 +33,7 @@
             <Font size="20.0" />
          </font>
       </TextArea>
-      <Button layoutX="123.0" layoutY="508.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Dergo" />
-      <!--onAction="#handleDergoButton"-->
+      <Button layoutX="123.0" layoutY="508.0" mnemonicParsing="false" onAction="#handleDergoButton" prefHeight="40.0"
+              prefWidth="90.0" text="Dergo" />
    </AnchorPane>
 </AnchorPane>
