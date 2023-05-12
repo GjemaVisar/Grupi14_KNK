@@ -1,12 +1,12 @@
 package com.jmc.AutoSalon.Controllers.Client;
 
 import com.jmc.AutoSalon.Models.CarModelClass;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ColorPicker;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
@@ -24,9 +24,8 @@ public class ClientCustomize implements Initializable {
 
     @FXML
     private ComboBox<String> modeliMakines;
-
     @FXML
-    private ColorPicker ngjyrat;
+    private ComboBox<String> ngjyrat;
 
     @FXML
     private CheckBox viti20;
@@ -39,27 +38,60 @@ public class ClientCustomize implements Initializable {
 
     @FXML
     private CheckBox viti23;
+    @FXML
+    private TableView<CarModelClass> tabelaStock;
+
+    @FXML
+    private TableColumn<CarModelClass, Integer> numriSerikColumn;
+
+    @FXML
+    private TableColumn<CarModelClass, String> emriColumn;
+
+    @FXML
+    private TableColumn<CarModelClass, String> modeliColumn;
+
+    @FXML
+    private TableColumn<CarModelClass, String> ngjyraColumn;
+
+    @FXML
+    private TableColumn<CarModelClass, Integer> vitiColumn;
+
+    @FXML
+    private TableColumn<CarModelClass, Double> cmimiColumn;
+
+    @FXML
+    private TableColumn<CarModelClass, Double> maksimumiColumn;
+
+    @FXML
+    private TableColumn<CarModelClass, String> tipiColumn;
+
+    @FXML
+    private TableColumn<CarModelClass, LocalDate> shtuarColumn;
+
+    @FXML
+    private TableColumn<CarModelClass, LocalDate> perditesuarColumn;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         llojiMakines.getItems().addAll("Audi", "BMW", "MercedesBenz");
         modeliMakines.getItems().addAll("SUV", "LUXURY", "SEDAN");
+        ngjyrat.getItems().addAll("White", "Black", "Blue", "Grey");
+
     }
 
     @FXML
     private void handleDergoButton(ActionEvent event) {
         String selectedCarName = llojiMakines.getValue();
         String selectedModel = modeliMakines.getValue();
-        String selectedColor = ngjyrat.getValue().toString();
+        String selectedColor = ngjyrat.getValue();
         int selectedYear = 0;
         if (viti20.isSelected()) selectedYear = 2020;
         else if (viti21.isSelected()) selectedYear = 2021;
         else if (viti22.isSelected()) selectedYear = 2022;
         else if (viti23.isSelected()) selectedYear = 2023;
-
         try {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3333/knk2023", "root", "root");
-            String sql = "SELECT * FROM stock WHERE c_name=? AND car_model=? AND color=? AND year_c=?";
+            String sql = "SELECT * FROM stock WHERE c_name=? AND car_model=? AND color=? AND year_c=? ";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, selectedCarName);
             statement.setString(2, selectedModel);
@@ -67,7 +99,8 @@ public class ClientCustomize implements Initializable {
             statement.setInt(4, selectedYear);
             ResultSet result = statement.executeQuery();
 
-            if (result.next()) {
+            ObservableList<CarModelClass> carList = FXCollections.observableArrayList();
+            while (result.next()) {
                 int carId = result.getInt("numri_serik");
                 String carName = result.getString("c_name");
                 String carModel = result.getString("car_model");
@@ -80,15 +113,15 @@ public class ClientCustomize implements Initializable {
                 LocalDate carInsertedOn = result.getDate("inserted_on").toLocalDate();
                 LocalDate carUpdatedOn = result.getDate("updated_on").toLocalDate();
 
-                CarModelClass selectedCar = new CarModelClass(carId, carName, carModel, carType, carPrice, carColor, carMaxSpeed, carYear, carImage, carInsertedOn, carUpdatedOn);
-                System.out.println("Selected car: " + selectedCar);
-            } else {
-                System.out.println("No matching car found in stock.");
+                CarModelClass car = new CarModelClass(carId, carName, carModel, carType, carPrice, carColor, carMaxSpeed, carYear, carImage, carInsertedOn, carUpdatedOn);
+                carList.add(car);
+                System.out.println(car);
             }
-
+            tabelaStock.setItems(carList);
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
 }

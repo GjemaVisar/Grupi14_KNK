@@ -75,6 +75,6 @@ public class CarModelClass {
 
     @Override
     public String toString() {
-        return c_name + " " + model + " (" + year + ") - " + color + " - $" + price;
+        return c_name + " " + carType + " " + model + " (" + year + ") - " + color + " - $" + price;
     }
 }
