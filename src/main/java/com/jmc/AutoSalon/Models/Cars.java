@@ -17,7 +17,7 @@ public class Cars {
 
     public Cars(int serial_no, String name, double price, String manufacturer,double max_speed,
                 String car_image, Date inserted_on, Date updated_on){
-        this.serial_no=serial_no;
+        this.serial_no = serial_no;
         this.name = name;
         this.price = price;
         this.manufacturer = manufacturer;

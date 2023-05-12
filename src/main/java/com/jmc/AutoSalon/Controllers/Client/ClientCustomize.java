@@ -1,5 +1,4 @@
-package Controllers;
-
+package com.jmc.AutoSalon.Controllers.Client;
 
 import com.jmc.AutoSalon.Models.CarModelClass;
 import javafx.event.ActionEvent;
@@ -15,7 +14,7 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class costumizeController implements Initializable{
+public class ClientCustomize implements Initializable {
 
     @FXML
     private AnchorPane costumizePane;

@@ -10,6 +10,4 @@ public class App extends Application {
     public void start(Stage stage ) {
         Model.getInstance().getViewFactory().showLoginWindow();
     }
-
-
 }

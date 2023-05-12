@@ -1,16 +1,10 @@
-package com.jmc.AutoSalon.Controllers;
+package com.jmc.AutoSalon.Controllers.Client;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
-import javafx.stage.Stage;
 
-import java.io.IOException;
-
-public class carController {
+public class ClientCarController {
     @FXML
     public FlowPane suvPaneM;
     @FXML
@@ -23,6 +17,8 @@ public class carController {
     public FlowPane sedanPaneB;
     public FlowPane luxPaneB;
     public FlowPane suvPaneB;
+    public Button home_btn;//na duhet per me dal ne home
+    public Button cars_btn;
 
     public void suvSwitchM(ActionEvent actionEvent) {
         switchPanes("M", 1);
@@ -115,25 +111,26 @@ public class carController {
         }
     }
 
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-    public void switchToHome(ActionEvent e) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/FXML/home.fxml"));
-        Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
-    }
-
-    public void switchToLogin(ActionEvent e) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/FXML/Login.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+//
+//    private Stage stage;
+//    private Scene scene;
+//    private Parent root;
+//    public void switchToHome(ActionEvent e) throws IOException {
+//        Parent root = FXMLLoader.load(getClass().getResource("/FXML/home.fxml"));
+//        Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+//        scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
+//
+//    }
+//
+//    public void switchToLogin(ActionEvent e) throws IOException {
+//        Parent root = FXMLLoader.load(getClass().getResource("/FXML/Login.fxml"));
+//        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+//        scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
+//    }
 
 
 }
