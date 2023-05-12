@@ -102,7 +102,7 @@
                                                       <Image url="@../Images/suv/audi_etron.jpeg" />
                                                    </image>
                                                 </ImageView>
-                                                <TextField layoutX="10.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="AUDI Q7 2023           75.000 $" />
+                                                <TextField layoutX="10.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="AUDI E-TRON 2023           95.000 $" />
                                              </children>
                                           </Pane>
                                           <Pane prefHeight="227.0" prefWidth="239.0" style="-fx-border-color: black;">
@@ -243,7 +243,7 @@
                                                       <Image url="@../Images/suv/x6.png" />
                                                    </image>
                                                 </ImageView>
-                                                <TextField layoutX="21.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="BMW X4 2023           35.000 $" />
+                                                <TextField layoutX="21.0" layoutY="159.0" prefHeight="53.0" prefWidth="201.0" text="BMW X6 2020           35.000 $" />
                                              </children>
                                           </Pane>
                                           <Pane prefHeight="222.0" prefWidth="240.0" style="-fx-border-color: black;">

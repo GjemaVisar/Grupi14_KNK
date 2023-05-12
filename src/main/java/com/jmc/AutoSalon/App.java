@@ -8,7 +8,7 @@ import java.io.IOException;
 public class App extends Application {
     @Override
     public void start(Stage stage ) {
-        Model.getInstance().getViewFactory().showLoginWindow();
+        Model.getInstance().getViewFactory().showClientWindow();
     }
 
 

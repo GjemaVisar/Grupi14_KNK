@@ -1,14 +1,14 @@
 package com.jmc.AutoSalon.Repository;
 
+import Models.CarModelClass;
 import Models.User;
 import Models.dto.CreateUserDto;
 import Services.ConnectionUtil;
 import com.jmc.AutoSalon.Repository.Interfaces.UserRepositoryInterface;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RepositoryUser implements UserRepositoryInterface {
     @Override
@@ -17,8 +17,8 @@ public class RepositoryUser implements UserRepositoryInterface {
         try (Connection connection = ConnectionUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, user.getUsername());
-            statement.setString(2,user.getSaltedPassword());
-            statement.setString(3,user.getSalt());
+            statement.setString(2, user.getSaltedPassword());
+            statement.setString(3, user.getSalt());
             statement.executeUpdate();
 
             return RepositoryUser.getByUsername(user.getUsername());
