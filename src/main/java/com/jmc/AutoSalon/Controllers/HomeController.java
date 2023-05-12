@@ -16,7 +16,7 @@ public class HomeController {
     private Parent root;
 
     public void switchToCars(ActionEvent e) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/FXML/TabPane-Cars.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/FXML/Client/TabPane-Cars.fxml"));
         Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
