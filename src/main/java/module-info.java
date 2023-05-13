@@ -10,6 +10,7 @@ module com.jmc.AutoSalon {
 //    opens Cars to javafx.fxml;
 //    opens com.jmc.AutoSalon.Home to javafx.fxml;
 //    opens com.example.ushtrime1 to javafx.fxml;
+    opens com.jmc.AutoSalon.Controllers.Admin to javafx.fxml;
       opens com.jmc.AutoSalon to javafx.fxml;
       opens com.jmc.AutoSalon.Controllers to javafx.fxml;
     opens com.jmc.AutoSalon.Controllers.Client;

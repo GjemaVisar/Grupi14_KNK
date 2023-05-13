@@ -25,6 +25,8 @@ public class ViewFactory {
     private AnchorPane createClientView;
     private AnchorPane clientsView;
 
+    private AnchorPane insertCarView;
+
 
     public ViewFactory(){
         this.loginAccountType = AccountType.CLIENT;//e paraqesim si first ne choicebox, CLIENT-in
@@ -86,11 +88,7 @@ public class ViewFactory {
 
     }
 
-//    public void closeClientWindow(){
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Client/Client.fxml"));
-//        Stage stage = this.currentStage;
-//        this.closeStage(stage);
-//    }
+
     /*
         Admin Views
     */
@@ -108,14 +106,25 @@ public class ViewFactory {
         return createClientView;
     }
     public AnchorPane getClientsView(){
-        if(clientsView == null){
+        if(this.clientsView == null){
             try {
-                clientsView = new FXMLLoader(getClass().getResource("/FXML/Admin/Clients.fxml")).load();
+                this.clientsView = new FXMLLoader(getClass().getResource("/FXML/Admin/Clients.fxml")).load();
             }catch (Exception e){
                 e.printStackTrace();
             }
         }
         return clientsView;
+    }
+
+    public AnchorPane getInsertView(){
+        if(this.insertCarView == null){
+            try{
+                this.insertCarView = new FXMLLoader(getClass().getResource("/FXML/Admin/InsertCars.fxml")).load();
+            }catch(Exception e ){
+                e.printStackTrace();
+            }
+        }
+        return insertCarView;
     }
 
     public void showAdminWindow(){

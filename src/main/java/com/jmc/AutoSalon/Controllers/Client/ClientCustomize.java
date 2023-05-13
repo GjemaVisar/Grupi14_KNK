@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ClientCustomize implements Initializable {
@@ -34,6 +35,7 @@ public class ClientCustomize implements Initializable {
     private ComboBox<String> modeliMakines;
     @FXML
     private ComboBox<String> ngjyrat;
+
 
     @FXML
     private CheckBox viti20;

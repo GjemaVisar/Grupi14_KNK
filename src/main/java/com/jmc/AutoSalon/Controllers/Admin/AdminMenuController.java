@@ -12,13 +12,21 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AdminMenuController implements Initializable {
-    public Button create_client_btn;
-    public Button clients_btn;
-    public Button insert_btn;
-    public Button profile_btn;
 
+    @FXML
+    private Button create_client_btn;
 
-    public Button logout_btn;
+    @FXML
+    private Button clients_btn;
+
+    @FXML
+    private Button insert_btn;
+
+    @FXML
+    private Button profile_btn;
+
+    @FXML
+    private Button logout_btn;
 
     @FXML
     public void logout(ActionEvent e){
@@ -31,11 +39,18 @@ public class AdminMenuController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addListeners();
     }
+
+
     private void addListeners(){
-        create_client_btn.setOnAction(event -> onCreateClient());
-        clients_btn.setOnAction(event -> onClients());
+        create_client_btn.setOnAction(event -> this.onCreateClient());
+        clients_btn.setOnAction(event -> this.onClients());
+        insert_btn.setOnAction(event -> this.onInsert());
+
     }
 
+    private void onInsert(){
+        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.INSERT);
+    }
     private void onCreateClient(){
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.CREATE_CLIENTS);
     }

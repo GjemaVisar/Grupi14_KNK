@@ -90,8 +90,7 @@ public class LoginController implements Initializable {
     }
     private void onLogin(){
         //per me e mbyll stage
-        Stage stage = (Stage) newHere_lbl.getScene().getWindow();
-        Model.getInstance().getViewFactory().closeStage(stage);
+        Model.getInstance().getViewFactory().closeWindow();
         // per me e hap pas client.fxml, pas login.fxml
         if(Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.CLIENT){
             Model.getInstance().getViewFactory().showClientWindow();
