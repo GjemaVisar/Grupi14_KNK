@@ -151,16 +151,15 @@ public class ClientCustomize implements Initializable {
     public void setOnMousePressed(MouseEvent event) {
         if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
             Node node = ((Node) event.getTarget()).getParent();
-            TableRow row;
+            TableRow<CarModelClass> row;
             if (node instanceof TableRow) {
                 row = (TableRow) node;
             } else {
-                // clicking on text part
                 row = (TableRow) node.getParent();
             }
-            Object f = row.getItem();
-            System.out.println(row.getItem());
 
+            CarModelClass car = row.getItem();
+            System.out.println(car.getCarImage());
         }
     }
 

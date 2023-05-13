@@ -75,6 +75,6 @@ public class CarModelClass {
 
     @Override
     public String toString() {
-        return name + " " + carType + " " + model + " (" + year + ") - " + color + " - $" + price;
+        return id + " " + name + " " + carType + " " + model + " (" + year + ") - " + color + " - $" + price;
     }
 }
