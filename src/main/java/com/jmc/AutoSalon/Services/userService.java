@@ -41,4 +41,14 @@ public class userService implements UserServiceInterface {
             return RepositoryUser.getByUsername(username);
 
     }
+    public User createClient(String username,String password) throws SQLException {
+        String saltedHash = PasswordHasher.hashPassword(password);
+        Boolean is_admin = false;
+        Date date_registered = Date.valueOf(LocalDate.now());
+        CreateUserDto user = new CreateUserDto(username, saltedHash,is_admin, date_registered);
+        this.userRepository.insert(user);
+        return RepositoryUser.getByUsername(username);
+
+    }
+
 }

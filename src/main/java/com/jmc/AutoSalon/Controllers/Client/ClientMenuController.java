@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.controlsfx.control.action.Action;
 
@@ -17,6 +18,7 @@ import java.util.ResourceBundle;
 public class ClientMenuController implements Initializable {
 
 
+    public Text fiekLbl;
     @FXML
     private Button dashboard_btn;
     @FXML
@@ -25,13 +27,7 @@ public class ClientMenuController implements Initializable {
     @FXML
     private Button costumize_btn;
 
-    @FXML
-    private Button profile_btn;
 
-    @FXML
-    private Button logout_btn;
-    @FXML
-    private Button report_btn;
 
     @FXML
     public void logout(ActionEvent e){

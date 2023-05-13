@@ -8,26 +8,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="create_client_container"
-            stylesheets="@../../Styles/CreateClient.css" xmlns="http://javafx.com/javafx/19"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.jmc.AutoSalon.Controllers.Admin.CreateClientController">
-   <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create New Client  Account"
-         AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0"/>
-   <VBox fillWidth="false" layoutX="14.0" layoutY="42.0" prefHeight="700.0" prefWidth="600.0"
-         AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="40.0">
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Name: "/>
-      <TextField fx:id="fname_fld"/>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:"/>
-      <TextField fx:id="lname_fld"/>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Client Email"/>
-      <TextField fx:id="email_fld"/>
-      <Text layoutX="10.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:"/>
-      <PasswordField fx:id="password_fld"/>
-      <Text layoutX="10.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password:"/>
-      <PasswordField fx:id="cfpassword_fld" layoutX="10.0" layoutY="157.0"/>
-      <Button fx:id="createClient_btn" mnemonicParsing="false" text="Create New Client"/>
-      <Label fx:id="error_lbl" styleClass="error_lbl" text="error:"/>
+<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="create_client_container" stylesheets="@../../Styles/CreateClient.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Admin.CreateClientController">
+   <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create New Client  Account" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+   <VBox fillWidth="false" layoutX="14.0" layoutY="42.0" prefHeight="700.0" prefWidth="600.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="40.0">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Name: " />
+      <TextField fx:id="username_fld" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Client Email" />
+      <TextField fx:id="email_fld" />
+      <Text layoutX="10.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
+      <PasswordField fx:id="password_fld" />
+      <Text layoutX="10.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password:" />
+      <PasswordField fx:id="cfpassword_fld" layoutX="10.0" layoutY="157.0" />
+      <Button fx:id="createClient_btn" mnemonicParsing="false" text="Create New Client" />
+      <Label fx:id="error_lbl" styleClass="error_lbl" text="error:" />
    </VBox>
 </AnchorPane>
