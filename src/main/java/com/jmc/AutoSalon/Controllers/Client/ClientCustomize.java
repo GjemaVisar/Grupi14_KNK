@@ -9,6 +9,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -19,6 +21,8 @@ import java.util.ResourceBundle;
 
 public class ClientCustomize implements Initializable {
 
+    public ImageView carImg;
+    public TextArea descBox;
     @FXML
     private AnchorPane costumizePane;
 
@@ -159,7 +163,18 @@ public class ClientCustomize implements Initializable {
             }
 
             CarModelClass car = row.getItem();
-            System.out.println(car.getCarImage());
+            String model = car.getModel();
+            String name = car.getName();
+            String type = car.getCarType();
+            if(model == "SEDAN") {
+                model = "Sedan";
+            } else if (model == "SUV") {
+                model = "suv";
+            }
+            String path = "@../../Images"+"/"+model+"/" + car.getCarImage();
+            carImg.setImage(new Image(path));
+            descBox.setText(car.toString());
+
         }
     }
 
