@@ -115,6 +115,7 @@ public class ClientCustomize implements Initializable {
 
                 CarModelClass car = new CarModelClass(carId, carName, carModel, carType, carPrice, carColor, carMaxSpeed, carYear, carImage, carInsertedOn, carUpdatedOn);
                 carList.add(car);
+                tabelaStock.getItems().add(car);
                 System.out.println(car);
             }
             tabelaStock.setItems(carList);
