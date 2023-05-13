@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<?import java.net.URL?>
 <AnchorPane prefHeight="762.0" prefWidth="1237.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Client.ClientCustomize">
    <AnchorPane fx:id="costumizePane" prefHeight="754.0" prefWidth="1157.0" style="-fx-background-color: light grey;">
       <Label layoutX="14.0" layoutY="14.0" prefHeight="58.0" prefWidth="408.0" text="Caktoni karakteristikat qe doni ti keni ne veturen tuaj : " textFill="#c10404" />
@@ -38,15 +37,16 @@
       <ComboBox fx:id="ngjyrat" layoutX="143.0" layoutY="199.0" prefHeight="32.0" prefWidth="195.0" />
       <TableView fx:id="tabelaStock" layoutX="379.0" layoutY="363.0" prefHeight="360.0" prefWidth="765.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="NumriSerik" />
-          <TableColumn prefWidth="95.20001220703125" text="Emri" />
-            <TableColumn prefWidth="55.20001220703125" text="Modeli" />
-            <TableColumn prefWidth="75.0" text="Ngjyra" />
-            <TableColumn prefWidth="75.0" text="Viti" />
-            <TableColumn prefWidth="75.0" text="Cmimi" />
-            <TableColumn prefWidth="75.0" text="MaxSpeed" />
-            <TableColumn prefWidth="120.79998779296875" text="U_Shtua_Me" />
-            <TableColumn prefWidth="117.5999755859375" text="U_Perditesua" />
+          <TableColumn fx:id="numriSerikColumn" prefWidth="75.0" text="NumriSerik" />
+          <TableColumn fx:id="emriColumn" prefWidth="95.20001220703125" text="Emri" />
+            <TableColumn fx:id="modeliColumn" prefWidth="55.20001220703125" text="Modeli" />
+            <TableColumn fx:id="ngjyraColumn" prefWidth="75.0" text="Ngjyra" />
+            <TableColumn fx:id="vitiColumn" prefWidth="75.0" text="Viti" />
+            <TableColumn fx:id="cmimiColumn" prefWidth="75.0" text="Cmimi" />
+            <TableColumn fx:id="maksimumiColumn" prefWidth="75.0" text="MaxSpeed" />
+            <TableColumn fx:id="tipiColumn" prefWidth="75.0" text="Tipi" />
+            <TableColumn fx:id="shtuarColumn" prefWidth="120.79998779296875" text="U_Shtua_Me" />
+            <TableColumn fx:id="perditesuarColumn" prefWidth="117.5999755859375" text="U_Perditesua" />
         </columns>
       </TableView>
    </AnchorPane>

@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
@@ -76,6 +77,27 @@ public class ClientCustomize implements Initializable {
         llojiMakines.getItems().addAll("Audi", "BMW", "MercedesBenz");
         modeliMakines.getItems().addAll("SUV", "LUXURY", "SEDAN");
         ngjyrat.getItems().addAll("White", "Black", "Blue", "Grey");
+        numriSerikColumn.setCellValueFactory(
+                new PropertyValueFactory<CarModelClass, Integer>("id"));
+        emriColumn.setCellValueFactory(
+                new PropertyValueFactory<CarModelClass, String>("name"));
+        modeliColumn.setCellValueFactory(
+                new PropertyValueFactory<CarModelClass, String>("model"));
+        ngjyraColumn.setCellValueFactory(
+                new PropertyValueFactory<CarModelClass, String>("carType"));
+        vitiColumn.setCellValueFactory(
+                new PropertyValueFactory<CarModelClass, Integer>("price"));
+        cmimiColumn.setCellValueFactory(
+                new PropertyValueFactory<CarModelClass, Double>("color"));
+        maksimumiColumn.setCellValueFactory(
+                new PropertyValueFactory<CarModelClass, Double>("maxSpeed"));
+        tipiColumn.setCellValueFactory(
+                new PropertyValueFactory<CarModelClass, String>("year"));
+        shtuarColumn.setCellValueFactory(
+                new PropertyValueFactory<CarModelClass, LocalDate>("insertedOn"));
+        perditesuarColumn.setCellValueFactory(
+                new PropertyValueFactory<CarModelClass, LocalDate>("updatedOn"));
+
 
     }
 
