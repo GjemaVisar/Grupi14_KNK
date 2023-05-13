@@ -5,12 +5,13 @@ module com.jmc.AutoSalon {
 
     requires org.controlsfx.controls;
     requires org.kordamp.bootstrapfx.core;
+    requires jbcrypt;
 
 //    opens Cars to javafx.fxml;
 //    opens com.jmc.AutoSalon.Home to javafx.fxml;
 //    opens com.example.ushtrime1 to javafx.fxml;
       opens com.jmc.AutoSalon to javafx.fxml;
-      opens Controllers to javafx.fxml;
+      opens com.jmc.AutoSalon.Controllers to javafx.fxml;
     opens com.jmc.AutoSalon.Controllers.Client;
 
     exports com.jmc.AutoSalon ;
@@ -19,8 +20,6 @@ module com.jmc.AutoSalon {
     exports com.jmc.AutoSalon.Controllers.Client ;
     exports com.jmc.AutoSalon.Models ;
     exports com.jmc.AutoSalon.Views ;
-    exports Controllers to javafx.graphics, javafx.fxml;
-
 
 
 }

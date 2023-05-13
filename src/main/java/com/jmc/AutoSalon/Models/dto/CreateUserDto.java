@@ -1,16 +1,19 @@
 package com.jmc.AutoSalon.Models.dto;
 
+import java.sql.Date;
+
 public class CreateUserDto {
     private String username;
-    private String salt;
     private String saltedPassword;
     private boolean is_admin;
 
-    public CreateUserDto(String username,String salt, String saltedPassword,boolean is_admin){
+    private Date date_registered;
+
+    public CreateUserDto(String username,String saltedPassword, boolean is_admin,Date date_registered){
         this.username = username;
-        this.salt = salt;
         this.saltedPassword = saltedPassword;
         this.is_admin = is_admin;
+        this.date_registered = date_registered;
     }
 
     public String getUsername(){
@@ -19,14 +22,6 @@ public class CreateUserDto {
 
     public void setUsername(String username){
         this.username = username;
-    }
-
-    public String getSalt(){
-        return this.salt;
-    }
-
-    public void setSalt(String salt){
-        this.salt = salt;
     }
 
     public String getSaltedPassword(){
@@ -44,5 +39,13 @@ public class CreateUserDto {
 
     public boolean get_admin_status(){
         return this.is_admin;
+    }
+
+    public void setDate_registered(Date date_registered){
+        this.date_registered = date_registered;
+    }
+
+    public Date getDate_registered(){
+        return this.date_registered;
     }
 }

@@ -16,4 +16,8 @@ public class ConnectionUtil {
         }
         return connection;
     }
+
+    public static void main(String[]args) throws SQLException {
+        System.out.println(ConnectionUtil.getConnection());
+    }
 }

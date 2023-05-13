@@ -1,7 +1,7 @@
 package com.jmc.AutoSalon.Repository.Interfaces;
 
-import Models.User;
-import Models.dto.CreateUserDto;
+import com.jmc.AutoSalon.Models.User;
+import com.jmc.AutoSalon.Models.dto.CreateUserDto;
 
 import java.sql.SQLException;
 
