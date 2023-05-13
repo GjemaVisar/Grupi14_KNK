@@ -32,7 +32,7 @@ public class ViewFactory {
         this.adminSelectedMenuItem = new SimpleObjectProperty<>();
     }
     public AccountType getLoginAccountType(){
-        return loginAccountType;
+        return this.loginAccountType;
     }
 
     public void setLoginAccountType(AccountType loginAccountType) {
@@ -43,7 +43,7 @@ public class ViewFactory {
             Client Views
         */
     public ObjectProperty<ClientMenuOptions> getClientSelectedMenuItem() {
-        return clientSelectedMenuItem;
+        return this.clientSelectedMenuItem;
     }
 
     public AnchorPane getDashboardView(){
@@ -86,11 +86,11 @@ public class ViewFactory {
 
     }
 
-    public void closeClientWindow(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Client/Client.fxml"));
-        Stage stage = this.currentStage;
-        this.closeStage(stage);
-    }
+//    public void closeClientWindow(){
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Client/Client.fxml"));
+//        Stage stage = this.currentStage;
+//        this.closeStage(stage);
+//    }
     /*
         Admin Views
     */
@@ -125,8 +125,7 @@ public class ViewFactory {
         createStage(fxmlLoader);
     }
 
-    public void closeAdminWindow(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Admin/Admin.fxml"));
+    public void closeWindow(){
         Stage stage = this.currentStage;
         this.closeStage(stage);
     }

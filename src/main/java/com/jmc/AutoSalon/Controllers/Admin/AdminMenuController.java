@@ -22,7 +22,7 @@ public class AdminMenuController implements Initializable {
 
     @FXML
     public void logout(ActionEvent e){
-        Model.getInstance().getViewFactory().closeAdminWindow();
+        Model.getInstance().getViewFactory().closeWindow();
         Model.getInstance().getViewFactory().showLoginWindow();
 
     }

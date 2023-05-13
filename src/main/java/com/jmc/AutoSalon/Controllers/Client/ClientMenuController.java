@@ -35,7 +35,7 @@ public class ClientMenuController implements Initializable {
 
     @FXML
     public void logout(ActionEvent e){
-        Model.getInstance().getViewFactory().closeClientWindow();
+        Model.getInstance().getViewFactory().closeWindow();
         Model.getInstance().getViewFactory().showLoginWindow();
     }
 

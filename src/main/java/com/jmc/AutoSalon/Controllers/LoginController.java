@@ -5,6 +5,7 @@ import com.jmc.AutoSalon.Models.User;
 import com.jmc.AutoSalon.Repository.Interfaces.UserRepositoryInterface;
 import com.jmc.AutoSalon.Repository.RepositoryUser;
 import com.jmc.AutoSalon.Services.Interfaces.UserServiceInterface;
+import com.jmc.AutoSalon.Services.UserAuthService;
 import com.jmc.AutoSalon.Services.userService;
 import com.jmc.AutoSalon.Views.AccountType;
 import javafx.collections.FXCollections;
