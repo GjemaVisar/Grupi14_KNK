@@ -47,7 +47,6 @@
             <TableColumn fx:id="tipiColumn" prefWidth="75.0" text="Viti" />
             <TableColumn fx:id="shtuarColumn" prefWidth="120.79998779296875" text="U_Shtua_Me" />
             <TableColumn fx:id="perditesuarColumn" prefWidth="117.5999755859375" text="U_Perditesua" />
-            <TableColumn fx:id="imgColumn" prefWidth="75.0" text="Image" />
         </columns>
       </TableView>
    </AnchorPane>

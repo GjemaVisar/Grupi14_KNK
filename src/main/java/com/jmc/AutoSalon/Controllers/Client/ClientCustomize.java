@@ -172,6 +172,7 @@ public class ClientCustomize implements Initializable {
                 model = "suv";
             }
             String path = "@../../Images"+"/"+model+"/" + car.getCarImage();
+            System.out.println(path);
             carImg.setImage(new Image(path));
             descBox.setText(car.toString());
 
