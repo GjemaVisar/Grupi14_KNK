@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class CarModelClass {
     private int id;
-    private String c_name;
+    private String name;
     private String model;
     private String carType;
     private double price;
@@ -17,7 +17,7 @@ public class CarModelClass {
 
     public CarModelClass(int id, String c_name, String model, String carType, double price, String color, double maxSpeed, int year, String carImage, LocalDate insertedOn, LocalDate updatedOn) {
         this.id = id;
-        this.c_name = c_name;
+        this.name = c_name;
         this.model = model;
         this.carType = carType;
         this.price = price;
@@ -34,7 +34,7 @@ public class CarModelClass {
     }
 
     public String getName() {
-        return c_name;
+        return name;
     }
 
     public String getModel() {
@@ -75,6 +75,6 @@ public class CarModelClass {
 
     @Override
     public String toString() {
-        return c_name + " " + model + " (" + year + ") - " + color + " - $" + price;
+        return id + " " + name + " " + carType + " " + model + " (" + year + ") - " + color + " - $" + price;
     }
 }
