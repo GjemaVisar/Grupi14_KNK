@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
@@ -152,7 +153,7 @@ public class ClientCustomize implements Initializable {
             e.printStackTrace();
         }
     }
-    public void setOnMousePressed(MouseEvent event) {
+    public void setOnMousePressed(MouseEvent event) throws IOException {
         if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
             Node node = ((Node) event.getTarget()).getParent();
             TableRow<CarModelClass> row;
@@ -171,9 +172,8 @@ public class ClientCustomize implements Initializable {
             } else if (model == "SUV") {
                 model = "suv";
             }
-            String path = "@../../Images"+"/"+model+"/" + car.getCarImage();
-            System.out.println(path);
-            carImg.setImage(new Image(path));
+            System.out.println(car.toString() + " " + car.getCarImage());
+            carImg.setImage(new Image(getClass().getResource("/Images/" + model + "/" + car.getCarImage()).toString()));
             descBox.setText(car.toString());
 
         }
