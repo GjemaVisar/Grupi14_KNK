@@ -1,20 +1,43 @@
 package com.jmc.AutoSalon.Controllers.Client;
 
 import com.jmc.AutoSalon.Models.Model;
+import com.jmc.AutoSalon.Views.AccountType;
 import com.jmc.AutoSalon.Views.ClientMenuOptions;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
+import org.controlsfx.control.action.Action;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ClientMenuController implements Initializable {
-    public Button dashboard_btn;
-    public Button cars_btn;
-    public Button costumize_btn;
-    public Button profile_btn;
-    public Button logout_btn;
-    public Button report_btn;
+
+
+    @FXML
+    private Button dashboard_btn;
+    @FXML
+    private Button cars_btn;
+
+    @FXML
+    private Button costumize_btn;
+
+    @FXML
+    private Button profile_btn;
+
+    @FXML
+    private Button logout_btn;
+    @FXML
+    private Button report_btn;
+
+    @FXML
+    public void logout(ActionEvent e){
+        Model.getInstance().getViewFactory().closeClientWindow();
+        Model.getInstance().getViewFactory().showLoginWindow();
+    }
 
 
     @Override

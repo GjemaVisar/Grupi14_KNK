@@ -21,7 +21,7 @@ public class userService implements UserServiceInterface {
     @Override
     public User login(String username, String password) throws SQLException {
         User loginUser = RepositoryUser.getByUsername(username);
-        System.out.println(loginUser.getSaltedHash());
+        //System.out.println(loginUser.getSaltedHash());
         if(loginUser == null){
             return null;
         }

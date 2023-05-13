@@ -12,6 +12,8 @@ import javafx.stage.Stage;
 public class ViewFactory {
     private AccountType loginAccountType;
 
+    private Stage currentStage;
+
     //Client
     private final ObjectProperty<ClientMenuOptions> clientSelectedMenuItem;
     private AnchorPane dashboardView;//AnchorPane as the Parent
@@ -81,6 +83,13 @@ public class ViewFactory {
         ClientController clientController = new ClientController();
         loader.setController(clientController);
         createStage(loader);
+
+    }
+
+    public void closeClientWindow(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Client/Client.fxml"));
+        Stage stage = this.currentStage;
+        this.closeStage(stage);
     }
     /*
         Admin Views
@@ -116,6 +125,11 @@ public class ViewFactory {
         createStage(fxmlLoader);
     }
 
+    public void closeAdminWindow(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Admin/Admin.fxml"));
+        Stage stage = this.currentStage;
+        this.closeStage(stage);
+    }
 
 //Perdoren edhe nga Client edhe nga Admins
     // si fillim na duhet me startu login.fxml
@@ -136,10 +150,12 @@ public class ViewFactory {
         stage.setScene(scene);
         stage.setTitle("FIEK Motors");
         stage.show();
+        this.currentStage = stage;
     }
     //kjo sherben per me e mbyll login stage
     public void closeStage(Stage stage){
         stage.close();
+        this.currentStage = null;
     }
 
 
