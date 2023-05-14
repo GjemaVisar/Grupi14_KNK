@@ -1,6 +1,7 @@
 package com.jmc.AutoSalon.Controllers.Client;
 
 import com.jmc.AutoSalon.Models.CarModelClass;
+import com.jmc.AutoSalon.Models.Cars;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,6 +20,7 @@ import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class ClientCustomize implements Initializable {
@@ -49,37 +51,37 @@ public class ClientCustomize implements Initializable {
     @FXML
     private CheckBox viti23;
     @FXML
-    private TableView<CarModelClass> tabelaStock;
+    private TableView<Cars> tabelaStock;
 
     @FXML
-    private TableColumn<CarModelClass, Integer> numriSerikColumn;
+    private TableColumn<Cars, Integer> numriSerikColumn;
 
     @FXML
-    private TableColumn<CarModelClass, String> emriColumn;
+    private TableColumn<Cars, String> emriColumn;
 
     @FXML
-    private TableColumn<CarModelClass, String> modeliColumn;
+    private TableColumn<Cars, String> modeliColumn;
 
     @FXML
-    private TableColumn<CarModelClass, String> ngjyraColumn;
+    private TableColumn<Cars, String> ngjyraColumn;
 
     @FXML
-    private TableColumn<CarModelClass, Integer> vitiColumn;
+    private TableColumn<Cars, Integer> vitiColumn;
 
     @FXML
-    private TableColumn<CarModelClass, Double> cmimiColumn;
+    private TableColumn<Cars, Double> cmimiColumn;
 
     @FXML
-    private TableColumn<CarModelClass, Double> maksimumiColumn;
+    private TableColumn<Cars, Double> maksimumiColumn;
 
     @FXML
-    private TableColumn<CarModelClass, String> tipiColumn;
+    private TableColumn<Cars, String> tipiColumn;
 
     @FXML
-    private TableColumn<CarModelClass, LocalDate> shtuarColumn;
+    private TableColumn<Cars, Date> shtuarColumn;
 
     @FXML
-    private TableColumn<CarModelClass, LocalDate> perditesuarColumn;
+    private TableColumn<Cars, Date> perditesuarColumn;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -87,25 +89,25 @@ public class ClientCustomize implements Initializable {
         modeliMakines.getItems().addAll("SUV", "LUXURY", "SEDAN");
         ngjyrat.getItems().addAll("White", "Black", "Blue", "Grey");
         numriSerikColumn.setCellValueFactory(
-                new PropertyValueFactory<CarModelClass, Integer>("id"));
+                new PropertyValueFactory<Cars, Integer>("id"));
         emriColumn.setCellValueFactory(
-                new PropertyValueFactory<CarModelClass, String>("name"));
+                new PropertyValueFactory<Cars, String>("name"));
         modeliColumn.setCellValueFactory(
-                new PropertyValueFactory<CarModelClass, String>("model"));
+                new PropertyValueFactory<Cars, String>("model"));
         ngjyraColumn.setCellValueFactory(
-                new PropertyValueFactory<CarModelClass, String>("carType"));
+                new PropertyValueFactory<Cars, String>("carType"));
         vitiColumn.setCellValueFactory(
-                new PropertyValueFactory<CarModelClass, Integer>("price"));
+                new PropertyValueFactory<Cars, Integer>("price"));
         cmimiColumn.setCellValueFactory(
-                new PropertyValueFactory<CarModelClass, Double>("color"));
+                new PropertyValueFactory<Cars, Double>("color"));
         maksimumiColumn.setCellValueFactory(
-                new PropertyValueFactory<CarModelClass, Double>("maxSpeed"));
+                new PropertyValueFactory<Cars, Double>("maxSpeed"));
         tipiColumn.setCellValueFactory(
-                new PropertyValueFactory<CarModelClass, String>("year"));
+                new PropertyValueFactory<Cars, String>("year"));
         shtuarColumn.setCellValueFactory(
-                new PropertyValueFactory<CarModelClass, LocalDate>("insertedOn"));
+                new PropertyValueFactory<Cars, Date>("insertedOn"));
         perditesuarColumn.setCellValueFactory(
-                new PropertyValueFactory<CarModelClass, LocalDate>("updatedOn"));
+                new PropertyValueFactory<Cars, Date>("updatedOn"));
 
 
     }
@@ -122,7 +124,7 @@ public class ClientCustomize implements Initializable {
         else if (viti23.isSelected()) selectedYear = 2023;
         try {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3333/knk2023", "root", "root");
-            String sql = "SELECT * FROM stock WHERE c_name=? AND car_model=? AND color=? AND year_c=? ";
+            String sql = "SELECT * FROM cars WHERE c_name=? AND car_model=? AND color=? AND year_c=? ";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, selectedCarName);
             statement.setString(2, selectedModel);
@@ -130,7 +132,7 @@ public class ClientCustomize implements Initializable {
             statement.setInt(4, selectedYear);
             ResultSet result = statement.executeQuery();
 
-            ObservableList<CarModelClass> carList = FXCollections.observableArrayList();
+            ObservableList<Cars> carList = FXCollections.observableArrayList();
             while (result.next()) {
                 int carId = result.getInt("numri_serik");
                 String carName = result.getString("c_name");
@@ -141,10 +143,10 @@ public class ClientCustomize implements Initializable {
                 double carMaxSpeed = result.getDouble("max_speed");
                 int carYear = result.getInt("year_c");
                 String carImage = result.getString("car_image");
-                LocalDate carInsertedOn = result.getDate("inserted_on").toLocalDate();
-                LocalDate carUpdatedOn = result.getDate("updated_on").toLocalDate();
+                Date carInsertedOn = result.getDate("inserted_on");
+                Date carUpdatedOn = result.getDate("updated_on");
 
-                CarModelClass car = new CarModelClass(carId, carName, carModel, carType, carPrice, carColor, carMaxSpeed, carYear, carImage, carInsertedOn, carUpdatedOn);
+                Cars car = new Cars(carId, carName, carModel, carType, carPrice, carColor, carMaxSpeed, carYear, carImage, carInsertedOn, carUpdatedOn);
                 carList.add(car);
                 tabelaStock.getItems().add(car);
                 System.out.println(car);
@@ -158,24 +160,24 @@ public class ClientCustomize implements Initializable {
     public void setOnMousePressed(MouseEvent event) throws IOException {
         if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
             Node node = ((Node) event.getTarget()).getParent();
-            TableRow<CarModelClass> row;
+            TableRow<Cars> row;
             if (node instanceof TableRow) {
                 row = (TableRow) node;
             } else {
                 row = (TableRow) node.getParent();
             }
 
-            CarModelClass car = row.getItem();
+            Cars car = row.getItem();
             String model = car.getModel();
             String name = car.getName();
-            String type = car.getCarType();
+            String type = car.getType();
             if(model == "SEDAN") {
                 model = "Sedan";
             } else if (model == "SUV") {
                 model = "suv";
             }
-            System.out.println(car.toString() + " " + car.getCarImage());
-            carImg.setImage(new Image(getClass().getResource("/Images/" + model + "/" + car.getCarImage()).toString()));
+            System.out.println(car.toString() + " " + car.getCar_image());
+            carImg.setImage(new Image(Objects.requireNonNull(getClass().getResource("/Images/" + model + "/" + car.getCar_image())).toString()));
             descBox.setText(car.toString());
 
         }
