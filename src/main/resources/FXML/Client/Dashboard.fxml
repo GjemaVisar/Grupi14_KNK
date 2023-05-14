@@ -1,30 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="750.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.jmc.AutoSalon.Controllers.Client.DashboardController">
-   <Text layoutX="14.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hi, Client"
-         AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0"/>
-   <Label layoutX="808.0" layoutY="14.0" text="Label" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="27.0"/>
-   <Text layoutX="811.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.rightAnchor="14.0"
-         AnchorPane.topAnchor="90.0"/>
-   <HBox layoutX="26.0" layoutY="120.0" prefHeight="180.0" prefWidth="620.0" AnchorPane.leftAnchor="20.0"
-         AnchorPane.topAnchor="120.0"/>
-   <VBox layoutX="735.0" layoutY="120.0" prefHeight="180.0" prefWidth="210.0" AnchorPane.rightAnchor="0.0"
-         AnchorPane.topAnchor="120.0"/>
-   <Text layoutX="32.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.leftAnchor="20.0"
-         AnchorPane.topAnchor="90.0"/>
-   <Text layoutX="20.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duhet me rregullu hala"
-         AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="340.0"/>
-   <Text layoutX="811.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text"
-         AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="340.0"/>
-   <ListView layoutX="20.0" layoutY="382.0" prefHeight="365.0" prefWidth="570.0" AnchorPane.bottomAnchor="14.0"
-             AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="371.0"/>
+<AnchorPane prefHeight="782.0" prefWidth="1341.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Client.DashboardController">
+   <children>
+      <AnchorPane layoutX="-1.0" layoutY="-2.0" prefHeight="799.0" prefWidth="1355.0">
+         <children>
+            <ImageView fitHeight="641.0" fitWidth="1038.0" layoutX="172.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/welcome.jpg" />
+               </image>
+            </ImageView>
+            <HBox layoutX="53.0" layoutY="283.0" prefHeight="21.0" prefWidth="200.0" />
+            <Text fill="RED" layoutX="122.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WELCOME TO THE MOST STUNNING " wrappingWidth="373.3333435058587">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="298.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+            <Text layoutX="287.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+            <Text fill="RED" layoutX="276.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CAR DEALER COMPANY" textAlignment="CENTER" wrappingWidth="512.4406127929688">
+               <font>
+                  <Font name="Leelawadee" size="32.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="330.0" fitWidth="210.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/black.jpeg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="299.0" fitWidth="210.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/black.jpeg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="237.0" fitWidth="200.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/black.jpeg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="288.0" fitWidth="384.0" layoutX="971.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/carsLogoss.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="320.0" fitWidth="241.0" layoutX="1115.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/black.jpeg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="233.0" fitWidth="157.0" layoutX="1090.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/black.jpeg" />
+               </image>
+            </ImageView>
+            <Text fill="#fffefe" layoutX="399.0" layoutY="545.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BMW / AUDI / MERCEDES BENZ" textAlignment="CENTER" wrappingWidth="570.8405761718748">
+               <font>
+                  <Font name="Leelawadee" size="32.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="210.0" fitWidth="157.0" layoutX="1198.0" layoutY="433.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/black.jpeg" />
+               </image>
+            </ImageView>
+            <Pane layoutY="637.0" prefHeight="168.0" prefWidth="1355.0" style="-fx-background-color: #d2042d;">
+               <children>
+                  <Pane layoutX="326.0" layoutY="66.0" prefHeight="25.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="7.0" layoutY="6.0" text="Copyright" textFill="#f7f2f2">
+                           <font>
+                              <Font name="Times New Roman" size="12.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="25.0" fitWidth="21.0" layoutX="68.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Images/home/logo.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="100.0" layoutY="6.0" text="2023 FiekMOTORS" textFill="WHITE">
+                           <font>
+                              <Font name="Times New Roman Italic" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Line endX="-100.0" endY="47.0" layoutX="652.0" layoutY="55.0" startX="-100.0" />
+                  <Label layoutX="565.0" layoutY="56.0" prefHeight="17.0" prefWidth="82.0" text="Follow us" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="25.0" fitWidth="21.0" layoutX="565.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/home/facebook.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="22.0" fitWidth="36.0" layoutX="595.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/home/instagram.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="626.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/home/linkedin.png" />
+                     </image>
+                  </ImageView>
+                  <Line endX="-100.0" endY="47.0" layoutX="759.0" layoutY="56.0" startX="-100.0" />
+                  <Label layoutX="709.0" layoutY="48.0" text="NEWSLETTER" textFill="#fffdfd">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="683.0" layoutY="69.0" prefHeight="25.0" prefWidth="184.0" promptText="Please enter your email address" />
+                  <Button layoutX="872.0" layoutY="69.0" mnemonicParsing="false" style="-fx-background-color: #d2042d;" text="OK" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>
