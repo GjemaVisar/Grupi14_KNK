@@ -22,6 +22,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Locale;
+import java.util.MissingResourceException;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -98,7 +100,5 @@ public class LoginController implements Initializable {
             Model.getInstance().getViewFactory().showAdminWindow();
         }
     }
-
-
 }
 
