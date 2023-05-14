@@ -80,7 +80,7 @@ public class InsertCarController implements Initializable {
                 System.out.println("Car inserted successfuly");
             }
             catch(Exception ex){
-                Model.getInstance().getViewFactory().showAlert("Mistake during Insert","Please make sure that your data is correct");
+                Model.getInstance().getViewFactory().showAlert("Mistake during Insert",ex.getMessage());
             }
         }
 
