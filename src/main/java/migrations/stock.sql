@@ -7,11 +7,11 @@ car_model varchar(30),
 car_type varchar(30),
 price_c real not null,
 color varchar(30),
-max_speed real,
+maxSpeed real,
 year_c integer,
-car_image varchar(200) not null,
-inserted_on date not null,
-updated_on date not null
+carImage varchar(200) not null,
+insertedOn date not null,
+updatedOn date not null
 );
 
 INSERT INTO stock

@@ -12,7 +12,7 @@ import java.time.LocalDate;
 public class RepositoryCar implements CarRepositoryInterface {
     @Override
     public Cars insert(CreateCarsDto cars) throws SQLException {
-        String sql = "INSERT INTO cars(c_name,car_model,car_type,price_c,color,max_speed,year_c,car_image,inserted_on,updated_on)" +
+        String sql = "INSERT INTO cars(c_name,car_model,car_type,price_c,color,maxSpeed,year_c,carImage,insertedOn,updatedOn)" +
                 "VALUES(?,?,?,?,?,?,?,?,?,?) ";
         try (Connection connection = ConnectionUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -21,14 +21,14 @@ public class RepositoryCar implements CarRepositoryInterface {
             statement.setString(3,cars.getType());
             statement.setDouble(4, cars.getPrice());
             statement.setString(5, cars.getColor());
-            statement.setDouble(6, cars.getMax_speed());
-            statement.setInt(7,cars.getYear_made());
-            statement.setString(8, cars.getCar_image());
-            statement.setDate(9, cars.getInserted_on());
-            statement.setDate(10, cars.getUpdated_on());
+            statement.setDouble(6, cars.getmaxSpeed());
+            statement.setInt(7,cars.getyearMade());
+            statement.setString(8, cars.getcarImage());
+            statement.setDate(9, cars.getinsertedOn());
+            statement.setDate(10, cars.getupdatedOn());
             statement.executeUpdate();
 
-            return RepositoryCar.getByCarName(cars.getName(), cars.getModel(), cars.getType(), cars.getYear_made());
+            return RepositoryCar.getByCarName(cars.getName(), cars.getModel(), cars.getType(), cars.getyearMade());
         }
     }
 
@@ -50,12 +50,12 @@ public class RepositoryCar implements CarRepositoryInterface {
                 String car_type = resultSet.getString("car_type");
                 Double price = resultSet.getDouble("price_c");
                 String color = resultSet.getString("color");
-                Double max_speed = resultSet.getDouble("max_speed");
-                int year_made = resultSet.getInt("year_c");
-                String car_image = resultSet.getString("car_image");
-                Date inserted_on = resultSet.getDate("inserted_on");
-                Date updated_on = resultSet.getDate("updated_on");
-                return new Cars(id,car_name,model,type,price,color,max_speed,year_made,car_image,inserted_on,updated_on);
+                Double maxSpeed = resultSet.getDouble("maxSpeed");
+                int yearMade = resultSet.getInt("year_c");
+                String carImage = resultSet.getString("carImage");
+                Date insertedOn = resultSet.getDate("insertedOn");
+                Date updatedOn = resultSet.getDate("updatedOn");
+                return new Cars(id,car_name,model,type,price,color,maxSpeed,yearMade,carImage,insertedOn,updatedOn);
             } else {
                 return null;
             }

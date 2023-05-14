@@ -20,15 +20,15 @@ public class carService implements CarServiceInterface {
 
     @Override
     public Cars insert_car(String name, String model, String type, double price, String color,
-                           double max_speed, int year_made, String car_image) throws SQLException {
-        Date inserted_on = Date.valueOf(LocalDate.now());
-        Date updated_on = Date.valueOf(LocalDate.now());
-        boolean status = CarAuthService.CarAdd(name,model,type,String.valueOf(price),color,String.valueOf(max_speed),
-                String.valueOf(year_made),car_image);
+                           double maxSpeed, int yearMade, String carImage) throws SQLException {
+        Date insertedOn = Date.valueOf(LocalDate.now());
+        Date updatedOn = Date.valueOf(LocalDate.now());
+        boolean status = CarAuthService.CarAdd(name,model,type,String.valueOf(price),color,String.valueOf(maxSpeed),
+                String.valueOf(yearMade),carImage);
         if (status) {
-            CreateCarsDto cars = new CreateCarsDto(name, model, type, price, color, max_speed, year_made, car_image, inserted_on, updated_on);
+            CreateCarsDto cars = new CreateCarsDto(name, model, type, price, color, maxSpeed, yearMade, carImage, insertedOn, updatedOn);
             this.carRepository.insert(cars);
-            return RepositoryCar.getByCarName(name,model,type,year_made);
+            return RepositoryCar.getByCarName(name,model,type,yearMade);
         } else {
             System.out.println("Car exists or credentials given wrong!");
             return null;

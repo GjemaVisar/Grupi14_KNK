@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Cars {
 
-    private int serial_no;
+    private int serial;
     private String name;
 
     private String model;
@@ -12,14 +12,14 @@ public class Cars {
     private String type;
     private double price;
     private  String color;
-    private double max_speed;
-    private int year_made;
-    private String car_image;
-    private java.sql.Date inserted_on;
-    private java.sql.Date updated_on;
+    private double maxSpeed;
+    private int yearMade;
+    private String carImage;
+    private Date insertedOn;
+    private Date updatedOn;
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -27,7 +27,7 @@ public class Cars {
     }
 
     public String getModel() {
-        return model;
+        return this.model;
     }
 
     public void setModel(String model) {
@@ -35,7 +35,7 @@ public class Cars {
     }
 
     public String getType() {
-        return type;
+        return this.type;
     }
 
     public void setType(String type) {
@@ -43,7 +43,7 @@ public class Cars {
     }
 
     public double getPrice() {
-        return price;
+        return this.price;
     }
 
     public void setPrice(double price) {
@@ -51,66 +51,71 @@ public class Cars {
     }
 
     public String getColor() {
-        return color;
+        return this.color;
     }
 
     public void setColor(String color) {
         this.color = color;
     }
 
-    public double getMax_speed() {
-        return max_speed;
+    public double getmaxSpeed() {
+        return this.maxSpeed;
     }
 
-    public void setMax_speed(double max_speed) {
-        this.max_speed = max_speed;
+    public void setmaxSpeed(double maxSpeed) {
+        this.maxSpeed = maxSpeed;
     }
 
-    public int getYear_made() {
-        return year_made;
+    public int getyearMade() {
+        return this.yearMade;
     }
 
-    public void setYear_made(int year_made) {
-        this.year_made = year_made;
+    public void setyearMade(int yearMade) {
+        this.yearMade = yearMade;
     }
 
-    public String getCar_image() {
-        return car_image;
+    public String getcarImage() {
+        return this.carImage;
     }
 
-    public void setCar_image(String car_image) {
-        this.car_image = car_image;
+    public void setcarImage(String carImage) {
+        this.carImage = carImage;
     }
 
-    public Date getInserted_on() {
-        return inserted_on;
+    public Date getinsertedOn() {
+        return this.insertedOn;
     }
 
-    public void setInserted_on(Date inserted_on) {
-        this.inserted_on = inserted_on;
+    public void setinsertedOn(Date insertedOn) {
+        this.insertedOn = insertedOn;
     }
 
-    public Date getUpdated_on() {
-        return updated_on;
+    public Date getupdatedOn() {
+        return this.updatedOn;
     }
 
-    public void setUpdated_on(Date updated_on) {
-        this.updated_on = updated_on;
+    public void setupdatedOn(Date updatedOn) {
+        this.updatedOn = updatedOn;
     }
 
-    public Cars(int serial_no, String name, String model, String type, double price, String color,double max_speed, int year_made,
-                String car_image, java.sql.Date inserted_on, java.sql.Date updated_on){
-        this.serial_no = serial_no;
+    public Cars(int serial, String name, String model, String type, double price, String color,double maxSpeed, int yearMade,
+                String carImage, Date insertedOn, Date updatedOn){
+        this.serial = serial;
         this.name = name;
         this.model = model;
         this.type = type;
         this.price = price;
         this.color = color;
-        this.max_speed = max_speed;
-        this.year_made = year_made;
-        this.car_image = car_image;
-        this.inserted_on = inserted_on;
-        this.updated_on = updated_on;
+        this.maxSpeed = maxSpeed;
+        this.yearMade = yearMade;
+        this.carImage = carImage;
+        this.insertedOn = insertedOn;
+        this.updatedOn = updatedOn;
+    }
+    @Override
+    public String toString() {
+        return this.serial + " " + this.name + " " + this.type + " " +
+                this.model + " (" + this.yearMade + ") - " + this.color + " - $" + this.price;
     }
 
 

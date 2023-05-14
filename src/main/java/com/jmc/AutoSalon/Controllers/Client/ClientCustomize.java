@@ -1,6 +1,5 @@
 package com.jmc.AutoSalon.Controllers.Client;
 
-import com.jmc.AutoSalon.Models.CarModelClass;
 import com.jmc.AutoSalon.Models.Cars;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,8 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Objects;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class ClientCustomize implements Initializable {
@@ -75,7 +73,7 @@ public class ClientCustomize implements Initializable {
     private TableColumn<Cars, Double> maksimumiColumn;
 
     @FXML
-    private TableColumn<Cars, String> tipiColumn;
+    private TableColumn<Cars, Integer> tipiColumn;
 
     @FXML
     private TableColumn<Cars, Date> shtuarColumn;
@@ -89,21 +87,21 @@ public class ClientCustomize implements Initializable {
         modeliMakines.getItems().addAll("SUV", "LUXURY", "SEDAN");
         ngjyrat.getItems().addAll("White", "Black", "Blue", "Grey");
         numriSerikColumn.setCellValueFactory(
-                new PropertyValueFactory<Cars, Integer>("id"));
+                new PropertyValueFactory<Cars, Integer>("serial"));
         emriColumn.setCellValueFactory(
                 new PropertyValueFactory<Cars, String>("name"));
         modeliColumn.setCellValueFactory(
                 new PropertyValueFactory<Cars, String>("model"));
         ngjyraColumn.setCellValueFactory(
-                new PropertyValueFactory<Cars, String>("carType"));
+                new PropertyValueFactory<Cars, String>("color"));
         vitiColumn.setCellValueFactory(
-                new PropertyValueFactory<Cars, Integer>("price"));
+                new PropertyValueFactory<Cars, Integer>("yearMade"));
         cmimiColumn.setCellValueFactory(
-                new PropertyValueFactory<Cars, Double>("color"));
+                new PropertyValueFactory<Cars, Double>("price"));
         maksimumiColumn.setCellValueFactory(
                 new PropertyValueFactory<Cars, Double>("maxSpeed"));
         tipiColumn.setCellValueFactory(
-                new PropertyValueFactory<Cars, String>("year"));
+                new PropertyValueFactory<Cars, Integer>("type"));
         shtuarColumn.setCellValueFactory(
                 new PropertyValueFactory<Cars, Date>("insertedOn"));
         perditesuarColumn.setCellValueFactory(
@@ -132,7 +130,6 @@ public class ClientCustomize implements Initializable {
             statement.setInt(4, selectedYear);
             ResultSet result = statement.executeQuery();
 
-            ObservableList<Cars> carList = FXCollections.observableArrayList();
             while (result.next()) {
                 int carId = result.getInt("numri_serik");
                 String carName = result.getString("c_name");
@@ -146,19 +143,18 @@ public class ClientCustomize implements Initializable {
                 Date carInsertedOn = result.getDate("inserted_on");
                 Date carUpdatedOn = result.getDate("updated_on");
 
+
                 Cars car = new Cars(carId, carName, carModel, carType, carPrice, carColor, carMaxSpeed, carYear, carImage, carInsertedOn, carUpdatedOn);
-                carList.add(car);
                 tabelaStock.getItems().add(car);
                 System.out.println(car);
             }
-            tabelaStock.setItems(carList);
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
     public void setOnMousePressed(MouseEvent event) throws IOException {
-        if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
+        if (event.isPrimaryButtonDown() && event.getClickCount() == 1) {
             Node node = ((Node) event.getTarget()).getParent();
             TableRow<Cars> row;
             if (node instanceof TableRow) {
@@ -176,8 +172,8 @@ public class ClientCustomize implements Initializable {
             } else if (model == "SUV") {
                 model = "suv";
             }
-            System.out.println(car.toString() + " " + car.getCar_image());
-            carImg.setImage(new Image(Objects.requireNonNull(getClass().getResource("/Images/" + model + "/" + car.getCar_image())).toString()));
+            System.out.println(car.toString() + " " + car.getcarImage());
+            carImg.setImage(new Image((getClass().getResource("/Images/" + model + "/" + car.getcarImage())).toString()));
             descBox.setText(car.toString());
 
         }

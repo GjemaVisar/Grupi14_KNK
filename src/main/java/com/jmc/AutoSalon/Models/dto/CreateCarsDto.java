@@ -7,15 +7,15 @@ public class CreateCarsDto {
     private String model;
     private  String type;
     private double price;
-    private double max_speed;
+    private double maxSpeed;
 
     private String color;
 
-    private int year_made;
+    private int yearMade;
 
-    private String car_image;
-    private java.sql.Date inserted_on;
-    private java.sql.Date updated_on;
+    private String carImage;
+    private java.sql.Date insertedOn;
+    private java.sql.Date updatedOn;
 
 
     public String getColor() {
@@ -27,17 +27,17 @@ public class CreateCarsDto {
     }
 
     public CreateCarsDto(String name, String model, String type,
-                         double price, String color, double max_speed, int year_made, String car_image, Date inserted_on, Date updated_on) {
+                         double price, String color, double maxSpeed, int yearMade, String carImage, Date insertedOn, Date updatedOn) {
         this.name = name;
         this.model = model;
         this.type = type;
         this.price = price;
         this.color = color;
-        this.max_speed = max_speed;
-        this.year_made = year_made;
-        this.car_image = car_image;
-        this.inserted_on = inserted_on;
-        this.updated_on = updated_on;
+        this.maxSpeed = maxSpeed;
+        this.yearMade = yearMade;
+        this.carImage = carImage;
+        this.insertedOn = insertedOn;
+        this.updatedOn = updatedOn;
     }
 
     public String getName() {
@@ -72,44 +72,44 @@ public class CreateCarsDto {
         this.price = price;
     }
 
-    public double getMax_speed() {
-        return max_speed;
+    public double getmaxSpeed() {
+        return maxSpeed;
     }
 
-    public void setMax_speed(double max_speed) {
-        this.max_speed = max_speed;
+    public void setmaxSpeed(double maxSpeed) {
+        this.maxSpeed = maxSpeed;
     }
 
-    public int getYear_made() {
-        return year_made;
+    public int getyearMade() {
+        return yearMade;
     }
 
-    public void setYear_made(int year_made) {
-        this.year_made = year_made;
+    public void setyearMade(int yearMade) {
+        this.yearMade = yearMade;
     }
 
-    public String getCar_image() {
-        return car_image;
+    public String getcarImage() {
+        return carImage;
     }
 
-    public void setCar_image(String car_image) {
-        this.car_image = car_image;
+    public void setcarImage(String carImage) {
+        this.carImage = carImage;
     }
 
-    public Date getInserted_on() {
-        return inserted_on;
+    public Date getinsertedOn() {
+        return insertedOn;
     }
 
-    public void setInserted_on(Date inserted_on) {
-        this.inserted_on = inserted_on;
+    public void setinsertedOn(Date insertedOn) {
+        this.insertedOn = insertedOn;
     }
 
-    public Date getUpdated_on() {
-        return updated_on;
+    public Date getupdatedOn() {
+        return updatedOn;
     }
 
-    public void setUpdated_on(Date updated_on) {
-        this.updated_on = updated_on;
+    public void setupdatedOn(Date updatedOn) {
+        this.updatedOn = updatedOn;
     }
 }
 

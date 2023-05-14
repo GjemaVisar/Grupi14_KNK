@@ -40,11 +40,11 @@
           <TableColumn fx:id="numriSerikColumn" prefWidth="75.0" text="NumriSerik" />
           <TableColumn fx:id="emriColumn" prefWidth="95.20001220703125" text="Emri" />
             <TableColumn fx:id="modeliColumn" prefWidth="55.20001220703125" text="Modeli" />
-            <TableColumn fx:id="ngjyraColumn" prefWidth="75.0" text="Tipi" />
-            <TableColumn fx:id="vitiColumn" prefWidth="75.0" text="Cmimi" />
-            <TableColumn fx:id="cmimiColumn" prefWidth="75.0" text="Ngjyra" />
+            <TableColumn fx:id="ngjyraColumn" prefWidth="75.0" text="Color" />
+            <TableColumn fx:id="vitiColumn" prefWidth="75.0" text="Viti" />
+            <TableColumn fx:id="cmimiColumn" prefWidth="75.0" text="Price" />
             <TableColumn fx:id="maksimumiColumn" prefWidth="75.0" text="MaxSpeed" />
-            <TableColumn fx:id="tipiColumn" prefWidth="75.0" text="Viti" />
+            <TableColumn fx:id="tipiColumn" prefWidth="75.0" text="Type" />
             <TableColumn fx:id="shtuarColumn" prefWidth="120.79998779296875" text="U_Shtua_Me" />
             <TableColumn fx:id="perditesuarColumn" prefWidth="117.5999755859375" text="U_Perditesua" />
         </columns>
