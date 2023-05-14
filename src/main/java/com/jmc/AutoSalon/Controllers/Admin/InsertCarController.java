@@ -1,6 +1,7 @@
 package com.jmc.AutoSalon.Controllers.Admin;
 
 import com.jmc.AutoSalon.Models.Cars;
+import com.jmc.AutoSalon.Models.Model;
 import com.jmc.AutoSalon.Services.CarAuthService;
 import com.jmc.AutoSalon.Services.Interfaces.CarServiceInterface;
 import com.jmc.AutoSalon.Services.carService;
@@ -11,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import org.controlsfx.control.PropertySheet;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -78,7 +80,7 @@ public class InsertCarController implements Initializable {
                 System.out.println("Car inserted successfuly");
             }
             catch(Exception ex){
-                System.out.println("Ju lutem plotesoni si duhet vlerat per shtimin e makines!");
+                Model.getInstance().getViewFactory().showAlert("Mistake during Insert","Please make sure that your data is correct");
             }
         }
 

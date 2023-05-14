@@ -39,7 +39,7 @@ public class ViewFactory {
 
     public void showAlert(String title,String message) {
         Alert alert = new Alert(AlertType.WARNING);
-        alert.setTitle("Warning Dialog");
+        alert.setTitle("Warning!");
         alert.setHeaderText(title);
         alert.setContentText(message);
 
