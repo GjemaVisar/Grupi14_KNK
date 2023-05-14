@@ -96,6 +96,7 @@ public class InsertCarController implements Initializable {
 
             }
             catch(Exception ex){
+                //comment
                Model.getInstance().getViewFactory().showAlert("Error on insertion","Please fill out the fields correctly");
             }
         }
