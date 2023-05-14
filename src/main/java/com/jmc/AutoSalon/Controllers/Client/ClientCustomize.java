@@ -1,6 +1,7 @@
 package com.jmc.AutoSalon.Controllers.Client;
 
 import com.jmc.AutoSalon.Models.Cars;
+import com.jmc.AutoSalon.Models.Model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -112,6 +113,7 @@ public class ClientCustomize implements Initializable {
 
     @FXML
     private void handleDergoButton(ActionEvent event) {
+        tabelaStock.getItems().clear();
         String selectedCarName = llojiMakines.getValue();
         String selectedModel = modeliMakines.getValue();
         String selectedColor = ngjyrat.getValue();
@@ -164,17 +166,20 @@ public class ClientCustomize implements Initializable {
             }
 
             Cars car = row.getItem();
-            String model = car.getModel();
-            String name = car.getName();
-            String type = car.getType();
-            if(model == "SEDAN") {
-                model = "Sedan";
-            } else if (model == "SUV") {
-                model = "suv";
+            if(car != null){
+                String model = car.getModel();
+                String name = car.getName();
+                String type = car.getType();
+                if(model == "SEDAN") {
+                    model = "Sedan";
+                } else if (model == "SUV") {
+                    model = "suv";
+                }
+                System.out.println(car.toString() + " " + car.getCarImage());
+                carImg.setImage(new Image((getClass().getResource("/Images/" + model + "/" + car.getCarImage())).toString()));
+                descBox.setText(car.toString());
             }
-            System.out.println(car.toString() + " " + car.getcarImage());
-            carImg.setImage(new Image((getClass().getResource("/Images/" + model + "/" + car.getcarImage())).toString()));
-            descBox.setText(car.toString());
+
 
         }
     }

@@ -1,6 +1,7 @@
 package com.jmc.AutoSalon.Models;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class Cars {
 
@@ -18,8 +19,13 @@ public class Cars {
     private Date insertedOn;
     private Date updatedOn;
 
+    public int getSerial(){
+        return serial;
+    }
+
+
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public void setName(String name) {
@@ -27,7 +33,7 @@ public class Cars {
     }
 
     public String getModel() {
-        return this.model;
+        return model;
     }
 
     public void setModel(String model) {
@@ -35,7 +41,7 @@ public class Cars {
     }
 
     public String getType() {
-        return this.type;
+        return type;
     }
 
     public void setType(String type) {
@@ -43,7 +49,7 @@ public class Cars {
     }
 
     public double getPrice() {
-        return this.price;
+        return price;
     }
 
     public void setPrice(double price) {
@@ -51,54 +57,54 @@ public class Cars {
     }
 
     public String getColor() {
-        return this.color;
+        return color;
     }
 
     public void setColor(String color) {
         this.color = color;
     }
 
-    public double getmaxSpeed() {
-        return this.maxSpeed;
+    public double getMaxSpeed() {
+        return maxSpeed;
     }
 
-    public void setmaxSpeed(double maxSpeed) {
+    public void setMaxSpeed(double maxSpeed) {
         this.maxSpeed = maxSpeed;
     }
 
-    public int getyearMade() {
-        return this.yearMade;
+    public int getYearMade() {
+        return yearMade;
     }
 
-    public void setyearMade(int yearMade) {
+    public void setYearMade(int yearMade) {
         this.yearMade = yearMade;
     }
 
-    public String getcarImage() {
-        return this.carImage;
+    public String getCarImage() {
+        return carImage;
     }
 
-    public void setcarImage(String carImage) {
+    public void setCarImage(String carImage) {
         this.carImage = carImage;
     }
 
-    public Date getinsertedOn() {
-        return this.insertedOn;
+    public Date getInsertedOn() {
+        return insertedOn;
     }
 
-    public void setinsertedOn(Date insertedOn) {
+    public void setInsertedOn(Date insertedOn) {
         this.insertedOn = insertedOn;
     }
 
-    public Date getupdatedOn() {
-        return this.updatedOn;
+    public Date getUpdatedOn() {
+        return updatedOn;
     }
 
-    public void setupdatedOn(Date updatedOn) {
+    public void setUpdatedOn(Date updatedOn) {
         this.updatedOn = updatedOn;
     }
 
-    public Cars(int serial, String name, String model, String type, double price, String color,double maxSpeed, int yearMade,
+    public Cars(int serial, String name, String model, String type, double price, String color, double maxSpeed, int yearMade,
                 String carImage, Date insertedOn, Date updatedOn){
         this.serial = serial;
         this.name = name;

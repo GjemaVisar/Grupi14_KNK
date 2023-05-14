@@ -54,15 +54,15 @@ public class InsertCarController implements Initializable {
 
     @FXML
     public void addCar(ActionEvent e) throws SQLException {
-        String name = this.nameCar.getValue().toString();
-        String model = this.modelCar.getValue().toString();
-        String type = this.typeCar.getText();
-        double price = Double.valueOf(this.price.getText());
-        String color = this.colorCar.getValue().toString();
-        double speed = Double.valueOf(this.speedCar.getText());
-        int year = Integer.valueOf(this.yearCar.getText());
-        String image = this.imageCar.getText();
             try{
+                String name = this.nameCar.getValue().toString();
+                String model = this.modelCar.getValue().toString();
+                String type = this.typeCar.getText();
+                double price = Double.valueOf(this.price.getText());
+                String color = this.colorCar.getValue().toString();
+                double speed = Double.valueOf(this.speedCar.getText());
+                int year = Integer.valueOf(this.yearCar.getText());
+                String image = this.imageCar.getText();
                 Cars car = this.carService.insert_car(name,model,type,price,color,speed,year,image);
                 if (car == null) {
                     return;
@@ -75,10 +75,10 @@ public class InsertCarController implements Initializable {
                 this.colorCar.setValue(null);
                 this.nameCar.setValue(null);
                 this.modelCar.setValue(null);
-                System.out.println("User inserted successfuly");
+                System.out.println("Car inserted successfuly");
             }
             catch(Exception ex){
-                ex.printStackTrace();
+                System.out.println("Ju lutem plotesoni si duhet vlerat per shtimin e makines!");
             }
         }
 

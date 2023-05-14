@@ -8,6 +8,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 
 public class ViewFactory {
     private AccountType loginAccountType;
@@ -32,6 +35,15 @@ public class ViewFactory {
         this.loginAccountType = AccountType.CLIENT;//e paraqesim si first ne choicebox, CLIENT-in
         this.clientSelectedMenuItem = new SimpleObjectProperty<>();
         this.adminSelectedMenuItem = new SimpleObjectProperty<>();
+    }
+
+    public void showAlert(String title,String message) {
+        Alert alert = new Alert(AlertType.WARNING);
+        alert.setTitle("Warning Dialog");
+        alert.setHeaderText(title);
+        alert.setContentText(message);
+
+        alert.showAndWait();
     }
     public AccountType getLoginAccountType(){
         return this.loginAccountType;

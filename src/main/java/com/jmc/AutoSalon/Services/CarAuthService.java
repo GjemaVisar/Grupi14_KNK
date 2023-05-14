@@ -3,13 +3,25 @@ package com.jmc.AutoSalon.Services;
 import com.jmc.AutoSalon.Models.Cars;
 import com.jmc.AutoSalon.Repository.RepositoryCar;
 
+import java.sql.Array;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class CarAuthService {
 
     public static boolean CarAdd(String name,String model, String type,String price,String color,String speed,
                                  String year,String image) throws SQLException {
+        ArrayList<String> validate = new ArrayList<String>();
+        validate.addAll(Arrays.asList(name,model,type,price,color,speed,year,image));
+
+
         Cars car = RepositoryCar.getByCarName(name,model,type,Integer.valueOf(year));
+        for(String member : validate){
+            if(member == null){
+                return false;
+            }
+        }
         if(car != null){
             return false;
         }else if(Double.valueOf(speed)>500 | year.length() !=4 | Integer.valueOf(year)<2010 | Double.valueOf(price) < 0){

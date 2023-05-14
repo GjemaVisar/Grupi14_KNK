@@ -12,7 +12,7 @@ import java.time.LocalDate;
 public class RepositoryCar implements CarRepositoryInterface {
     @Override
     public Cars insert(CreateCarsDto cars) throws SQLException {
-        String sql = "INSERT INTO cars(c_name,car_model,car_type,price_c,color,maxSpeed,year_c,carImage,insertedOn,updatedOn)" +
+        String sql = "INSERT INTO cars(c_name,car_model,car_type,price_c,color,max_speed,year_c,car_image,inserted_on,updated_on)" +
                 "VALUES(?,?,?,?,?,?,?,?,?,?) ";
         try (Connection connection = ConnectionUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -50,11 +50,11 @@ public class RepositoryCar implements CarRepositoryInterface {
                 String car_type = resultSet.getString("car_type");
                 Double price = resultSet.getDouble("price_c");
                 String color = resultSet.getString("color");
-                Double maxSpeed = resultSet.getDouble("maxSpeed");
+                Double maxSpeed = resultSet.getDouble("max_speed");
                 int yearMade = resultSet.getInt("year_c");
-                String carImage = resultSet.getString("carImage");
-                Date insertedOn = resultSet.getDate("insertedOn");
-                Date updatedOn = resultSet.getDate("updatedOn");
+                String carImage = resultSet.getString("car_image");
+                Date insertedOn = resultSet.getDate("inserted_on");
+                Date updatedOn = resultSet.getDate("updated_on");
                 return new Cars(id,car_name,model,type,price,color,maxSpeed,yearMade,carImage,insertedOn,updatedOn);
             } else {
                 return null;
