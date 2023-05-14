@@ -1,10 +1,12 @@
 package com.jmc.AutoSalon.Services;
 
+import com.jmc.AutoSalon.Models.Model;
 import com.jmc.AutoSalon.Models.User;
 import com.jmc.AutoSalon.Models.dto.CreateUserDto;
 import com.jmc.AutoSalon.Repository.Interfaces.UserRepositoryInterface;
 import com.jmc.AutoSalon.Repository.RepositoryUser;
 import com.jmc.AutoSalon.Services.Interfaces.UserServiceInterface;
+import javafx.scene.control.TableView;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -24,6 +26,7 @@ public class userService implements UserServiceInterface {
         if(loginUser == null){
             return null;
         }
+
         Boolean status = UserAuthService.login(loginUser,username,password);
         if(status){
             return loginUser;
@@ -49,6 +52,15 @@ public class userService implements UserServiceInterface {
         this.userRepository.insert(user);
         return RepositoryUser.getByUsername(username);
 
+    }
+    @Override
+    public void fillUserTable(TableView<User> tbl,Boolean statusi) throws SQLException {
+        this.userRepository.getAllUsers(tbl,statusi);
+    }
+
+    @Override
+    public void deleteUser(int id) throws SQLException{
+        this.userRepository.deleteUser(id);
     }
 
 }

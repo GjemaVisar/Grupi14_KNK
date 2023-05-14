@@ -4,6 +4,7 @@ import com.jmc.AutoSalon.Models.Cars;
 import com.jmc.AutoSalon.Models.User;
 import com.jmc.AutoSalon.Models.dto.CreateCarsDto;
 import com.jmc.AutoSalon.Repository.Interfaces.CarRepositoryInterface;
+import com.jmc.AutoSalon.Services.CarAuthService;
 import com.jmc.AutoSalon.Services.ConnectionUtil;
 
 import java.sql.*;

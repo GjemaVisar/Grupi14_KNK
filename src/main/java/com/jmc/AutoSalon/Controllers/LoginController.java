@@ -17,6 +17,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -38,6 +40,7 @@ public class LoginController implements Initializable {
 
     @FXML
     private TextField username_lbl;
+
 
     @FXML
     private PasswordField password_lbl;
@@ -61,7 +64,20 @@ public class LoginController implements Initializable {
         acc_select.setItems(FXCollections.observableArrayList(AccountType.CLIENT,AccountType.ADMIN));
         acc_select.setValue(Model.getInstance().getViewFactory().getLoginAccountType());
         acc_select.valueProperty().addListener(observable -> Model.getInstance().getViewFactory().setLoginAccountType(acc_select.getValue()));
-       //login_btn.setOnAction(event -> onLogin());
+        this.username_lbl.setOnKeyPressed(event->{
+            if(event.getCode() == KeyCode.ENTER){
+                ActionEvent ae = new ActionEvent();
+                this.login(ae);
+            }
+        });
+
+        this.password_lbl.setOnKeyPressed(event->{
+                    if(event.getCode() == KeyCode.ENTER){
+                        ActionEvent ae = new ActionEvent();
+                        this.login(ae);
+                    }
+                }
+        );
     }
     public void switchToRegister(ActionEvent e) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXML/Register.fxml")));
@@ -78,7 +94,7 @@ public class LoginController implements Initializable {
         try{
             User user =this.userService.login(username,password);
             if(user == null){
-                System.out.println("Username or password not correct");
+                Model.getInstance().getViewFactory().showAlert("Login mistake","Username or password do not match");
                 return;
             }
             this.onLogin();

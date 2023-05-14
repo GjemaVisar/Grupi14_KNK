@@ -1,9 +1,11 @@
 package com.jmc.AutoSalon.Repository;
 
+import com.jmc.AutoSalon.Models.Model;
 import com.jmc.AutoSalon.Models.User;
 import com.jmc.AutoSalon.Models.dto.CreateUserDto;
 import com.jmc.AutoSalon.Services.ConnectionUtil;
 import com.jmc.AutoSalon.Repository.Interfaces.UserRepositoryInterface;
+import javafx.scene.control.TableView;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -41,4 +43,39 @@ public class RepositoryUser implements UserRepositoryInterface {
             }
         }
     }
+
+    @Override
+    public User getAllUsers(TableView<User> tbl,Boolean statusi) throws SQLException{
+        String sql = "Select * from users where is_admin = ?";
+        try(Connection connection = ConnectionUtil.getConnection();
+            PreparedStatement stm = connection.prepareStatement(sql)){
+            stm.setBoolean(1,statusi);
+            ResultSet resultSet = stm.executeQuery();
+            while(resultSet.next()){
+                int id = resultSet.getInt("id");
+                String username = resultSet.getString("username");
+                String password = resultSet.getString("salted_password");
+                Boolean status = resultSet.getBoolean("is_admin");
+                Date date_registered = resultSet.getDate("date_registered");
+                User user = new User(id,username,password,status,date_registered);
+                tbl.getItems().add(user);
+            }
+        }catch(SQLException se){
+            Model.getInstance().getViewFactory().showAlert("Retrieval error","Cannot retrieve users!");
+        }
+        return null;
+    }
+    @Override
+    public void deleteUser(int id) throws SQLException{
+        String sql = "Delete from users where id=?";
+        try(Connection connection = ConnectionUtil.getConnection();
+        PreparedStatement statement = connection.prepareStatement(sql);){
+            statement.setInt(1,id);
+            statement.executeUpdate();
+        }catch(SQLException se){
+            System.out.println(se.getMessage());
+        }
+        return;
+    }
+
 }

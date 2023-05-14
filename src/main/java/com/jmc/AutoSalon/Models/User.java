@@ -16,6 +16,9 @@ public class User {
         this.is_admin = is_admin;
         this.date_registered = date_registered;
     }
+    public int getId(){
+        return this.id;
+    }
     public String getUsername() {
         return username;
     }

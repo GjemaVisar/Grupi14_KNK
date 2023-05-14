@@ -14,7 +14,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../Styles/Login.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.LoginController">
    <left>
-      <AnchorPane prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #212121;" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="fullStage" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #212121;" BorderPane.alignment="CENTER">
          <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="64.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../Images/logo.jpg" />
          </ImageView>

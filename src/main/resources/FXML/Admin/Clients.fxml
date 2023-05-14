@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="clients_container" stylesheets="@../../Styles/Clients.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Admin.ClientsController">
    <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clients" />
    <ListView fx:id="clients_listview" layoutX="14.0" layoutY="49.0" prefHeight="650.0" prefWidth="800.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="50.0" />
+   <TableView fx:id="user_table" editable="true" layoutX="132.0" layoutY="114.0" onMousePressed="#getIdPressed" prefHeight="474.0" prefWidth="412.0">
+     <columns>
+       <TableColumn fx:id="user_id" prefWidth="75.0" text="User ID" />
+       <TableColumn fx:id="username" prefWidth="75.0" text="Username" />
+         <TableColumn fx:id="password" prefWidth="143.99996948242188" text="Password" />
+         <TableColumn fx:id="date_registered" prefWidth="117.5999755859375" text="Date Registered" />
+     </columns>
+   </TableView>
+   <Button fx:id="deleteBtn" layoutX="320.0" layoutY="63.0" mnemonicParsing="false" onAction="#deleteUser" text="DELETE" />
 </AnchorPane>

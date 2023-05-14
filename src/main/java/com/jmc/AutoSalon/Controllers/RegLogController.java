@@ -14,7 +14,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import org.controlsfx.control.action.Action;
 
 import java.io.IOException;
 import java.net.URL;
@@ -78,11 +81,26 @@ public class RegLogController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
     }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+        this.cpassTxt.setOnKeyPressed(keyEvent -> {
+            if(keyEvent.getCode() == KeyCode.ENTER){
+                ActionEvent ae = new ActionEvent();
+                try {
+                    this.signup(ae);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
         return;
     }
 }

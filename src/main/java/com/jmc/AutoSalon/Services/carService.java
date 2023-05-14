@@ -29,8 +29,7 @@ public class carService implements CarServiceInterface {
             CreateCarsDto cars = new CreateCarsDto(name, model, type, price, color, maxSpeed, yearMade, carImage, insertedOn, updatedOn);
             this.carRepository.insert(cars);
             return RepositoryCar.getByCarName(name,model,type,yearMade);
-        } else {
-            System.out.println("Car exists or credentials given wrong!");
+        }else {
             return null;
         }
 
