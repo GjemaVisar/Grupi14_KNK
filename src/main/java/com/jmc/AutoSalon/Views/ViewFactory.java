@@ -78,7 +78,7 @@ public class ViewFactory {
     public AnchorPane getCarsView(){
         if(carsPaneView == null){
             try {
-                carsPaneView = new FXMLLoader(getClass().getResource("/FXML/Client/TabPane-Cars.fxml")).load();
+                carsPaneView = new FXMLLoader(getClass().getResource("/FXML/Client/TableViewCars.fxml")).load();
             }catch (Exception e){
                 e.printStackTrace();
             }
