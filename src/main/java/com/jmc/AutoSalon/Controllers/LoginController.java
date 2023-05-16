@@ -174,6 +174,5 @@ public class LoginController implements Initializable {
        LoginController.current_language = true;
        this.translate();
     }
-
 }
 

@@ -35,14 +35,13 @@ public class userService implements UserServiceInterface {
     }
 
     @Override
-    public User signup(String username,String password) throws SQLException {
-            String saltedHash = PasswordHasher.hashPassword(password);
-            Boolean is_admin = false;
-            Date date_registered = Date.valueOf(LocalDate.now());
-            CreateUserDto user = new CreateUserDto(username, saltedHash,is_admin, date_registered);
-            this.userRepository.insert(user);
-            return RepositoryUser.getByUsername(username);
-
+    public User signup(String username, String password) throws SQLException {
+        String saltedHash = PasswordHasher.hashPassword(password);
+        boolean isAdmin = false;
+        Date dateRegistered = Date.valueOf(LocalDate.now());
+        CreateUserDto user = new CreateUserDto(username, saltedHash, isAdmin, dateRegistered);
+        this.userRepository.insert(user);
+        return RepositoryUser.getByUsername(username);
     }
 
     public User createClient(String username,String password) throws SQLException {

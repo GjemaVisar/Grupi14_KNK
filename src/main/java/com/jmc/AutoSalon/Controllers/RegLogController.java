@@ -77,8 +77,8 @@ public class RegLogController implements Initializable {
         String email = this.emailTxt.getText();
         String password = this.passTxt.getText();
         String cpassword = this.cpassTxt.getText();
-        boolean status = UserAuthService.register(username,email,password,cpassword);
-        if(status) {
+        boolean status = UserAuthService.register(username, email, password, cpassword);
+        if (status) {
             try {
                 User user = this.userService.signup(username, password);
                 if (user == null) {
@@ -88,12 +88,11 @@ public class RegLogController implements Initializable {
                 this.emailTxt.setText("");
                 this.passTxt.setText("");
                 this.cpassTxt.setText("");
-                System.out.println("User inserted successfuly");
+                System.out.println("User inserted successfully");
             } catch (SQLException se) {
                 System.out.println("Could not create user: " + se.getMessage());
             }
-        }
-        else{
+        } else {
             Model.getInstance().getViewFactory().showAlert("Cannot create user!",UserAuthService.signup_error);
         }
     }
