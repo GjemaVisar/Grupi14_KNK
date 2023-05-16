@@ -48,6 +48,8 @@ public class LoginController implements Initializable {
     private PasswordField password_lbl;
     @FXML
     private Button login_btn;
+    @FXML
+    private  Label trgBtn;
 
     @FXML
     private Label login_lbl;
@@ -116,5 +118,26 @@ public class LoginController implements Initializable {
             Model.getInstance().getViewFactory().showAdminWindow();
         }
     }
+    @FXML
+    private void handleShqipBtn(ActionEvent event) {
+        login_lbl.setText("Kyçuni");
+        trgBtn.setText("Zgjedhni llogarine tuaj");
+        login_btn.setText("Kyçu");
+        username_lbl.setPromptText("Emri i perdoruesit");
+        password_lbl.setPromptText("Fjalekalimi");
+        newHere_lbl.setText("I ri këtu ?");
+        register_btn.setText("Regjistrohuni");
+    }
+    @FXML
+    private void handleEnglishBtn(ActionEvent event) {
+        login_lbl.setText("Log in");
+        trgBtn.setText("Choose your account");
+        login_btn.setText("Log in");
+        username_lbl.setPromptText("Username");
+        password_lbl.setPromptText("Password");
+        newHere_lbl.setText("New here?");
+        register_btn.setText("Register");
+    }
+
 }
 
