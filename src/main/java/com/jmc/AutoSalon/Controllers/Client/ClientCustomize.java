@@ -26,6 +26,7 @@ public class ClientCustomize implements Initializable {
 
     public ImageView carImg;
     public TextArea descBox;
+    public Pagination mainPage;
     @FXML
     private AnchorPane costumizePane;
 
@@ -81,7 +82,17 @@ public class ClientCustomize implements Initializable {
 
     @FXML
     private TableColumn<Cars, Date> perditesuarColumn;
+    ObservableList<Cars>carsTable = FXCollections.observableArrayList();
 
+    private final int rowsPerPage = 8;
+
+    private Node createPage(int pageIndex) {
+        mainPage.setPageCount(carsTable.size() / rowsPerPage + 1);
+        int fromIndex = pageIndex * rowsPerPage;
+        int toIndex = Math.min(fromIndex + rowsPerPage, carsTable.size());
+        tabelaStock.setItems(FXCollections.observableArrayList(carsTable.subList(fromIndex, toIndex)));
+        return tabelaStock;
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         llojiMakines.getItems().addAll("Audi", "BMW", "MercedesBenz");
@@ -113,7 +124,7 @@ public class ClientCustomize implements Initializable {
 
     @FXML
     private void handleDergoButton(ActionEvent event) {
-        tabelaStock.getItems().clear();
+        if(!carsTable.isEmpty()) { carsTable.clear(); }
         String selectedCarName = llojiMakines.getValue();
         String selectedModel = modeliMakines.getValue();
         String selectedColor = ngjyrat.getValue();
@@ -147,10 +158,11 @@ public class ClientCustomize implements Initializable {
 
 
                 Cars car = new Cars(carId, carName, carModel, carType, carPrice, carColor, carMaxSpeed, carYear, carImage, carInsertedOn, carUpdatedOn);
-                tabelaStock.getItems().add(car);
+                carsTable.add(car);
                 System.out.println(car);
             }
             conn.close();
+            mainPage.setPageFactory(this::createPage);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -168,14 +180,12 @@ public class ClientCustomize implements Initializable {
             Cars car = row.getItem();
             if(car != null){
                 String model = car.getModel();
-                String name = car.getName();
-                String type = car.getType();
                 if(model == "SEDAN") {
                     model = "Sedan";
                 } else if (model == "SUV") {
                     model = "suv";
                 }
-                System.out.println(car.toString() + " " + car.getCarImage());
+                System.out.println(car + " " + car.getCarImage());
                 carImg.setImage(new Image((getClass().getResource("/Images/" + model + "/" + car.getCarImage())).toString()));
                 descBox.setText(car.toString());
             }

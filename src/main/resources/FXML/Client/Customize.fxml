@@ -4,6 +4,7 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
@@ -49,5 +50,6 @@
             <TableColumn fx:id="perditesuarColumn" prefWidth="117.5999755859375" text="U_Perditesua" />
         </columns>
       </TableView>
+      <Pagination fx:id="mainPage" layoutX="380.0" layoutY="363.0" prefHeight="403.0" prefWidth="765.0" />
    </AnchorPane>
 </AnchorPane>
