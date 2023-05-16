@@ -20,6 +20,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.controlsfx.control.action.Action;
 import org.controlsfx.control.action.AnnotatedCheckAction;
@@ -68,7 +69,7 @@ public class RegLogController implements Initializable {
     private Button login;
 
     @FXML
-    private AnchorPane fullStage;
+    private Pane fullStage;
 
     @FXML
     public void signup(ActionEvent e) throws IOException, SQLException {
@@ -93,7 +94,7 @@ public class RegLogController implements Initializable {
             }
         }
         else{
-            System.out.println("Cannot create user!");
+            Model.getInstance().getViewFactory().showAlert("Cannot create user!",UserAuthService.signup_error);
         }
     }
 

@@ -44,6 +44,7 @@ public class userService implements UserServiceInterface {
             return RepositoryUser.getByUsername(username);
 
     }
+
     public User createClient(String username,String password) throws SQLException {
         String saltedHash = PasswordHasher.hashPassword(password);
         Boolean is_admin = false;
