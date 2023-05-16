@@ -19,13 +19,23 @@
                   <Image url="@../Images/logo.jpg" />
                </image>
             </ImageView>
+            <Button fx:id="shqipBtn" layoutX="58.0" layoutY="345.0" mnemonicParsing="false" onAction="#handleShqipBtn" prefHeight="30.0" prefWidth="78.0" style="-fx-background-color: black;" text="Shqip" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="englishBtn" layoutX="158.0" layoutY="345.0" mnemonicParsing="false" onAction="#handleEnglishBtn" prefHeight="30.0" prefWidth="83.0" style="-fx-background-color: black;" text="English" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </left>
    <center>
       <AnchorPane prefHeight="400.0" prefWidth="347.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="121.0" layoutY="54.0" text="Register">
+            <Label fx:id="register_lbl" layoutX="121.0" layoutY="54.0" text="Register">
                <font>
                   <Font size="20.0" />
                </font>
@@ -60,12 +70,12 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Label layoutX="50.0" layoutY="344.0" text="Already have an account?">
+            <Label fx:id="have_acc" layoutX="50.0" layoutY="344.0" text="Already have an account?">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button layoutX="208.0" layoutY="339.0" mnemonicParsing="false" onAction="#switchToLogin" style="-fx-background-color: transparent;" text="Log In!" textFill="#260bbc">
+            <Button fx:id="login" layoutX="208.0" layoutY="339.0" mnemonicParsing="false" onAction="#switchToLogin" style="-fx-background-color: transparent;" text="Log In!" textFill="#260bbc">
                <font>
                   <Font size="14.0" />
                </font>

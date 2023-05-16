@@ -18,6 +18,16 @@
          <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="64.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../Images/logo.jpg" />
          </ImageView>
+         <Button fx:id="shqipBtn" layoutX="59.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleShqipBtn" prefHeight="30.0" prefWidth="78.0" style="-fx-background-color: black;" text="Shqip" textFill="#f5f2f2">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Button>
+         <Button fx:id="englishBtn" layoutX="161.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleEnglishBtn" prefHeight="30.0" prefWidth="83.0" style="-fx-background-color: black;" text="English" textFill="#f5f2f2">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Button>
       </AnchorPane>
    </left>
    <center>
@@ -53,16 +63,6 @@
          </Button>
          <ChoiceBox fx:id="acc_select" layoutX="85.0" layoutY="116.0" prefWidth="90.0" styleClass="account_selector" />
          <Label fx:id="trgBtn" layoutX="86.0" layoutY="90.0" text="Choose Your Account Type:" />
-         <Button fx:id="shqipBtn" layoutX="67.0" layoutY="354.0" mnemonicParsing="false" onAction="#handleShqipBtn" prefHeight="30.0" prefWidth="78.0" style="-fx-background-color: black;" text="Shqip" textFill="#f5f2f2">
-            <font>
-               <Font size="15.0" />
-            </font>
-         </Button>
-         <Button fx:id="englishBtn" layoutX="175.0" layoutY="354.0" mnemonicParsing="false" onAction="#handleEnglishBtn" prefHeight="30.0" prefWidth="83.0" style="-fx-background-color: black;" text="English" textFill="#f5f2f2">
-            <font>
-               <Font size="15.0" />
-            </font>
-         </Button>
       </AnchorPane>
    </center>
 </BorderPane>

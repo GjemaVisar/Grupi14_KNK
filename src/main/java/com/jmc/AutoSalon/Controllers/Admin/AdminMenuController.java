@@ -9,9 +9,13 @@ import javafx.scene.control.Button;
 import org.controlsfx.control.PropertySheet;
 
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class AdminMenuController implements Initializable {
+
+    public static Locale language;
+    public static boolean language_change;
 
     @FXML
     private Button create_client_btn;
@@ -27,6 +31,7 @@ public class AdminMenuController implements Initializable {
 
     @FXML
     private Button logout_btn;
+
 
     @FXML
     public void logout(ActionEvent e){
@@ -47,6 +52,7 @@ public class AdminMenuController implements Initializable {
         insert_btn.setOnAction(event -> this.onInsert());
 
     }
+
 
     private void onInsert(){
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.INSERT);
