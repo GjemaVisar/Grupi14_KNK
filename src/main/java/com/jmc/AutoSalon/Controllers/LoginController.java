@@ -65,6 +65,8 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Locale locale = Locale.getDefault();
+        ResourceBundle translate = ResourceBundle.getBundle("Translations.content", locale);
         acc_select.setItems(FXCollections.observableArrayList(AccountType.CLIENT,AccountType.ADMIN));
         acc_select.setValue(Model.getInstance().getViewFactory().getLoginAccountType());
         acc_select.valueProperty().addListener(observable -> Model.getInstance().getViewFactory().setLoginAccountType(acc_select.getValue()));
@@ -89,6 +91,19 @@ public class LoginController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    private void translate(){
+        Locale currentLocale = Locale.getDefault();
+        ResourceBundle translate = ResourceBundle.getBundle("Translations.content",currentLocale);
+        username_lbl.setPromptText(translate.getString("username_lbl"));
+        password_lbl.setPromptText(translate.getString("password_lbl"));
+        login_btn.setText(translate.getString("login_btn"));
+        login_lbl.setText(translate.getString("login_lbl"));
+        newHere_lbl.setText(translate.getString("newHere_lbl"));
+        register_btn.setText(translate.getString("register_btn"));
+        trgBtn.setText(translate.getString("acc_select"));
+
     }
 
     @FXML
@@ -120,23 +135,13 @@ public class LoginController implements Initializable {
     }
     @FXML
     private void handleShqipBtn(ActionEvent event) {
-        login_lbl.setText("Kyçuni");
-        trgBtn.setText("Zgjedhni llogarine tuaj");
-        login_btn.setText("Kyçu");
-        username_lbl.setPromptText("Emri i perdoruesit");
-        password_lbl.setPromptText("Fjalekalimi");
-        newHere_lbl.setText("I ri këtu ?");
-        register_btn.setText("Regjistrohuni");
+        Locale.setDefault(new Locale("sq","AL"));
+        this.translate();
     }
     @FXML
     private void handleEnglishBtn(ActionEvent event) {
-        login_lbl.setText("Log in");
-        trgBtn.setText("Choose your account");
-        login_btn.setText("Log in");
-        username_lbl.setPromptText("Username");
-        password_lbl.setPromptText("Password");
-        newHere_lbl.setText("New here?");
-        register_btn.setText("Register");
+       Locale.setDefault(new Locale("en"));
+       this.translate();
     }
 
 }

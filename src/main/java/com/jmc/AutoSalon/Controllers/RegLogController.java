@@ -12,6 +12,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -22,6 +24,7 @@ import org.controlsfx.control.action.Action;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -47,6 +50,19 @@ public class RegLogController implements Initializable {
 
     @FXML
     private PasswordField cpassTxt;
+
+    @FXML
+    private Label register_lbl;
+
+    @FXML
+    private Button signupBtn;
+
+    @FXML
+    private Label have_acc;
+
+    @FXML
+    private Button login;
+
 
     @FXML
     public void signup(ActionEvent e) throws IOException, SQLException {
@@ -87,8 +103,7 @@ public class RegLogController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-
+        this.translate();
         this.cpassTxt.setOnKeyPressed(keyEvent -> {
             if(keyEvent.getCode() == KeyCode.ENTER){
                 ActionEvent ae = new ActionEvent();
@@ -102,5 +117,34 @@ public class RegLogController implements Initializable {
             }
         });
         return;
+    }
+
+    private void translate(){
+        Locale currentLocale = Locale.getDefault();
+        ResourceBundle translate = ResourceBundle.getBundle("Translations.content",currentLocale);
+        this.set_translations(translate);
+
+    }
+
+    private void set_translations(ResourceBundle translate){
+        usernameTxt.setPromptText(translate.getString("username_lbl"));
+        passTxt.setPromptText(translate.getString("password_lbl"));
+        cpassTxt.setPromptText(translate.getString("confirm_password"));
+        emailTxt.setPromptText(translate.getString("email_placeholder"));
+        register_lbl.setText(translate.getString("register_lbl"));
+        signupBtn.setText(translate.getString("register_lbl"));
+        have_acc.setText(translate.getString("have_acc"));
+        login.setText(translate.getString("login_btn"));
+    }
+
+    @FXML
+    private void handleShqipBtn(ActionEvent event) {
+        Locale.setDefault(new Locale("sq","AL"));
+        this.translate();
+    }
+    @FXML
+    private void handleEnglishBtn(ActionEvent event) {
+        Locale.setDefault(new Locale("en"));
+        this.translate();
     }
 }

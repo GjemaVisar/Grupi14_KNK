@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="create_client_container" stylesheets="@../../Styles/CreateClient.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Admin.InsertCarController">
    <children>
-      <Text layoutX="14.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-style: bold;" text="Insert a new Car" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="19.4609375">
+      <Text fx:id="insert_car_lbl" layoutX="14.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-style: bold;" text="Insert a new Car" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="19.4609375">
          <stroke>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -30,27 +32,45 @@
                </stops>
             </LinearGradient>
          </stroke></Text>
-      <VBox fillWidth="false" layoutX="14.0" layoutY="39.0" prefHeight="701.0" prefWidth="279.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="39.0">
+      <VBox fillWidth="false" layoutX="14.0" layoutY="41.0" prefHeight="701.0" prefWidth="279.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="41.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name of Car:" />
+            <Text fx:id="name_car" strokeType="OUTSIDE" strokeWidth="0.0" text="Name of Car:" />
             <ComboBox fx:id="nameCar" prefWidth="150.0" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Model:" />
+            <Text fx:id="model_car" strokeType="OUTSIDE" strokeWidth="0.0" text="Model:" />
             <ComboBox fx:id="modelCar" prefWidth="150.0" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Car Type" />
+            <Text fx:id="car_type" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Type" />
             <TextField fx:id="typeCar" prefWidth="108.0" />
-            <Text layoutX="10.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Price" />
+            <Text fx:id="price_car" layoutX="10.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Price" />
             <TextField fx:id="price" prefWidth="108.0" />
-            <Text layoutX="10.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Color" />
+            <Text fx:id="car_color" layoutX="10.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Color" />
             <ComboBox fx:id="colorCar" prefWidth="150.0" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Maximum Speed:" />
+            <Text fx:id="max_speed" strokeType="OUTSIDE" strokeWidth="0.0" text="Maximum Speed:" />
             <TextField fx:id="speedCar" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Year Made:" />
+            <Text fx:id="year_car" strokeType="OUTSIDE" strokeWidth="0.0" text="Year Made:" />
             <TextField fx:id="yearCar" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Image" />
+            <Text fx:id="image_car" strokeType="OUTSIDE" strokeWidth="0.0" text="Image" />
             <TextField fx:id="imageCar" />
             <Button fx:id="addCarBtn" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#addCar" prefHeight="35.0" prefWidth="123.0" text="Add Car" />
          </children>
       </VBox>
-      <ButtonBar layoutX="272.0" layoutY="96.0" prefHeight="40.0" prefWidth="200.0" />
+      <StackPane layoutX="662.0" layoutY="4.0" prefHeight="69.0" prefWidth="71.0">
+         <children>
+            <Button fx:id="shqipBtn" mnemonicParsing="false" onAction="#handleShqipBtn" prefHeight="30.0" prefWidth="78.0" style="-fx-background-color: black;" text="Shqip" textFill="#f5f2f2">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </StackPane>
+      <StackPane layoutX="759.0" layoutY="4.0" prefHeight="69.0" prefWidth="83.0">
+         <children>
+            <Button fx:id="englishBtn" mnemonicParsing="false" onAction="#handleEnglishBtn" prefHeight="34.0" prefWidth="83.0" style="-fx-background-color: black;" text="English" textFill="#f5f2f2">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </StackPane>
+      <Line endX="7.0" endY="-65.0" layoutX="740.0" layoutY="131.0" startX="7.0" startY="-116.0" />
    </children>
 </AnchorPane>
