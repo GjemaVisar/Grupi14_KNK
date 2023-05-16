@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="create_client_container" stylesheets="@../../Styles/CreateClient.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Admin.InsertCarController">
+<AnchorPane fx:id="fullStage" prefHeight="750.0" prefWidth="850.0" styleClass="create_client_container" stylesheets="@../../Styles/CreateClient.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Admin.InsertCarController">
    <children>
       <Text fx:id="insert_car_lbl" layoutX="14.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-style: bold;" text="Insert a new Car" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="19.4609375">
          <stroke>

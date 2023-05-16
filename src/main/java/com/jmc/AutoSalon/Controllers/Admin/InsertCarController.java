@@ -17,6 +17,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -24,6 +25,7 @@ import org.controlsfx.control.PropertySheet;
 
 import java.io.IOException;
 import java.net.URL;
+import java.security.Key;
 import java.sql.SQLException;
 import java.util.Locale;
 import java.util.Objects;
@@ -97,6 +99,9 @@ public class InsertCarController implements Initializable {
     @FXML
     private Text image_car;
 
+    @FXML
+    private AnchorPane fullStage;
+
 
     @FXML
     public void addCar(ActionEvent e) throws SQLException {
@@ -155,6 +160,7 @@ public class InsertCarController implements Initializable {
                 }
             }
         });
+
 
 
         return;

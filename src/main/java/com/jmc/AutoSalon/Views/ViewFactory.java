@@ -8,7 +8,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -179,6 +181,11 @@ public class ViewFactory {
         this.currentStage = stage;
     }
     //kjo sherben per me e mbyll login stage
+
+    public void terminate_app_esc(){
+        this.showAlert("Terminate Program","Are you sure you want to exit?");
+        this.closeWindow();
+    }
     public void closeStage(Stage stage){
         stage.close();
         this.currentStage = null;
