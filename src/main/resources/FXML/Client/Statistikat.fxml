@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="676.0" prefWidth="1240.0" style="-fx-background-color: grey;" styleClass="-fx-background-color-green" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.LoginController">
+    <children>
+        <PieChart fx:id="pieChart" layoutX="790.0" layoutY="35.0" prefHeight="213.0" prefWidth="363.0" />
+        <Label fx:id="titleLabel" layoutX="400.0" layoutY="76.0" prefHeight="64.0" prefWidth="296.0" style="-fx-background-color: red;" text="    CAR SALES STATISTICS">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+      <LineChart layoutX="520.0" layoutY="301.0" prefHeight="346.0" prefWidth="594.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </LineChart>
+      <ImageView fitHeight="260.0" fitWidth="321.0" layoutX="64.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Images/statistikat.jpg" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>
