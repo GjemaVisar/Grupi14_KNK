@@ -1,10 +1,13 @@
 package com.jmc.AutoSalon.Services;
 
+import com.jmc.AutoSalon.Controllers.Admin.InsertCarController;
 import com.jmc.AutoSalon.Models.Cars;
 import com.jmc.AutoSalon.Models.dto.CreateCarsDto;
 import com.jmc.AutoSalon.Repository.Interfaces.CarRepositoryInterface;
 import com.jmc.AutoSalon.Repository.RepositoryCar;
 import com.jmc.AutoSalon.Services.Interfaces.CarServiceInterface;
+import javafx.fxml.FXML;
+import javafx.scene.control.TableView;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -34,4 +37,32 @@ public class carService implements CarServiceInterface {
         }
 
     }
+
+    @Override
+    public Cars update_car(int serial,String type, String price, String speed, String quantity, String image) throws SQLException {
+        Date updated = Date.valueOf(LocalDate.now());
+        Cars car = RepositoryCar.getById(serial);
+        String name = car.getName();
+        String model = car.getModel();
+        int yearMade = car.getYearMade();
+        String color = car.getColor();
+        Date inserted = car.getInsertedOn();
+
+
+        CreateCarsDto cars = new CreateCarsDto(name,model,type,Double.valueOf(price),color,Double.valueOf(speed),
+                Integer.valueOf(yearMade),Integer.valueOf(quantity),image,inserted,updated);
+
+        this.carRepository.update(cars,serial);
+        return null;
+    }
+    @Override
+    public void deleteCar(int id) throws SQLException {
+        this.carRepository.deleteCar(id);
+    }
+
+    @Override
+    public void fillCarTable(TableView<Cars> tbl) throws SQLException {
+        this.carRepository.getAllCars(tbl);
+    }
+
 }
