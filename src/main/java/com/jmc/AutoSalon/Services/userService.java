@@ -53,7 +53,7 @@ public class userService implements UserServiceInterface {
 
     public User createClient(String username,String password) throws SQLException {
         String saltedHash = PasswordHasher.hashPassword(password);
-        Boolean is_admin = false;
+        Boolean is_admin = true;
         Date date_registered = Date.valueOf(LocalDate.now());
         CreateUserDto user = new CreateUserDto(username, saltedHash,is_admin, date_registered);
         this.userRepository.insert(user);

@@ -11,14 +11,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -160,6 +165,9 @@ public class ClientCustomize implements Initializable {
                 Date carInsertedOn = result.getDate("inserted_on");
                 Date carUpdatedOn = result.getDate("updated_on");
 
+                if(quantity == 0){
+                    carName = carName + " (Out of Stock)";
+                }
 
                 Cars car = new Cars(carId, carName, carModel, carType, carPrice, carColor, carMaxSpeed, carYear,quantity, carImage, carInsertedOn, carUpdatedOn);
                 tabelaStock.getItems().add(car);
@@ -205,38 +213,55 @@ public class ClientCustomize implements Initializable {
             Cars selectedItem = tabelaStock.getSelectionModel().getSelectedItem();
 
             if (selectedItem != null) {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Confirmation");
-                alert.setHeaderText("Confirm Purchase");
-                alert.setContentText("Are you sure you want to buy this item?");
-                int userId = this.userService.get_user_id();
-                Optional<ButtonType> result = alert.showAndWait();
-                if (result.isPresent() && result.get() == ButtonType.OK) {
-                    int carId = selectedItem.getSerial();
-                    Date purchaseDate = Date.valueOf(LocalDate.now());
-                    double price = selectedItem.getPrice();
+                int carId = selectedItem.getSerial();
 
-                    try {
+                    try{
                         RepositorySales repositorySales = new RepositorySales();
-                        repositorySales.insertSale(userId, carId, purchaseDate, price);
-                        repositorySales.decrement_quantity(carId);
-                        Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
-                        successAlert.setTitle("Purchase Successful");
-                        successAlert.setHeaderText(null);
-                        successAlert.setContentText("The item has been purchased successfully!");
-                        successAlert.showAndWait();
+                        if(repositorySales.isQuantityZero(carId)){
+                            Alert alert = new Alert(Alert.AlertType.ERROR);
+                            alert.setTitle("Error");
+                            alert.setHeaderText(null);
+                            alert.setContentText("We are out of stock");
+                            alert.showAndWait();
+                            return;
+                        }
 
-                        tabelaStock.refresh();
+                        Stage paymentStage = new Stage();
+                        paymentStage.setTitle("Payment Form");
 
-                    } catch (SQLException e) {
-                        e.printStackTrace();
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Client/Payment.fxml"));
+                        Parent paymentFormRoot = loader.load();
+                        paymentStage.setScene(new Scene(paymentFormRoot));
+
+                        ClientPaymentController clientPaymentController = loader.getController();
+
+                        paymentStage.initModality(Modality.APPLICATION_MODAL);
+                        paymentStage.initOwner(((Node) event.getSource()).getScene().getWindow());
+                        paymentStage.showAndWait();
+
+                    boolean paymentSuccessful = clientPaymentController.processPayment();
+                        if (paymentSuccessful) {
+                            int userId = this.userService.get_user_id();
+                            Date purchaseDate = Date.valueOf(LocalDate.now());
+                            double price = selectedItem.getPrice();
+
+                            repositorySales.insertSale(userId, carId, purchaseDate, price);
+                            repositorySales.decrement_quantity(carId);
+
+                            Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+                            successAlert.setTitle("Purchase Successful");
+                            successAlert.setHeaderText(null);
+                            successAlert.setContentText("The item has been purchased successfully!");
+                            successAlert.showAndWait();
+
+                            tabelaStock.refresh();
+                        } else {
+                            System.out.println("Payment was not successful");
+                        }
+                    } catch (IOException | SQLException e) {
+                        System.out.println();
                     }
-                } else {
-                    System.out.println("User clicked Cancel");
-                }
             }
-
-
     }
 
 

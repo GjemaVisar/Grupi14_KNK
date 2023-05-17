@@ -4,10 +4,7 @@ import com.jmc.AutoSalon.Repository.Interfaces.SalesRepositoryInterface;
 import com.jmc.AutoSalon.Repository.Interfaces.UserRepositoryInterface;
 import com.jmc.AutoSalon.Services.ConnectionUtil;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class RepositorySales implements SalesRepositoryInterface {
 
@@ -36,5 +33,24 @@ public class RepositorySales implements SalesRepositoryInterface {
             System.out.println(se.getMessage());
         }
 
+    }
+
+    //metoda per me e shiku a eshte quantity i makines se selektuar = 0
+    public boolean isQuantityZero(int carId) throws SQLException{
+        String sql = "SELECT quantity FROM cars WHERE numri_serik = ?";
+        try(Connection conn = ConnectionUtil.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql)){
+            statement.setInt(1,carId);
+            try(ResultSet resultSet = statement.executeQuery()) {
+                if(resultSet.next()){
+                    int quantity = resultSet.getInt("quantity");
+                    return quantity == 0;
+                }
+
+            }
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return false;
     }
 }
