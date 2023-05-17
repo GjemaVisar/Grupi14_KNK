@@ -205,19 +205,31 @@ public class ClientCustomize implements Initializable {
             Cars selectedItem = tabelaStock.getSelectionModel().getSelectedItem();
 
             if (selectedItem != null) {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Confirmation");
-                alert.setHeaderText("Confirm Purchase");
-                alert.setContentText("Are you sure you want to buy this item?");
-                int userId = this.userService.get_user_id();
-                Optional<ButtonType> result = alert.showAndWait();
-                if (result.isPresent() && result.get() == ButtonType.OK) {
-                    int carId = selectedItem.getSerial();
-                    Date purchaseDate = Date.valueOf(LocalDate.now());
-                    double price = selectedItem.getPrice();
+                int carId = selectedItem.getSerial();
 
-                    try {
+                    try{
                         RepositorySales repositorySales = new RepositorySales();
+                        if(repositorySales.isQuantityZero(carId)){
+                            Alert alert = new Alert(Alert.AlertType.ERROR);
+                            alert.setTitle("Error");
+                            alert.setHeaderText(null);
+                            alert.setContentText("We are out of stock");
+                            alert.showAndWait();
+                            return;
+                        }
+
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Confirmation");
+                    alert.setHeaderText("Confirm Purchase");
+                    alert.setContentText("Are you sure you want to buy this item?");
+                    int userId = this.userService.get_user_id();
+                    Optional<ButtonType> result = alert.showAndWait();
+                    if (result.isPresent() && result.get() == ButtonType.OK) {
+
+                        Date purchaseDate = Date.valueOf(LocalDate.now());
+                        double price = selectedItem.getPrice();
+
+
                         repositorySales.insertSale(userId, carId, purchaseDate, price);
                         repositorySales.decrement_quantity(carId);
                         Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
@@ -228,15 +240,14 @@ public class ClientCustomize implements Initializable {
 
                         tabelaStock.refresh();
 
-                    } catch (SQLException e) {
-                        e.printStackTrace();
+
+                    } else {
+                        System.out.println("User clicked Cancel");
                     }
-                } else {
-                    System.out.println("User clicked Cancel");
-                }
+                }catch (SQLException e){
+                        System.out.println(e.getMessage());
+                    }
             }
-
-
     }
 
 
