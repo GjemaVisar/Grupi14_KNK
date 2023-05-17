@@ -16,6 +16,8 @@ import java.util.Objects;
 public class userService implements UserServiceInterface {
     private UserRepositoryInterface userRepository;
 
+    private static int current_user_id;
+
     public userService() {
         this.userRepository = new RepositoryUser();
     }
@@ -29,11 +31,16 @@ public class userService implements UserServiceInterface {
 
         Boolean status = UserAuthService.login(loginUser,username,password);
         if(status){
+            userService.current_user_id = loginUser.getId();
             return loginUser;
         }
         return null;
     }
 
+    @Override
+    public int get_user_id(){
+        return userService.current_user_id;
+    }
     @Override
     public User signup(String username, String password) throws SQLException {
         String saltedHash = PasswordHasher.hashPassword(password);

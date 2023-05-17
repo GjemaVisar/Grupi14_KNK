@@ -70,6 +70,7 @@ public class LoginController implements Initializable {
     @FXML
     private AnchorPane fullStage;
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Locale locale = Locale.getDefault();
@@ -174,5 +175,6 @@ public class LoginController implements Initializable {
        LoginController.current_language = true;
        this.translate();
     }
+
 }
 

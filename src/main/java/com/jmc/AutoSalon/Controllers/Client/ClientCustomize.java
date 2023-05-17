@@ -5,6 +5,8 @@ import com.jmc.AutoSalon.Models.Model;
 import com.jmc.AutoSalon.Models.User;
 import com.jmc.AutoSalon.Repository.RepositorySales;
 import com.jmc.AutoSalon.Repository.RepositoryUser;
+import com.jmc.AutoSalon.Services.Interfaces.UserServiceInterface;
+import com.jmc.AutoSalon.Services.userService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -28,6 +30,12 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ClientCustomize implements Initializable {
+
+    private UserServiceInterface userService;
+
+    public ClientCustomize(){
+        this.userService = new userService();
+    }
 
     public ImageView carImg;
     public TextArea descBox;
@@ -200,10 +208,10 @@ public class ClientCustomize implements Initializable {
                 alert.setTitle("Confirmation");
                 alert.setHeaderText("Confirm Purchase");
                 alert.setContentText("Are you sure you want to buy this item?");
-
+                int userId = this.userService.get_user_id();
+                System.out.println(userId);
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.isPresent() && result.get() == ButtonType.OK) {
-                    int userId = 1;
                     int carId = selectedItem.getSerial();
                     Date purchaseDate = Date.valueOf(LocalDate.now());
                     double price = selectedItem.getPrice();

@@ -13,4 +13,6 @@ public interface UserServiceInterface {
     void fillUserTable(TableView<User> tbl,Boolean statusi) throws SQLException;
 
     void deleteUser(int id) throws SQLException;
+
+    int get_user_id() ;
 }
