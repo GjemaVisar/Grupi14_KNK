@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="editBtn" layoutX="127.0" layoutY="335.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#edit_car" prefHeight="35.0" prefWidth="123.0" text="Edit " />
+      <Button fx:id="deleteBtn" layoutX="315.0" layoutY="335.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#delete_car" prefHeight="35.0" prefWidth="123.0" text="Delete Car" />
+      <Label layoutX="130.0" layoutY="61.0" text="Type: " />
+      <Label layoutX="132.0" layoutY="106.0" text="Price:" />
+      <Label layoutX="130.0" layoutY="150.0" text="Speed:" />
+      <Label layoutX="130.0" layoutY="240.0" text="Image:" />
+      <TextField fx:id="edit_type" layoutX="176.0" layoutY="57.0" />
+      <TextField fx:id="edit_price" layoutX="176.0" layoutY="102.0" />
+      <TextField fx:id="edit_speed" layoutX="177.0" layoutY="146.0" />
+      <TextField fx:id="edit_image" layoutX="177.0" layoutY="236.0" />
+      <Label layoutX="124.0" layoutY="191.0" text="Quantity:" />
+      <TextField fx:id="edit_quantity" layoutX="177.0" layoutY="187.0" />
+      <ImageView fx:id="image" fitHeight="150.0" fitWidth="200.0" layoutX="356.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>
