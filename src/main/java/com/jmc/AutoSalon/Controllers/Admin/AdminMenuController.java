@@ -6,6 +6,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
+import javafx.scene.input.KeyEvent;
 import org.controlsfx.control.PropertySheet;
 
 import java.net.URL;
@@ -33,6 +37,7 @@ public class AdminMenuController implements Initializable {
     @FXML
     private Button logout_btn;
 
+    private final KeyCombination closeAccelerator = new KeyCodeCombination(KeyCode.E, KeyCombination.CONTROL_DOWN);
 
     @FXML
     public void logout(ActionEvent e){
@@ -69,4 +74,11 @@ public class AdminMenuController implements Initializable {
     private void closeWindow() {
         Platform.exit();
     }
+    @FXML
+    private void handleAccelerator(KeyEvent event) {
+        if (closeAccelerator.match(event)) {
+            Platform.exit();
+        }
+    }
 }
+

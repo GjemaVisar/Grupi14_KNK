@@ -4,13 +4,14 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="857.0" prefWidth="184.0" stylesheets="@../../Styles/ClientMenu.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Client.ClientMenuController">
-      <AnchorPane prefHeight="848.0" prefWidth="184.0" styleClass="left_container">
+      <AnchorPane prefHeight="848.0" prefWidth="184.0" styleClass="left_container" onKeyPressed="#handleAccelerator">
             <VBox prefHeight="80.0" prefWidth="160.0" styleClass="title_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <Text fx:id="fiekLbl" strokeType="OUTSIDE" strokeWidth="0.0" text="FIEKmotors" />
             </VBox>
@@ -23,11 +24,15 @@
             </VBox>
       <MenuBar fx:id="menuBtn" layoutY="80.0" prefHeight="26.0" prefWidth="184.0">
          <menus>
-            <Menu mnemonicParsing="false" text="File">
-               <items>
-                  <MenuItem fx:id="closeBtn" mnemonicParsing="false" onAction="#closeWindow2" text="Close" />
-               </items>
-            </Menu>
+             <Menu mnemonicParsing="false" text="File">
+                 <items>
+                     <MenuItem fx:id="closeBtn" mnemonicParsing="false" onAction="#closeWindow2" text=" Close CTRL+E">
+                         <accelerator>
+                             <KeyCodeCombination alt="UP" code="E" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                         </accelerator>
+                     </MenuItem>
+                 </items>
+             </Menu>
             <Menu mnemonicParsing="false" text="Edit">
                <items>
                   <MenuItem mnemonicParsing="false" text="Delete" />

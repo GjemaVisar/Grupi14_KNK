@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
@@ -23,11 +24,15 @@
         </VBox>
       <MenuBar fx:id="fileBtn" layoutY="67.0" prefHeight="26.0" prefWidth="180.0">
          <menus>
-            <Menu mnemonicParsing="false" text="File">
-               <items>
-                  <MenuItem fx:id="closeBtn" mnemonicParsing="false" onAction="#closeWindow" text="Close" />
-               </items>
-            </Menu>
+             <Menu mnemonicParsing="false" text="File">
+                 <items>
+                     <MenuItem fx:id="closeBtn" mnemonicParsing="false" onAction="#closeWindow" text=" Close CTRL+E">
+                         <accelerator>
+                             <KeyCodeCombination alt="UP" code="E" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                         </accelerator>
+                     </MenuItem>
+                 </items>
+             </Menu>
             <Menu mnemonicParsing="false" text="Edit">
                <items>
                   <MenuItem mnemonicParsing="false" text="Delete" />
