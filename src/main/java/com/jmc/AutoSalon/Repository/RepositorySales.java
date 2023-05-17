@@ -25,4 +25,16 @@ public class RepositorySales implements SalesRepositoryInterface {
             System.out.println(e.getMessage());
         }
     }
+
+    public void decrement_quantity(int carId) throws SQLException{
+        String sql = "UPDATE cars set quantity = quantity -1 WHERE numri_serik = ?";
+        try(Connection conn = ConnectionUtil.getConnection();
+        PreparedStatement stm = conn.prepareStatement(sql);){
+            stm.setInt(1,carId);
+            stm.executeUpdate();
+        }catch(SQLException se){
+            System.out.println(se.getMessage());
+        }
+
+    }
 }

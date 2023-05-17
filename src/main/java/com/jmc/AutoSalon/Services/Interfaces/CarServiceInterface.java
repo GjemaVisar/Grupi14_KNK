@@ -7,5 +7,5 @@ import java.sql.SQLException;
 
 public interface CarServiceInterface {
     Cars insert_car(String name, String model, String type,
-                    double price, String color, double maxSpeed, int yearMade, String carImage) throws SQLException;
+                    double price, String color, double maxSpeed, int yearMade,int quantity, String carImage) throws SQLException;
 }

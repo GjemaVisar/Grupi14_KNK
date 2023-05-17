@@ -20,13 +20,13 @@ public class carService implements CarServiceInterface {
 
     @Override
     public Cars insert_car(String name, String model, String type, double price, String color,
-                           double maxSpeed, int yearMade, String carImage) throws SQLException {
+                           double maxSpeed, int yearMade,int quantity, String carImage) throws SQLException {
         Date insertedOn = Date.valueOf(LocalDate.now());
         Date updatedOn = Date.valueOf(LocalDate.now());
         boolean status = CarAuthService.CarAdd(name,model,type,String.valueOf(price),color,String.valueOf(maxSpeed),
-                String.valueOf(yearMade),carImage);
+                String.valueOf(yearMade),String.valueOf(quantity),carImage);
         if (status) {
-            CreateCarsDto cars = new CreateCarsDto(name, model, type, price, color, maxSpeed, yearMade, carImage, insertedOn, updatedOn);
+            CreateCarsDto cars = new CreateCarsDto(name, model, type, price, color, maxSpeed, yearMade,quantity, carImage, insertedOn, updatedOn);
             this.carRepository.insert(cars);
             return RepositoryCar.getByCarName(name,model,type,yearMade);
         }else {

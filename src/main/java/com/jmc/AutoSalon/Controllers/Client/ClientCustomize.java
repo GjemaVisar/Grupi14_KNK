@@ -155,12 +155,13 @@ public class ClientCustomize implements Initializable {
                 String carColor = result.getString("color");
                 double carMaxSpeed = result.getDouble("max_speed");
                 int carYear = result.getInt("year_c");
+                int quantity = result.getInt("quantity");
                 String carImage = result.getString("car_image");
                 Date carInsertedOn = result.getDate("inserted_on");
                 Date carUpdatedOn = result.getDate("updated_on");
 
 
-                Cars car = new Cars(carId, carName, carModel, carType, carPrice, carColor, carMaxSpeed, carYear, carImage, carInsertedOn, carUpdatedOn);
+                Cars car = new Cars(carId, carName, carModel, carType, carPrice, carColor, carMaxSpeed, carYear,quantity, carImage, carInsertedOn, carUpdatedOn);
                 tabelaStock.getItems().add(car);
                 System.out.println(car);
             }
@@ -209,7 +210,6 @@ public class ClientCustomize implements Initializable {
                 alert.setHeaderText("Confirm Purchase");
                 alert.setContentText("Are you sure you want to buy this item?");
                 int userId = this.userService.get_user_id();
-                System.out.println(userId);
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.isPresent() && result.get() == ButtonType.OK) {
                     int carId = selectedItem.getSerial();
@@ -219,14 +219,14 @@ public class ClientCustomize implements Initializable {
                     try {
                         RepositorySales repositorySales = new RepositorySales();
                         repositorySales.insertSale(userId, carId, purchaseDate, price);
-
+                        repositorySales.decrement_quantity(carId);
                         Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
                         successAlert.setTitle("Purchase Successful");
                         successAlert.setHeaderText(null);
                         successAlert.setContentText("The item has been purchased successfully!");
                         successAlert.showAndWait();
 
-                        tabelaStock.getItems().remove(selectedItem);
+                        tabelaStock.refresh();
 
                     } catch (SQLException e) {
                         e.printStackTrace();

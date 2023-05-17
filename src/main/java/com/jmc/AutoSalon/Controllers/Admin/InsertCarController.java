@@ -66,6 +66,9 @@ public class InsertCarController implements Initializable {
 
     @FXML
     private TextField imageCar;
+
+    @FXML
+    private TextField quantity;
     @FXML
     private BorderPane admin_parent;
 
@@ -100,6 +103,9 @@ public class InsertCarController implements Initializable {
     private Text image_car;
 
     @FXML
+    private Text car_quantity;
+
+    @FXML
     private AnchorPane fullStage;
 
 
@@ -113,13 +119,15 @@ public class InsertCarController implements Initializable {
             String color = this.colorCar.getValue().toString();
             double speed = Double.valueOf(this.speedCar.getText());
             int year = Integer.valueOf(this.yearCar.getText());
+            int quantity = Integer.valueOf(this.quantity.getText());
             String image = this.imageCar.getText();
-            Cars car = this.carService.insert_car(name, model, type, price, color, speed, year, image);
+            Cars car = this.carService.insert_car(name, model, type, price, color, speed, year,quantity, image);
             if (car != null) {
                 this.typeCar.setText("");
                 this.price.setText("");
                 this.speedCar.setText("");
                 this.yearCar.setText("");
+                this.quantity.setText("");
                 this.imageCar.setText("");
                 this.colorCar.setValue(null);
                 this.nameCar.setValue(null);
@@ -185,6 +193,7 @@ public class InsertCarController implements Initializable {
         year_car.setText(translate.getString("year_car"));
         image_car.setText(translate.getString("image_car"));
         addCarBtn.setText(translate.getString("add_car_text"));
+        car_quantity.setText(translate.getString("car_quantity"));
     }
     @FXML
     private void handleShqipBtn(ActionEvent event) {

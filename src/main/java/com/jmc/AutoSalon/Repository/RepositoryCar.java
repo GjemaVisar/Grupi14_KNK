@@ -13,8 +13,8 @@ import java.time.LocalDate;
 public class RepositoryCar implements CarRepositoryInterface {
     @Override
     public Cars insert(CreateCarsDto cars) throws SQLException {
-        String sql = "INSERT INTO cars(c_name,car_model,car_type,price_c,color,max_speed,year_c,car_image,inserted_on,updated_on)" +
-                "VALUES(?,?,?,?,?,?,?,?,?,?) ";
+        String sql = "INSERT INTO cars(c_name,car_model,car_type,price_c,color,max_speed,year_c,quantity,car_image,inserted_on,updated_on)" +
+                "VALUES(?,?,?,?,?,?,?,?,?,?,?) ";
         try (Connection connection = ConnectionUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, cars.getName());
@@ -24,9 +24,10 @@ public class RepositoryCar implements CarRepositoryInterface {
             statement.setString(5, cars.getColor());
             statement.setDouble(6, cars.getmaxSpeed());
             statement.setInt(7,cars.getyearMade());
-            statement.setString(8, cars.getcarImage());
-            statement.setDate(9, cars.getinsertedOn());
-            statement.setDate(10, cars.getupdatedOn());
+            statement.setInt(8,cars.getQuantity());
+            statement.setString(9, cars.getcarImage());
+            statement.setDate(10, cars.getinsertedOn());
+            statement.setDate(11, cars.getupdatedOn());
             statement.executeUpdate();
 
             return RepositoryCar.getByCarName(cars.getName(), cars.getModel(), cars.getType(), cars.getyearMade());
@@ -53,10 +54,11 @@ public class RepositoryCar implements CarRepositoryInterface {
                 String color = resultSet.getString("color");
                 Double maxSpeed = resultSet.getDouble("max_speed");
                 int yearMade = resultSet.getInt("year_c");
+                int quantity = resultSet.getInt("quantity");
                 String carImage = resultSet.getString("car_image");
                 Date insertedOn = resultSet.getDate("inserted_on");
                 Date updatedOn = resultSet.getDate("updated_on");
-                return new Cars(id,car_name,model,type,price,color,maxSpeed,yearMade,carImage,insertedOn,updatedOn);
+                return new Cars(id,car_name,model,type,price,color,maxSpeed,yearMade,quantity,carImage,insertedOn,updatedOn);
             } else {
                 return null;
             }

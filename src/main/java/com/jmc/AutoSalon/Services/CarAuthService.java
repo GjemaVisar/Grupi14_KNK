@@ -15,7 +15,7 @@ public class CarAuthService {
     public static String message_title;
 
     public static boolean CarAdd(String name,String model, String type,String price,String color,String speed,
-                                 String year,String image) throws SQLException {
+                                 String year,String quantity,String image) throws SQLException {
         ArrayList<String> validate = new ArrayList<String>();
         validate.addAll(Arrays.asList(name,model,type,price,color,speed,year,image));
 
@@ -28,7 +28,8 @@ public class CarAuthService {
         Cars car = RepositoryCar.getByCarName(name,model,type,Integer.valueOf(year));
         if(car != null){
             return false;
-        }else if(Double.valueOf(speed)>500 | year.length() !=4 | Integer.valueOf(year)<2010 | Double.valueOf(price) < 0){
+        }else if(Double.valueOf(speed)>500 | year.length() !=4 | Integer.valueOf(year)<2010 | Double.valueOf(price) < 0
+        | Integer.valueOf(quantity) < 1){
             return false;
         }else {
             return true;

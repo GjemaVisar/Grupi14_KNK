@@ -135,12 +135,13 @@ public class tableCarsController implements Initializable {
                     String carColor = result.getString("color");
                     double carMaxSpeed = result.getDouble("max_speed");
                     int carYear = result.getInt("year_c");
+                    int quantity = result.getInt("quantity");
                     String carImage = result.getString("car_image");
                     Date carInsertedOn = result.getDate("inserted_on");
                     Date carUpdatedOn = result.getDate("updated_on");
 
 
-                    Cars car = new Cars(carId, carName, carModel, carType, carPrice, carColor, carMaxSpeed, carYear, carImage, carInsertedOn, carUpdatedOn);
+                    Cars car = new Cars(carId, carName, carModel, carType, carPrice, carColor, carMaxSpeed, carYear,quantity, carImage, carInsertedOn, carUpdatedOn);
                     carsTable.add(car);
                     System.out.println(car);
                 }

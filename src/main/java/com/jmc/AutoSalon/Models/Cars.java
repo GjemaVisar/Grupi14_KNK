@@ -15,6 +15,8 @@ public class Cars {
     private  String color;
     private double maxSpeed;
     private int yearMade;
+
+    private int quantity;
     private String carImage;
     private Date insertedOn;
     private Date updatedOn;
@@ -104,7 +106,15 @@ public class Cars {
         this.updatedOn = updatedOn;
     }
 
-    public Cars(int serial, String name, String model, String type, double price, String color, double maxSpeed, int yearMade,
+    public void setQuantity(int quantity){
+        this.quantity = quantity;
+    }
+
+    public int getQuantity(){
+        return this.quantity;
+    }
+
+    public Cars(int serial, String name, String model, String type, double price, String color, double maxSpeed, int yearMade,int quantity,
                 String carImage, Date insertedOn, Date updatedOn){
         this.serial = serial;
         this.name = name;
@@ -114,6 +124,7 @@ public class Cars {
         this.color = color;
         this.maxSpeed = maxSpeed;
         this.yearMade = yearMade;
+        this.quantity = quantity;
         this.carImage = carImage;
         this.insertedOn = insertedOn;
         this.updatedOn = updatedOn;
