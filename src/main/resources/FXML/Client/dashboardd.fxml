@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane prefHeight="750.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Client.dashboarddController">
+   <BorderPane layoutX="65.0" layoutY="36.0" prefHeight="200.0" prefWidth="250.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="40.0">
+      <bottom>
+         <Label fx:id="username_lbl" text="Hi, Client" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+               <Insets bottom="20.0" />
+            </BorderPane.margin>
+         </Label>
+      </bottom>
+      <center>
+         <FontAwesomeIconView glyphName="USER" size="80" wrappingWidth="57.30000019073486" BorderPane.alignment="CENTER" />
+      </center>
+   </BorderPane>
+   <TitledPane fx:id="tabelaBlerjet" animated="false" layoutX="386.0" layoutY="52.0" text="Blerjet" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="40.0">
+      <content>
+         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="170.0" prefWidth="450.0">
+            <children>
+               <TableView prefHeight="166.0" prefWidth="446.0">
+                  <columns>
+                     <TableColumn fx:id="name_column" prefWidth="75.0" text="Car_Name" />
+                     <TableColumn fx:id="model_column" prefWidth="75.0" text="Car_Model" />
+                     <TableColumn fx:id="year_column" prefWidth="75.0" text="Car_year" />
+                     <TableColumn fx:id="price_column" prefWidth="75.0" text="Car_price" />
+                  </columns>
+               </TableView>
+            </children>
+         </AnchorPane>
+      </content>
+   </TitledPane>
+</AnchorPane>

@@ -15,5 +15,6 @@ public interface UserRepositoryInterface {
     public void deleteUser(int id) throws SQLException;
 
 
+    String getByUsernameId(int id) throws SQLException;
 }
 

@@ -69,7 +69,7 @@ public class ViewFactory {
     public AnchorPane getDashboardView(){
         if(dashboardView == null){ //null, sepse sa here qe useri kalon prej nje butoni ne tjetrin , ne nuk dojme qe me e bo load perseri
             try {
-                dashboardView = new FXMLLoader(getClass().getResource("/FXML/Client/Dashboard.fxml")).load();
+                dashboardView = new FXMLLoader(getClass().getResource("/FXML/Client/dashboardd.fxml")).load();
             }catch (Exception e){
                 e.printStackTrace();
             }

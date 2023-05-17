@@ -78,4 +78,20 @@ public class RepositoryUser implements UserRepositoryInterface {
         return;
     }
 
+    @Override
+    public String getByUsernameId(int id) throws SQLException {
+        String sql = "Select username from users where id = ?";
+        try (Connection connection = ConnectionUtil.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                String username = resultSet.getString("username");
+                return username;
+            } else {
+                return null;
+            }
+        }
+    }
+
 }

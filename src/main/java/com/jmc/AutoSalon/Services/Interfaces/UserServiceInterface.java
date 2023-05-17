@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public interface UserServiceInterface {
     User login(String username,String password) throws SQLException;
-    User signup(String username,String password) throws SQLException;
+    User signup(String username, String password) throws SQLException;
     User createClient(String username, String password) throws SQLException;
 
     void fillUserTable(TableView<User> tbl,Boolean statusi) throws SQLException;
@@ -15,4 +15,6 @@ public interface UserServiceInterface {
     void deleteUser(int id) throws SQLException;
 
     int get_user_id() ;
+
+    String get_username() throws SQLException;
 }
