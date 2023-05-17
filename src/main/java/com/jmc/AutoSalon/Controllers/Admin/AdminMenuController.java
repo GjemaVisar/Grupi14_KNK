@@ -11,6 +11,7 @@ import org.controlsfx.control.PropertySheet;
 import java.net.URL;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 
 public class AdminMenuController implements Initializable {
 
@@ -63,5 +64,9 @@ public class AdminMenuController implements Initializable {
 
     private void onClients(){
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.CLIENTS);
+    }
+    @FXML
+    private void closeWindow() {
+        Platform.exit();
     }
 }

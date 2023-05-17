@@ -3,6 +3,7 @@ package com.jmc.AutoSalon.Controllers.Client;
 import com.jmc.AutoSalon.Models.Model;
 import com.jmc.AutoSalon.Views.AccountType;
 import com.jmc.AutoSalon.Views.ClientMenuOptions;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -55,5 +56,9 @@ public class ClientMenuController implements Initializable {
     }
     private void onCustomize(){
         Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(ClientMenuOptions.CUSTOMIZE);
+    }
+    @FXML
+    private void closeWindow2() {
+        Platform.exit();
     }
 }
