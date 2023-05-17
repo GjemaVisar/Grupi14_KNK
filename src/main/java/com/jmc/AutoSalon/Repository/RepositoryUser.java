@@ -1,5 +1,6 @@
 package com.jmc.AutoSalon.Repository;
 
+import com.jmc.AutoSalon.Models.Cars;
 import com.jmc.AutoSalon.Models.Model;
 import com.jmc.AutoSalon.Models.User;
 import com.jmc.AutoSalon.Models.dto.CreateUserDto;
@@ -9,6 +10,8 @@ import javafx.scene.control.TableView;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RepositoryUser implements UserRepositoryInterface {
     @Override
@@ -92,6 +95,28 @@ public class RepositoryUser implements UserRepositoryInterface {
                 return null;
             }
         }
+    }
+    @Override
+    public List<Cars> your_car(int id) throws SQLException{
+        List<Cars> carsList = new ArrayList<>();
+
+        String sql = "Select c.c_name, c.car_model , c.car_type, c.year_c , c.price_c FROM sales s INNER JOIN cars c ON s.car_id = c.numri_serik WHERE s.user_id = ? " ;
+        try(Connection conn = ConnectionUtil.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql)){
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            while(resultSet.next()){
+                String car_name = resultSet.getString("c_name");
+                String car_model = resultSet.getString("car_model");
+                String car_type = resultSet.getString("car_type");
+                int car_year = resultSet.getInt("year_c");
+                double car_price = resultSet.getDouble("price_c");
+
+                Cars cars = new Cars(car_name, car_model, car_type, car_year, car_price);
+                carsList.add(cars);
+            }
+        }
+        return carsList;
     }
 
 }

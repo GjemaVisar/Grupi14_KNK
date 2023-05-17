@@ -1,7 +1,6 @@
 package com.jmc.AutoSalon.Repository;
 
 import com.jmc.AutoSalon.Repository.Interfaces.SalesRepositoryInterface;
-import com.jmc.AutoSalon.Repository.Interfaces.UserRepositoryInterface;
 import com.jmc.AutoSalon.Services.ConnectionUtil;
 
 import java.sql.*;

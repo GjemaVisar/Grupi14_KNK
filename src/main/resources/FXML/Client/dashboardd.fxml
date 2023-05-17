@@ -23,19 +23,16 @@
       </center>
    </BorderPane>
    <TitledPane fx:id="tabelaBlerjet" animated="false" layoutX="386.0" layoutY="52.0" text="Blerjet" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="40.0">
-      <content>
-         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="170.0" prefWidth="450.0">
-            <children>
-               <TableView prefHeight="166.0" prefWidth="446.0">
-                  <columns>
-                     <TableColumn fx:id="name_column" prefWidth="75.0" text="Car_Name" />
-                     <TableColumn fx:id="model_column" prefWidth="75.0" text="Car_Model" />
-                     <TableColumn fx:id="year_column" prefWidth="75.0" text="Car_year" />
-                     <TableColumn fx:id="price_column" prefWidth="75.0" text="Car_price" />
-                  </columns>
-               </TableView>
-            </children>
-         </AnchorPane>
-      </content>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="170.0" prefWidth="450.0">
+         <TableView fx:id="tabela_view" prefHeight="166.0" prefWidth="446.0">
+            <columns>
+               <TableColumn fx:id="name_column" prefWidth="75.0" text="Car_Name" />
+               <TableColumn fx:id="model_column" prefWidth="75.0" text="Car_Model" />
+               <TableColumn fx:id="type_column" prefWidth="75.0" text="Car_Type" />
+               <TableColumn fx:id="year_column" prefWidth="75.0" text="Car_year" />
+               <TableColumn fx:id="price_column" prefWidth="75.0" text="Car_price" />
+            </columns>
+         </TableView>
+      </AnchorPane>
    </TitledPane>
 </AnchorPane>

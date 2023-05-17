@@ -21,6 +21,14 @@ public class Cars {
     private Date insertedOn;
     private Date updatedOn;
 
+    public Cars(String name, String model, String type, int yearMade , double price) {
+        this.name = name;
+        this.model = model;
+        this.type = type;
+        this.price = price;
+        this.yearMade = yearMade;
+    }
+
     public int getSerial(){
         return serial;
     }

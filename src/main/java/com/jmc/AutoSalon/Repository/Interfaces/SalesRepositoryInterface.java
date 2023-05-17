@@ -9,4 +9,5 @@ public interface SalesRepositoryInterface {
     void decrement_quantity(int carId) throws SQLException;
 
     boolean isQuantityZero(int carId) throws SQLException;
+
 }

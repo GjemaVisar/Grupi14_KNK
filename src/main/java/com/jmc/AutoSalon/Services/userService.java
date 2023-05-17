@@ -1,5 +1,6 @@
 package com.jmc.AutoSalon.Services;
 
+import com.jmc.AutoSalon.Models.Cars;
 import com.jmc.AutoSalon.Models.User;
 import com.jmc.AutoSalon.Models.dto.CreateUserDto;
 import com.jmc.AutoSalon.Repository.Interfaces.UserRepositoryInterface;
@@ -10,6 +11,7 @@ import javafx.scene.control.TableView;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.sql.SQLException;
+import java.util.List;
 
 public class userService implements UserServiceInterface {
     private UserRepositoryInterface userRepository;
@@ -72,6 +74,11 @@ public class userService implements UserServiceInterface {
         String username = this.userRepository.getByUsernameId(current_user_id);
 
         return username;
+    }
+
+    @Override
+    public List<Cars> your_car() throws SQLException{
+        return this.userRepository.your_car(current_user_id);
     }
 
 }
