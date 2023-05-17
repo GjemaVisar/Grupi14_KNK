@@ -2,6 +2,9 @@ package com.jmc.AutoSalon.Controllers.Client;
 
 import com.jmc.AutoSalon.Models.Cars;
 import com.jmc.AutoSalon.Models.Model;
+import com.jmc.AutoSalon.Models.User;
+import com.jmc.AutoSalon.Repository.RepositorySales;
+import com.jmc.AutoSalon.Repository.RepositoryUser;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,7 +22,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ClientCustomize implements Initializable {
@@ -81,6 +86,7 @@ public class ClientCustomize implements Initializable {
 
     @FXML
     private TableColumn<Cars, Date> perditesuarColumn;
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -183,5 +189,48 @@ public class ClientCustomize implements Initializable {
 
         }
     }
+
+    @FXML
+    public void buyButton(ActionEvent event) {
+
+            Cars selectedItem = tabelaStock.getSelectionModel().getSelectedItem();
+
+            if (selectedItem != null) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Confirmation");
+                alert.setHeaderText("Confirm Purchase");
+                alert.setContentText("Are you sure you want to buy this item?");
+
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.isPresent() && result.get() == ButtonType.OK) {
+                    int userId = 1;
+                    int carId = selectedItem.getSerial();
+                    Date purchaseDate = Date.valueOf(LocalDate.now());
+                    double price = selectedItem.getPrice();
+
+                    try {
+                        RepositorySales repositorySales = new RepositorySales();
+                        repositorySales.insertSale(userId, carId, purchaseDate, price);
+
+                        Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+                        successAlert.setTitle("Purchase Successful");
+                        successAlert.setHeaderText(null);
+                        successAlert.setContentText("The item has been purchased successfully!");
+                        successAlert.showAndWait();
+
+                        tabelaStock.getItems().remove(selectedItem);
+
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    System.out.println("User clicked Cancel");
+                }
+            }
+
+
+    }
+
+
 
 }

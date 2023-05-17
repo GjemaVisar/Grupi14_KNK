@@ -35,7 +35,7 @@
       </TextArea>
       <Button layoutX="137.0" layoutY="540.0" mnemonicParsing="false" onAction="#handleDergoButton" prefHeight="40.0" prefWidth="90.0" text="Kerko" />
       <ComboBox fx:id="ngjyrat" layoutX="143.0" layoutY="199.0" prefHeight="32.0" prefWidth="195.0" />
-      <TableView fx:id="tabelaStock" layoutX="379.0" layoutY="363.0" onMousePressed="#setOnMousePressed" prefHeight="360.0" prefWidth="765.0">
+      <TableView fx:id="tabelaStock" layoutX="373.0" layoutY="360.0" onMousePressed="#setOnMousePressed" prefHeight="360.0" prefWidth="765.0">
         <columns>
           <TableColumn fx:id="numriSerikColumn" prefWidth="75.0" text="NumriSerik" />
           <TableColumn fx:id="emriColumn" prefWidth="95.20001220703125" text="Emri" />
@@ -49,5 +49,6 @@
             <TableColumn fx:id="perditesuarColumn" prefWidth="117.5999755859375" text="U_Perditesua" />
         </columns>
       </TableView>
+      <Button layoutX="772.0" layoutY="320.0" mnemonicParsing="false" onAction="#buyButton" prefHeight="25.0" prefWidth="47.0" text="Buy" />
    </AnchorPane>
 </AnchorPane>
