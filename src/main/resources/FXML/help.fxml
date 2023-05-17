@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.Help">
+   <children>
+      <TextField alignment="CENTER" layoutX="-2.0" layoutY="-7.0" prefHeight="62.0" prefWidth="608.0" style="-fx-background-color: grey;" text="Help / Costumer Support">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <AnchorPane fx:id="fullStage" layoutX="-2.0" layoutY="55.0" prefHeight="346.0" prefWidth="300.0" style="-fx-background-color: #212121;">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="64.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/logo.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="75.0" fitWidth="82.0" layoutX="327.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/contact_us.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="440.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="049 - 433 - 320" wrappingWidth="116.87774658203125">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="62.0" fitWidth="75.0" layoutX="342.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true" style="visibility: 0.6;">
+         <image>
+            <Image url="@../Images/gmail.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="75.0" fitWidth="82.0" layoutX="327.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/mail.png" />
+         </image>
+      </ImageView>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text layoutX="417.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="fiek_motors@gmail.com" wrappingWidth="171.30177307128906">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
