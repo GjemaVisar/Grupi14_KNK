@@ -6,6 +6,8 @@ import com.jmc.AutoSalon.Models.dto.CreateCarsDto;
 import com.jmc.AutoSalon.Repository.Interfaces.CarRepositoryInterface;
 import com.jmc.AutoSalon.Services.CarAuthService;
 import com.jmc.AutoSalon.Services.ConnectionUtil;
+import javafx.fxml.FXML;
+import javafx.scene.control.TableView;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -34,7 +36,57 @@ public class RepositoryCar implements CarRepositoryInterface {
         }
     }
 
+    @Override
+    public Cars update(CreateCarsDto cars,int id) throws SQLException{
+        String sql = "UPDATE cars SET c_name=?, car_model=?, car_type=?, price_c = ?, max_speed=?, year_c = ?," +
+                "quantity=?,car_image=?,updated_on=? WHERE numri_serik=?";
+        try(Connection connection = ConnectionUtil.getConnection();
+            PreparedStatement statement = connection.prepareStatement(sql)){
+            statement.setString(1,cars.getName());
+            statement.setString(2,cars.getModel());
+            statement.setString(3,cars.getType());
+            statement.setDouble(4,cars.getPrice());
+            statement.setDouble(5,cars.getmaxSpeed());
+            statement.setInt(6,cars.getyearMade());
+            statement.setInt(7,cars.getQuantity());
+            statement.setString(8,cars.getcarImage());
+            statement.setDate(9,cars.getupdatedOn());
+            statement.setInt(10,id);
+            statement.executeUpdate();
+            return RepositoryCar.getByCarName(cars.getName(),cars.getModel(),cars.getType(),cars.getyearMade());
+        }catch(SQLException se){
+            System.out.println(se.getMessage());
+        }
+                return null;
+    }
 
+    @Override
+    public Cars getAllCars(TableView<Cars> tbl) throws SQLException {
+        String sql = "SELECT * FROM cars";
+        try(Connection conn = ConnectionUtil.getConnection();
+        PreparedStatement stm = conn.prepareStatement(sql);){
+            ResultSet  res = stm.executeQuery();
+            while(res.next()){
+                int id = res.getInt("numri_serik");
+                String name = res.getString("c_name");
+                String model = res.getString("car_model");
+                String type = res.getString("car_type");
+                Double price = res.getDouble("price_c");
+                String color = res.getString("color");
+                Double speed = res.getDouble("max_speed");
+                int year = res.getInt("year_c");
+                int quantity = res.getInt("quantity");
+                String image = res.getString("car_image");
+                Date inserted = res.getDate("inserted_on");
+                Date updated = res.getDate("updated_on");
+                Cars cars = new Cars(id,name,model,type,price,color,speed,year,quantity,image,inserted,updated);
+                tbl.getItems().add(cars);
+            }
+        }catch(SQLException se){
+            System.out.println(se.getMessage());
+        }
+        return null;
+    }
 
     public static Cars getByCarName(String name,String model,String type,int year) throws SQLException{
         String sql = "Select * from cars where c_name = ? and car_model=? and car_type=? and year_c =?";
@@ -64,4 +116,42 @@ public class RepositoryCar implements CarRepositoryInterface {
             }
         }
     }
+    public static Cars getById(int id) throws SQLException{
+        String sql = "Select * from cars where numri_serik = ?";
+        try(Connection conn = ConnectionUtil.getConnection();
+        PreparedStatement stm = conn.prepareStatement(sql)){
+            stm.setInt(1,id);
+            ResultSet res = stm.executeQuery();
+            if(res.next()){
+                String car_name = res.getString("c_name");
+                String car_model = res.getString("car_model");
+                String car_type = res.getString("car_type");
+                Double price = res.getDouble("price_c");
+                String color = res.getString("color");
+                Double maxSpeed = res.getDouble("max_speed");
+                int yearMade = res.getInt("year_c");
+                int quantity = res.getInt("quantity");
+                String carImage = res.getString("car_image");
+                Date insertedOn = res.getDate("inserted_on");
+                Date updatedOn = res.getDate("updated_on");
+                return new Cars(id,car_name,car_model,car_type,price,color,maxSpeed,yearMade,quantity,carImage,insertedOn,updatedOn);
+            }else{
+                return null;
+            }
+
+        }
 }
+    @Override
+    public void deleteCar(int id) throws SQLException{
+        String sql = "Delete from cars where numri_serik=?";
+        try(Connection connection = ConnectionUtil.getConnection();
+            PreparedStatement statement = connection.prepareStatement(sql);){
+            statement.setInt(1,id);
+            statement.executeUpdate();
+        }catch(SQLException se){
+            System.out.println(se.getMessage());
+        }
+        return;
+    }
+}
+

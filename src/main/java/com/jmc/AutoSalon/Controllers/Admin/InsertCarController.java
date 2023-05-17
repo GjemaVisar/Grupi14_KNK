@@ -2,6 +2,7 @@ package com.jmc.AutoSalon.Controllers.Admin;
 
 import com.jmc.AutoSalon.Models.Cars;
 import com.jmc.AutoSalon.Models.Model;
+import com.jmc.AutoSalon.Models.User;
 import com.jmc.AutoSalon.Services.CarAuthService;
 import com.jmc.AutoSalon.Services.Interfaces.CarServiceInterface;
 import com.jmc.AutoSalon.Services.carService;
@@ -12,11 +13,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
@@ -26,7 +26,9 @@ import org.controlsfx.control.PropertySheet;
 import java.io.IOException;
 import java.net.URL;
 import java.security.Key;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -39,6 +41,17 @@ public class InsertCarController implements Initializable {
         this.carService = new carService();
 
     }
+
+    public static int sum = 0;
+
+    public static int id_to_edit;
+    public static String type_to_edit;
+    public static String price_to_edit;
+    public  static String speed_to_edit;
+    public static String quantity_to_edit;
+    public static String image_to_edit;
+    public static String image_to_pass;
+
 
     @FXML
     private ComboBox<String> nameCar;
@@ -108,6 +121,34 @@ public class InsertCarController implements Initializable {
     @FXML
     private AnchorPane fullStage;
 
+    @FXML
+    private TableView<Cars> car_table;
+
+    @FXML
+    private TableColumn<Cars,String> name_col;
+
+    @FXML
+    private TableColumn<Cars,String> model_col;
+
+    @FXML
+    private TableColumn<Cars,String> type_col;
+
+    @FXML
+    private TableColumn<Cars,Double> price_col;
+
+    @FXML
+    private TableColumn<Cars,Double> speed_col;
+
+    @FXML
+    private TableColumn<Cars,Integer> year_col;
+
+    @FXML
+    private TableColumn<Cars,Integer> quantity_col;
+
+    @FXML
+    private TableColumn<Cars,String> image_col;
+
+
 
     @FXML
     public void addCar(ActionEvent e) throws SQLException {
@@ -143,9 +184,47 @@ public class InsertCarController implements Initializable {
         }
     }
 
+    @FXML
+    public void getIdPressed(MouseEvent e){
+        this.car_table.refresh();
+        if(e.isPrimaryButtonDown() && e.getClickCount()==2){
+        InsertCarController.sum += 1;
+            this.car_table.getSelectionModel().selectedItemProperty().addListener((obs,oldSelect,newSelect)->{
+                if(newSelect != null){
+                    InsertCarController.id_to_edit = newSelect.getSerial();
+                    InsertCarController.type_to_edit = newSelect.getType();
+                    InsertCarController.price_to_edit = String.valueOf(newSelect.getPrice());
+                    InsertCarController.speed_to_edit = String.valueOf(newSelect.getMaxSpeed());
+                    InsertCarController.quantity_to_edit = String.valueOf(newSelect.getQuantity());
+                    InsertCarController.image_to_edit  = newSelect.getCarImage();
+                    InsertCarController.image_to_pass = "/Images/" + newSelect.getModel() + "/" + newSelect.getCarImage();
+
+                }
+
+            });
+            Model.getInstance().getViewFactory().showEditCarWindow();
+
+
+        }
+        //System.out.println(this.id_to_edit);
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.name_col.setCellValueFactory(new PropertyValueFactory<Cars,String>("name"));
+        this.model_col.setCellValueFactory(new PropertyValueFactory<Cars,String>("model"));
+        this.type_col.setCellValueFactory(new PropertyValueFactory<Cars,String>("type"));
+        this.price_col.setCellValueFactory(new PropertyValueFactory<Cars, Double>("price"));
+        this.speed_col.setCellValueFactory(new PropertyValueFactory<Cars, Double>("maxSpeed"));
+        this.year_col.setCellValueFactory(new PropertyValueFactory<Cars, Integer>("yearMade"));
+        this.quantity_col.setCellValueFactory(new PropertyValueFactory<Cars, Integer>("quantity"));
+        this.image_col.setCellValueFactory(new PropertyValueFactory<Cars, String>("carImage"));
+        try {
+            this.carService.fillCarTable(this.car_table);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
 
         Locale locale = Locale.getDefault();
 
