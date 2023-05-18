@@ -33,7 +33,7 @@
             <Font size="13.0" />
          </font>
       </TextArea>
-      <Button layoutX="137.0" layoutY="540.0" mnemonicParsing="false" onAction="#handleDergoButton" prefHeight="40.0" prefWidth="90.0" text="Kerko" />
+      <Button layoutX="132.0" layoutY="461.0" mnemonicParsing="false" onAction="#handleDergoButton" prefHeight="40.0" prefWidth="90.0" text="Kerko" />
       <ComboBox fx:id="ngjyrat" layoutX="143.0" layoutY="199.0" prefHeight="32.0" prefWidth="195.0" />
       <TableView fx:id="tabelaStock" layoutX="373.0" layoutY="360.0" onMousePressed="#setOnMousePressed" prefHeight="360.0" prefWidth="765.0">
         <columns>
@@ -50,5 +50,10 @@
         </columns>
       </TableView>
       <Button layoutX="772.0" layoutY="320.0" mnemonicParsing="false" onAction="#buyButton" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+      <ImageView fitHeight="142.0" fitWidth="166.0" layoutX="94.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Images/kerkoMakin.png" />
+         </image>
+      </ImageView>
    </AnchorPane>
 </AnchorPane>

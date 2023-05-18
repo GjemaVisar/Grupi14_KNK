@@ -4,11 +4,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="804.0" prefWidth="848.0" styleClass="create_client_container" stylesheets="@../../Styles/CreateClient.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Admin.CreateClientController">
+<AnchorPane prefHeight="854.0" prefWidth="1097.0" style="-fx-background-color:  #ADD8E6;" styleClass="create_client_container" stylesheets="@../../Styles/CreateClient.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Admin.CreateClientController">
    <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create New Client  Account" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="24.4609375" />
    <VBox fillWidth="false" layoutX="14.0" layoutY="50.0" prefHeight="700.0" prefWidth="600.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="50.0">
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Name: " />
@@ -22,4 +24,9 @@
       <Button fx:id="createClient_btn" mnemonicParsing="false" text="Create New Client" />
       <Label fx:id="error_lbl" styleClass="error_lbl" text="error:" />
    </VBox>
+   <ImageView fitHeight="342.0" fitWidth="356.0" layoutX="472.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../Images/newUser.png" />
+      </image>
+   </ImageView>
 </AnchorPane>

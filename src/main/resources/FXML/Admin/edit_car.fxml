@@ -6,7 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color:  #ADD8E6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button fx:id="editBtn" layoutX="127.0" layoutY="335.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#edit_car" prefHeight="35.0" prefWidth="123.0" text="Edit " />
       <Button fx:id="deleteBtn" layoutX="315.0" layoutY="335.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#delete_car" prefHeight="35.0" prefWidth="123.0" text="Delete Car" />
