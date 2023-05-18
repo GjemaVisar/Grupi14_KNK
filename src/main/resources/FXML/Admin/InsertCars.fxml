@@ -2,6 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
@@ -13,26 +15,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="create_client_container" stylesheets="@../../Styles/CreateClient.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Admin.InsertCarController">
+<AnchorPane fx:id="fullStage" prefHeight="750.0" prefWidth="850.0" styleClass="create_client_container" stylesheets="@../../Styles/CreateClient.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Admin.InsertCarController">
    <children>
-      <Text fx:id="insert_car_lbl" layoutX="14.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-style: bold;" text="Insert a new Car" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="19.4609375">
-         <stroke>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="1.0" green="1.0" blue="1.0" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </stroke></Text>
-      <VBox fillWidth="false" layoutX="14.0" layoutY="41.0" prefHeight="701.0" prefWidth="279.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="41.0">
+      <VBox fillWidth="false" layoutX="14.0" layoutY="8.0" prefHeight="734.0" prefWidth="279.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="8.0">
          <children>
             <Text fx:id="name_car" strokeType="OUTSIDE" strokeWidth="0.0" text="Name of Car:" />
             <ComboBox fx:id="nameCar" prefWidth="150.0" />
@@ -45,12 +30,13 @@
             <Text fx:id="car_color" layoutX="10.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Color" />
             <ComboBox fx:id="colorCar" prefWidth="150.0" />
             <Text fx:id="max_speed" strokeType="OUTSIDE" strokeWidth="0.0" text="Maximum Speed:" />
-            <TextField fx:id="speedCar" />
+            <TextField fx:id="speedCar" prefHeight="33.0" prefWidth="124.0" />
             <Text fx:id="year_car" strokeType="OUTSIDE" strokeWidth="0.0" text="Year Made:" />
             <TextField fx:id="yearCar" />
+            <Text fx:id="car_quantity" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Quantity:" />
+            <TextField fx:id="quantity" />
             <Text fx:id="image_car" strokeType="OUTSIDE" strokeWidth="0.0" text="Image" />
             <TextField fx:id="imageCar" />
-            <Button fx:id="addCarBtn" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#addCar" prefHeight="35.0" prefWidth="123.0" text="Add Car" />
          </children>
       </VBox>
       <StackPane layoutX="662.0" layoutY="4.0" prefHeight="69.0" prefWidth="71.0">
@@ -72,5 +58,36 @@
          </children>
       </StackPane>
       <Line endX="7.0" endY="-65.0" layoutX="740.0" layoutY="131.0" startX="7.0" startY="-116.0" />
+      <Button fx:id="addCarBtn" layoutX="374.0" layoutY="49.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#addCar" prefHeight="35.0" prefWidth="123.0" text="Add Car" />
+      <Text fx:id="insert_car_lbl" layoutX="414.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-style: bold;" text="Insert a new Car">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Text>
+      <TableView fx:id="car_table" layoutX="374.0" layoutY="122.0" onMousePressed="#getIdPressed" prefHeight="260.0" prefWidth="602.0">
+        <columns>
+          <TableColumn fx:id="name_col" prefWidth="75.0" text="Name" />
+          <TableColumn fx:id="model_col" prefWidth="75.0" text="Model" />
+            <TableColumn fx:id="type_col" prefWidth="75.0" text="Type" />
+            <TableColumn fx:id="price_col" prefWidth="75.0" text="Price" />
+            <TableColumn fx:id="speed_col" prefWidth="75.0" text="Speed" />
+            <TableColumn fx:id="year_col" prefWidth="75.0" text="Year" />
+            <TableColumn fx:id="quantity_col" prefWidth="75.0" text="Quantity" />
+            <TableColumn fx:id="image_col" prefWidth="75.0" text="Image" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

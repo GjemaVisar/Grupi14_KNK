@@ -8,6 +8,7 @@ import com.jmc.AutoSalon.Services.Interfaces.UserServiceInterface;
 import com.jmc.AutoSalon.Services.UserAuthService;
 import com.jmc.AutoSalon.Services.userService;
 import com.jmc.AutoSalon.Views.AccountType;
+import com.jmc.AutoSalon.Views.ViewFactory;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,6 +19,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -32,6 +34,8 @@ import java.util.ResourceBundle;
 public class LoginController implements Initializable {
 
     private UserServiceInterface userService;
+
+    public static boolean current_language;
 
     public LoginController(){
         this.userService = new userService();
@@ -63,6 +67,10 @@ public class LoginController implements Initializable {
     @FXML
     private Label error_lbl;
 
+    @FXML
+    private AnchorPane fullStage;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Locale locale = Locale.getDefault();
@@ -82,8 +90,18 @@ public class LoginController implements Initializable {
                         ActionEvent ae = new ActionEvent();
                         this.login(ae);
                     }
+
                 }
         );
+
+        this.fullStage.setOnKeyPressed(event->{
+            if(event.isControlDown() && event.getCode()==KeyCode.L){
+                this.language_switch(event);
+            }
+            else if(event.getCode() == KeyCode.ESCAPE){
+                Model.getInstance().getViewFactory().terminate_app_esc();
+            }
+        });
     }
     public void switchToRegister(ActionEvent e) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXML/Register.fxml")));
@@ -113,7 +131,7 @@ public class LoginController implements Initializable {
         try{
             User user =this.userService.login(username,password);
             if(user == null){
-                Model.getInstance().getViewFactory().showAlert("Login mistake","Username or password do not match");
+                Model.getInstance().getViewFactory().showAlert("Login mistake","Username, password, or role do not match");
                 return;
             }
             this.onLogin();
@@ -123,6 +141,18 @@ public class LoginController implements Initializable {
 
 
     }
+    @FXML
+    public void language_switch(KeyEvent event){
+            ActionEvent e = new ActionEvent();
+            if(LoginController.current_language){
+                this.handleShqipBtn(e);
+            }else{
+                this.handleEnglishBtn(e);
+            }
+        }
+
+
+
     private void onLogin(){
         //per me e mbyll stage
         Model.getInstance().getViewFactory().closeWindow();
@@ -136,11 +166,13 @@ public class LoginController implements Initializable {
     @FXML
     private void handleShqipBtn(ActionEvent event) {
         Locale.setDefault(new Locale("sq","AL"));
+        LoginController.current_language = false;
         this.translate();
     }
     @FXML
     private void handleEnglishBtn(ActionEvent event) {
        Locale.setDefault(new Locale("en"));
+       LoginController.current_language = true;
        this.translate();
     }
 

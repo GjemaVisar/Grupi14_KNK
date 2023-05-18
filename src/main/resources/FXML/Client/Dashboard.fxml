@@ -16,7 +16,7 @@
    <children>
       <AnchorPane layoutX="-1.0" layoutY="-2.0" prefHeight="799.0" prefWidth="1355.0">
          <children>
-            <ImageView fitHeight="641.0" fitWidth="1038.0" layoutX="172.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="641.0" fitWidth="1038.0" layoutX="175.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Images/welcome.jpg" />
                </image>

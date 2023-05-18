@@ -31,7 +31,7 @@
       </AnchorPane>
    </left>
    <center>
-      <AnchorPane prefHeight="400.0" prefWidth="301.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="full_stage" onKeyPressed="#language_switch" prefHeight="400.0" prefWidth="301.0" BorderPane.alignment="CENTER">
          <TextField fx:id="username_lbl" layoutX="85.0" layoutY="152.0" promptText="Username" style="-fx-background-color: transparent; -fx-border-color: #ff0000; -fx-border-width: 0px 0px 2px 0px;" />
          <PasswordField fx:id="password_lbl" layoutX="85.0" layoutY="199.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #ff0000; -fx-border-width: 0px 0px 2px 0px;" />
          <Button fx:id="login_btn" layoutX="84.0" layoutY="237.0" mnemonicParsing="false" onAction="#login" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #ff0000;" text="LogIn" textFill="#f5f2f2">

@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="create_client_container" stylesheets="@../../Styles/CreateClient.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Admin.CreateClientController">
-   <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create New Client  Account" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
-   <VBox fillWidth="false" layoutX="14.0" layoutY="42.0" prefHeight="700.0" prefWidth="600.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="40.0">
+<AnchorPane prefHeight="804.0" prefWidth="848.0" styleClass="create_client_container" stylesheets="@../../Styles/CreateClient.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Admin.CreateClientController">
+   <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create New Client  Account" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="24.4609375" />
+   <VBox fillWidth="false" layoutX="14.0" layoutY="50.0" prefHeight="700.0" prefWidth="600.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="50.0">
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Name: " />
       <TextField fx:id="username_fld" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Client Email" />

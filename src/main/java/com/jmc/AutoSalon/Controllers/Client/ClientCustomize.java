@@ -2,31 +2,48 @@ package com.jmc.AutoSalon.Controllers.Client;
 
 import com.jmc.AutoSalon.Models.Cars;
 import com.jmc.AutoSalon.Models.Model;
+import com.jmc.AutoSalon.Models.User;
+import com.jmc.AutoSalon.Repository.RepositorySales;
+import com.jmc.AutoSalon.Repository.RepositoryUser;
+import com.jmc.AutoSalon.Services.Interfaces.UserServiceInterface;
+import com.jmc.AutoSalon.Services.userService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ClientCustomize implements Initializable {
 
+    private UserServiceInterface userService;
+
+    public ClientCustomize(){
+        this.userService = new userService();
+    }
+
     public ImageView carImg;
     public TextArea descBox;
-    public Pagination mainPage;
     @FXML
     private AnchorPane costumizePane;
 
@@ -82,17 +99,8 @@ public class ClientCustomize implements Initializable {
 
     @FXML
     private TableColumn<Cars, Date> perditesuarColumn;
-    ObservableList<Cars>carsTable = FXCollections.observableArrayList();
 
-    private final int rowsPerPage = 8;
 
-    private Node createPage(int pageIndex) {
-        mainPage.setPageCount(carsTable.size() / rowsPerPage + 1);
-        int fromIndex = pageIndex * rowsPerPage;
-        int toIndex = Math.min(fromIndex + rowsPerPage, carsTable.size());
-        tabelaStock.setItems(FXCollections.observableArrayList(carsTable.subList(fromIndex, toIndex)));
-        return tabelaStock;
-    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         llojiMakines.getItems().addAll("Audi", "BMW", "MercedesBenz");
@@ -124,7 +132,7 @@ public class ClientCustomize implements Initializable {
 
     @FXML
     private void handleDergoButton(ActionEvent event) {
-        if(!carsTable.isEmpty()) { carsTable.clear(); }
+        tabelaStock.getItems().clear();
         String selectedCarName = llojiMakines.getValue();
         String selectedModel = modeliMakines.getValue();
         String selectedColor = ngjyrat.getValue();
@@ -152,17 +160,20 @@ public class ClientCustomize implements Initializable {
                 String carColor = result.getString("color");
                 double carMaxSpeed = result.getDouble("max_speed");
                 int carYear = result.getInt("year_c");
+                int quantity = result.getInt("quantity");
                 String carImage = result.getString("car_image");
                 Date carInsertedOn = result.getDate("inserted_on");
                 Date carUpdatedOn = result.getDate("updated_on");
 
+                if(quantity == 0){
+                    carName = carName + " (Out of Stock)";
+                }
 
-                Cars car = new Cars(carId, carName, carModel, carType, carPrice, carColor, carMaxSpeed, carYear, carImage, carInsertedOn, carUpdatedOn);
-                carsTable.add(car);
+                Cars car = new Cars(carId, carName, carModel, carType, carPrice, carColor, carMaxSpeed, carYear,quantity, carImage, carInsertedOn, carUpdatedOn);
+                tabelaStock.getItems().add(car);
                 System.out.println(car);
             }
             conn.close();
-            mainPage.setPageFactory(this::createPage);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -180,12 +191,14 @@ public class ClientCustomize implements Initializable {
             Cars car = row.getItem();
             if(car != null){
                 String model = car.getModel();
+                String name = car.getName();
+                String type = car.getType();
                 if(model == "SEDAN") {
                     model = "Sedan";
                 } else if (model == "SUV") {
                     model = "suv";
                 }
-                System.out.println(car + " " + car.getCarImage());
+                System.out.println(car.toString() + " " + car.getCarImage());
                 carImg.setImage(new Image((getClass().getResource("/Images/" + model + "/" + car.getCarImage())).toString()));
                 descBox.setText(car.toString());
             }
@@ -193,5 +206,64 @@ public class ClientCustomize implements Initializable {
 
         }
     }
+
+    @FXML
+    public void buyButton(ActionEvent event) {
+
+            Cars selectedItem = tabelaStock.getSelectionModel().getSelectedItem();
+
+            if (selectedItem != null) {
+                int carId = selectedItem.getSerial();
+
+                    try{
+                        RepositorySales repositorySales = new RepositorySales();
+                        if(repositorySales.isQuantityZero(carId)){
+                            Alert alert = new Alert(Alert.AlertType.ERROR);
+                            alert.setTitle("Error");
+                            alert.setHeaderText(null);
+                            alert.setContentText("We are out of stock");
+                            alert.showAndWait();
+                            return;
+                        }
+
+                        Stage paymentStage = new Stage();
+                        paymentStage.setTitle("Payment Form");
+
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Client/Payment.fxml"));
+                        Parent paymentFormRoot = loader.load();
+                        paymentStage.setScene(new Scene(paymentFormRoot));
+
+                        ClientPaymentController clientPaymentController = loader.getController();
+
+                        paymentStage.initModality(Modality.APPLICATION_MODAL);
+                        paymentStage.initOwner(((Node) event.getSource()).getScene().getWindow());
+                        paymentStage.showAndWait();
+
+                    boolean paymentSuccessful = clientPaymentController.processPayment();
+                        if (paymentSuccessful) {
+                            int userId = this.userService.get_user_id();
+                            Date purchaseDate = Date.valueOf(LocalDate.now());
+                            double price = selectedItem.getPrice();
+
+                            repositorySales.insertSale(userId, carId, purchaseDate, price);
+                            repositorySales.decrement_quantity(carId);
+
+                            Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+                            successAlert.setTitle("Purchase Successful");
+                            successAlert.setHeaderText(null);
+                            successAlert.setContentText("The item has been purchased successfully!");
+                            successAlert.showAndWait();
+
+                            tabelaStock.refresh();
+                        } else {
+                            System.out.println("Payment was not successful");
+                        }
+                    } catch (IOException | SQLException e) {
+                        System.out.println();
+                    }
+            }
+    }
+
+
 
 }

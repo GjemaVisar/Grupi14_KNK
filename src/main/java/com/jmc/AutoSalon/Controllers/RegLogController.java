@@ -1,5 +1,6 @@
 package com.jmc.AutoSalon.Controllers;
 
+import com.jmc.AutoSalon.Models.Model;
 import com.jmc.AutoSalon.Models.User;
 import com.jmc.AutoSalon.Services.Interfaces.UserServiceInterface;
 import com.jmc.AutoSalon.Services.PasswordHasher;
@@ -18,8 +19,11 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.controlsfx.control.action.Action;
+import org.controlsfx.control.action.AnnotatedCheckAction;
 
 import java.io.IOException;
 import java.net.URL;
@@ -41,6 +45,7 @@ public class RegLogController implements Initializable {
 
     @FXML
     private TextField usernameTxt;
+    public static boolean current_language;
 
     @FXML
     private TextField emailTxt;
@@ -63,6 +68,8 @@ public class RegLogController implements Initializable {
     @FXML
     private Button login;
 
+    @FXML
+    private Pane fullStage;
 
     @FXML
     public void signup(ActionEvent e) throws IOException, SQLException {
@@ -70,8 +77,8 @@ public class RegLogController implements Initializable {
         String email = this.emailTxt.getText();
         String password = this.passTxt.getText();
         String cpassword = this.cpassTxt.getText();
-        boolean status = UserAuthService.register(username,email,password,cpassword);
-        if(status) {
+        boolean status = UserAuthService.register(username, email, password, cpassword);
+        if (status) {
             try {
                 User user = this.userService.signup(username, password);
                 if (user == null) {
@@ -81,13 +88,12 @@ public class RegLogController implements Initializable {
                 this.emailTxt.setText("");
                 this.passTxt.setText("");
                 this.cpassTxt.setText("");
-                System.out.println("User inserted successfuly");
+                System.out.println("User inserted successfully");
             } catch (SQLException se) {
                 System.out.println("Could not create user: " + se.getMessage());
             }
-        }
-        else{
-            System.out.println("Cannot create user!");
+        } else {
+            Model.getInstance().getViewFactory().showAlert("Cannot create user!",UserAuthService.signup_error);
         }
     }
 
@@ -116,14 +122,35 @@ public class RegLogController implements Initializable {
                 }
             }
         });
-        return;
+
+         this.fullStage.setOnKeyPressed(event -> {
+            if (event.isControlDown() && event.getCode() == KeyCode.L) {
+                this.language_switch(event);
+            }
+
+        });
+        return ;
+
+
+
     }
+
 
     private void translate(){
         Locale currentLocale = Locale.getDefault();
         ResourceBundle translate = ResourceBundle.getBundle("Translations.content",currentLocale);
         this.set_translations(translate);
 
+    }
+
+    @FXML
+    public void language_switch(KeyEvent ke){
+        ActionEvent e = new ActionEvent();
+        if(RegLogController.current_language){
+            this.handleShqipBtn(e);
+        }else{
+            this.handleEnglishBtn(e);
+        }
     }
 
     private void set_translations(ResourceBundle translate){
@@ -140,11 +167,13 @@ public class RegLogController implements Initializable {
     @FXML
     private void handleShqipBtn(ActionEvent event) {
         Locale.setDefault(new Locale("sq","AL"));
+        RegLogController.current_language = false;
         this.translate();
     }
     @FXML
     private void handleEnglishBtn(ActionEvent event) {
         Locale.setDefault(new Locale("en"));
+        RegLogController.current_language = true;
         this.translate();
     }
 }

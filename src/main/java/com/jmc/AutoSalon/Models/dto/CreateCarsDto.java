@@ -13,6 +13,8 @@ public class CreateCarsDto {
 
     private int yearMade;
 
+    private int quantity;
+
     private String carImage;
     private java.sql.Date insertedOn;
     private java.sql.Date updatedOn;
@@ -27,7 +29,7 @@ public class CreateCarsDto {
     }
 
     public CreateCarsDto(String name, String model, String type,
-                         double price, String color, double maxSpeed, int yearMade, String carImage, Date insertedOn, Date updatedOn) {
+                         double price, String color, double maxSpeed, int yearMade,int quantity, String carImage, Date insertedOn, Date updatedOn) {
         this.name = name;
         this.model = model;
         this.type = type;
@@ -35,6 +37,7 @@ public class CreateCarsDto {
         this.color = color;
         this.maxSpeed = maxSpeed;
         this.yearMade = yearMade;
+        this.quantity = quantity;
         this.carImage = carImage;
         this.insertedOn = insertedOn;
         this.updatedOn = updatedOn;
@@ -94,6 +97,14 @@ public class CreateCarsDto {
 
     public void setcarImage(String carImage) {
         this.carImage = carImage;
+    }
+
+    public void setQuantity(int quantity){
+        this.quantity = quantity;
+    }
+
+    public int getQuantity(){
+        return this.quantity;
     }
 
     public Date getinsertedOn() {

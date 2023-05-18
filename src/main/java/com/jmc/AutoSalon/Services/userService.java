@@ -1,6 +1,6 @@
 package com.jmc.AutoSalon.Services;
 
-import com.jmc.AutoSalon.Models.Model;
+import com.jmc.AutoSalon.Models.Cars;
 import com.jmc.AutoSalon.Models.User;
 import com.jmc.AutoSalon.Models.dto.CreateUserDto;
 import com.jmc.AutoSalon.Repository.Interfaces.UserRepositoryInterface;
@@ -11,10 +11,12 @@ import javafx.scene.control.TableView;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.sql.SQLException;
-import java.util.Objects;
+import java.util.List;
 
 public class userService implements UserServiceInterface {
     private UserRepositoryInterface userRepository;
+
+    private static int current_user_id;
 
     public userService() {
         this.userRepository = new RepositoryUser();
@@ -29,24 +31,29 @@ public class userService implements UserServiceInterface {
 
         Boolean status = UserAuthService.login(loginUser,username,password);
         if(status){
+            userService.current_user_id = loginUser.getId();
             return loginUser;
         }
         return null;
     }
 
     @Override
-    public User signup(String username,String password) throws SQLException {
-            String saltedHash = PasswordHasher.hashPassword(password);
-            Boolean is_admin = false;
-            Date date_registered = Date.valueOf(LocalDate.now());
-            CreateUserDto user = new CreateUserDto(username, saltedHash,is_admin, date_registered);
-            this.userRepository.insert(user);
-            return RepositoryUser.getByUsername(username);
-
+    public int get_user_id(){
+        return userService.current_user_id;
     }
+    @Override
+    public User signup(String username, String password) throws SQLException {
+        String saltedHash = PasswordHasher.hashPassword(password);
+        boolean isAdmin = false;
+        Date dateRegistered = Date.valueOf(LocalDate.now());
+        CreateUserDto user = new CreateUserDto(username, saltedHash, isAdmin, dateRegistered);
+        this.userRepository.insert(user);
+        return RepositoryUser.getByUsername(username);
+    }
+
     public User createClient(String username,String password) throws SQLException {
         String saltedHash = PasswordHasher.hashPassword(password);
-        Boolean is_admin = false;
+        Boolean is_admin = true;
         Date date_registered = Date.valueOf(LocalDate.now());
         CreateUserDto user = new CreateUserDto(username, saltedHash,is_admin, date_registered);
         this.userRepository.insert(user);
@@ -61,6 +68,17 @@ public class userService implements UserServiceInterface {
     @Override
     public void deleteUser(int id) throws SQLException{
         this.userRepository.deleteUser(id);
+    }
+    @Override
+    public String get_username() throws SQLException{
+        String username = this.userRepository.getByUsernameId(current_user_id);
+
+        return username;
+    }
+
+    @Override
+    public List<Cars> your_car() throws SQLException{
+        return this.userRepository.your_car(current_user_id);
     }
 
 }
