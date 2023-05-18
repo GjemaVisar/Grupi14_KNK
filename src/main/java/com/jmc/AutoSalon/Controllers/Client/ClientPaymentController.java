@@ -5,6 +5,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class ClientPaymentController {
     public TextField bankAcc_lbl;
@@ -24,6 +25,10 @@ public class ClientPaymentController {
             successAlert.setHeaderText(null);
             successAlert.setContentText("Payment was successful!");
             successAlert.showAndWait();
+
+            Stage paymentStage = (Stage) bankAcc_lbl.getScene().getWindow();
+            paymentStage.close();
+
         } else {
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
             errorAlert.setTitle("Payment Error");
