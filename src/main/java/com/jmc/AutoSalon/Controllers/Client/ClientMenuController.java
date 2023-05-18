@@ -77,4 +77,15 @@ public class ClientMenuController implements Initializable {
             Platform.exit();
         }
     }
+    @FXML
+    public void aboutUs(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/FXML/help.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
