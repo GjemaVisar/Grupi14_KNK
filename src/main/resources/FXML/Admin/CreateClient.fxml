@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -22,9 +21,8 @@
       <Text layoutX="10.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password:" />
       <PasswordField fx:id="cfpassword_fld" layoutX="10.0" layoutY="157.0" />
       <Button fx:id="createClient_btn" mnemonicParsing="false" text="Create New Client" />
-      <Label fx:id="error_lbl" styleClass="error_lbl" text="error:" />
    </VBox>
-   <ImageView fitHeight="342.0" fitWidth="356.0" layoutX="472.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fitHeight="375.0" fitWidth="386.0" layoutX="472.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../../Images/newUser.png" />
       </image>
