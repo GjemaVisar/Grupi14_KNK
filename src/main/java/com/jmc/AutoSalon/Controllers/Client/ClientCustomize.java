@@ -254,7 +254,7 @@ public class ClientCustomize implements Initializable {
                             successAlert.setContentText("The item has been purchased successfully!");
                             successAlert.showAndWait();
 
-                            tabelaStock.refresh();
+                            this.tabelaStock.refresh();
                         } else {
                             System.out.println("Payment was not successful");
                         }

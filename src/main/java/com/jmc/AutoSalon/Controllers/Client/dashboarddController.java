@@ -70,7 +70,7 @@ public class dashboarddController implements Initializable {
 
         tabela_view.getItems().addAll(carsList);
 
-        tabela_view.refresh();
+        this.tabela_view.refresh();
     }
 
     public void showMostSoldCars(){
