@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane prefHeight="700.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Client.dashboarddController">
+<AnchorPane prefHeight="696.0" prefWidth="1156.0" style="-fx-background-color: #ADD8E6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Client.dashboarddController">
    <BorderPane layoutX="65.0" layoutY="36.0" prefHeight="200.0" prefWidth="250.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="40.0">
       <bottom>
          <Label fx:id="username_lbl" text="Hi, Client" BorderPane.alignment="CENTER">
@@ -40,7 +40,7 @@
    </TitledPane>
    <HBox layoutX="50.0" layoutY="350.0" prefHeight="300.0" prefWidth="800.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="350.0">
       <children>
-         <ScrollPane hbarPolicy="AS_NEEDED" prefHeight="200" prefWidth="800">
+         <ScrollPane hbarPolicy="AS_NEEDED" prefHeight="306.0" prefWidth="1050.0">
             <FlowPane fx:id="mostSoldCarsFlowPane" alignment="TOP_LEFT" prefHeight="200" prefWidth="750.0" />
          </ScrollPane>
       </children>
