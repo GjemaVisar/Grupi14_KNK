@@ -30,7 +30,7 @@
       </Text>
       <ImageView fitHeight="62.0" fitWidth="75.0" layoutX="342.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true" style="visibility: 0.6;">
          <image>
-            <Image url="@../Images/gmail.png" />
+            <Image url="@../Images/mail.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="75.0" fitWidth="82.0" layoutX="327.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
