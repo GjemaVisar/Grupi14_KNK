@@ -50,9 +50,9 @@
         </columns>
       </TableView>
       <Button layoutX="772.0" layoutY="320.0" mnemonicParsing="false" onAction="#buyButton" prefHeight="25.0" prefWidth="47.0" text="Buy" />
-      <ImageView fitHeight="142.0" fitWidth="166.0" layoutX="94.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="176.0" fitWidth="216.0" layoutX="94.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../Images/kerkoMakin.png" />
+            <Image url="@../../Images/kerkoMakine.png" />
          </image>
       </ImageView>
    </AnchorPane>
