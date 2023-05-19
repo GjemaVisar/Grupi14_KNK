@@ -197,7 +197,19 @@ public class InsertCarController implements Initializable {
                     InsertCarController.speed_to_edit = String.valueOf(newSelect.getMaxSpeed());
                     InsertCarController.quantity_to_edit = String.valueOf(newSelect.getQuantity());
                     InsertCarController.image_to_edit  = newSelect.getCarImage();
-                    InsertCarController.image_to_pass = "/Images/" + newSelect.getModel() + "/" + newSelect.getCarImage();
+
+                    String model = newSelect.getModel();
+
+                    if(Objects.equals(model, "SUV")){
+                         model = "suv";
+                    }else if(Objects.equals(model, "SEDAN")){
+                         model = "Sedan";
+                    }else{
+                         model = "LUXURY";
+                    }
+
+                    InsertCarController.image_to_pass = "/Images/" + model + "/" + newSelect.getCarImage();
+
 
                 }
 
@@ -206,8 +218,10 @@ public class InsertCarController implements Initializable {
 
 
         }
-        //System.out.println(this.id_to_edit);
+        this.car_table.refresh();
+
     }
+
 
 
     @Override

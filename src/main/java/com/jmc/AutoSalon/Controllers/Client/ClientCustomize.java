@@ -209,12 +209,9 @@ public class ClientCustomize implements Initializable {
 
     @FXML
     public void buyButton(ActionEvent event) {
-
             Cars selectedItem = tabelaStock.getSelectionModel().getSelectedItem();
-
             if (selectedItem != null) {
                 int carId = selectedItem.getSerial();
-
                     try{
                         RepositorySales repositorySales = new RepositorySales();
                         if(repositorySales.isQuantityZero(carId)){
@@ -239,24 +236,16 @@ public class ClientCustomize implements Initializable {
                         paymentStage.initOwner(((Node) event.getSource()).getScene().getWindow());
                         paymentStage.showAndWait();
 
-                    boolean paymentSuccessful = clientPaymentController.processPayment();
+                    boolean paymentSuccessful = clientPaymentController.get_status();
                         if (paymentSuccessful) {
+                            paymentStage.close();
                             int userId = this.userService.get_user_id();
                             Date purchaseDate = Date.valueOf(LocalDate.now());
                             double price = selectedItem.getPrice();
 
                             repositorySales.insertSale(userId, carId, purchaseDate, price);
                             repositorySales.decrement_quantity(carId);
-
-                            Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
-                            successAlert.setTitle("Purchase Successful");
-                            successAlert.setHeaderText(null);
-                            successAlert.setContentText("The item has been purchased successfully!");
-                            successAlert.showAndWait();
-
                             tabelaStock.refresh();
-                        } else {
-                            System.out.println("Payment was not successful");
                         }
                     } catch (IOException | SQLException e) {
                         System.out.println();

@@ -37,6 +37,9 @@ public class AdminMenuController implements Initializable {
     @FXML
     private Button logout_btn;
 
+    @FXML
+    private Button dashboard;
+
     private final KeyCombination closeAccelerator = new KeyCodeCombination(KeyCode.E, KeyCombination.CONTROL_DOWN);
 
     @FXML
@@ -56,9 +59,14 @@ public class AdminMenuController implements Initializable {
         create_client_btn.setOnAction(event -> this.onCreateClient());
         clients_btn.setOnAction(event -> this.onClients());
         insert_btn.setOnAction(event -> this.onInsert());
+        dashboard.setOnAction(event -> {this.onDashboard();});
 
     }
 
+
+    private void onDashboard(){
+        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.DASHBOARD);
+    }
 
     private void onInsert(){
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.INSERT);

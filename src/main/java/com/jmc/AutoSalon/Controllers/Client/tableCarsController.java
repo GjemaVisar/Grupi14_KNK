@@ -149,12 +149,13 @@ class CustomPane extends Pane {
                 "    -fx-background-radius: 3,2,2,2;\n" +
                 "    -fx-padding: 12 30 12 30;\n" +
                 "    -fx-text-fill: white;");
-        btn.setOnAction((new EventHandler() {
-            @Override
-            public void handle(Event event) {
-                System.out.println("You clicked: " + car);
-            }
-        }));
+
+//        btn.setOnAction((new EventHandler() {
+//            //@Override
+//           // public void handle(Event event) {
+//                System.out.println("You clicked: " + car);
+//            //}
+//        }));
         label.setLayoutX(450);
         label.setLayoutY(112.5);
         super.getChildren().addAll(imgV, label, btn);

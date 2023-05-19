@@ -72,7 +72,7 @@ public class EditCarController implements Initializable {
         Optional<ButtonType> result = alert.showAndWait();
         if(result.get() == yes){
             this.carService.update_car(this.id_passed,new_type,new_price,new_speed,new_quantity,new_image);
-            Model.getInstance().getViewFactory().closeWindow();
+            alert.close();
         }else{
             return;
         }
@@ -126,7 +126,6 @@ public class EditCarController implements Initializable {
         this.edit_speed.setText(this.speed);
         this.edit_quantity.setText(this.quantity);
         this.edit_image.setText(this.image_edit);
-        //this.image.setImage(new Image((getClass().getResource(InsertCarController.image_to_pass)).toString()));
 
     }
 }
