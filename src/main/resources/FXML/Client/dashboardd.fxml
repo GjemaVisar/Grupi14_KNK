@@ -3,16 +3,19 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
 
-<AnchorPane prefHeight="750.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Client.dashboarddController">
-   <BorderPane layoutX="65.0" layoutY="36.0" prefHeight="200.0" prefWidth="250.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="40.0">
+<AnchorPane prefHeight="700.0" prefWidth="850.0" style="-fx-background-color: #ADD8E6;" stylesheets="@../../Styles/userDashboard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Client.dashboarddController">
+   <BorderPane fx:id="account" layoutX="65.0" layoutY="36.0" prefHeight="200.0" prefWidth="250.0" styleClass="account" stylesheets="@../../Styles/userDashboard.css" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="40.0">
       <bottom>
-         <Label fx:id="username_lbl" text="Hi, Client" BorderPane.alignment="CENTER">
+         <Label fx:id="username_lbl" styleClass="username_lbl" stylesheets="@../../Styles/userDashboard.css" text="Hi, Client" BorderPane.alignment="CENTER">
             <BorderPane.margin>
                <Insets bottom="20.0" />
             </BorderPane.margin>
@@ -22,9 +25,9 @@
          <FontAwesomeIconView glyphName="USER" size="80" wrappingWidth="57.30000019073486" BorderPane.alignment="CENTER" />
       </center>
    </BorderPane>
-   <TitledPane fx:id="tabelaBlerjet" animated="false" layoutX="386.0" layoutY="52.0" text="Blerjet" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="40.0">
+   <TitledPane fx:id="tabelaBlerjet" animated="false" layoutX="386.0" layoutY="52.0" prefHeight="246.0" prefWidth="453.0" styleClass="tabelaBlerjet" stylesheets="@../../Styles/userDashboard.css" text="Blerjet" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="40.0">
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="170.0" prefWidth="450.0">
-         <TableView fx:id="tabela_view" prefHeight="166.0" prefWidth="446.0">
+         <TableView fx:id="tabela_view" prefHeight="166.0" prefWidth="446.0" styleClass="tabela-view" stylesheets="@../../Styles/userDashboard.css">
             <columns>
                <TableColumn fx:id="name_column" prefWidth="75.0" text="Car_Name" />
                <TableColumn fx:id="model_column" prefWidth="75.0" text="Car_Model" />
@@ -35,4 +38,11 @@
          </TableView>
       </AnchorPane>
    </TitledPane>
+   <HBox fx:id="hbox_container" layoutX="50.0" layoutY="350.0" prefHeight="300.0" prefWidth="800.0" styleClass="hbox_container" stylesheets="@../../Styles/userDashboard.css" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="350.0">
+      <children>
+         <ScrollPane hbarPolicy="AS_NEEDED" prefHeight="306.0" prefWidth="1050.0">
+            <FlowPane fx:id="mostSoldCarsFlowPane" alignment="TOP_LEFT" prefHeight="200" prefWidth="750.0" />
+         </ScrollPane>
+      </children>
+   </HBox>
 </AnchorPane>

@@ -1,7 +1,10 @@
 package com.jmc.AutoSalon.Repository;
 
+import com.jmc.AutoSalon.Models.Cars;
 import com.jmc.AutoSalon.Repository.Interfaces.SalesRepositoryInterface;
 import com.jmc.AutoSalon.Services.ConnectionUtil;
+import javafx.collections.ObservableList;
+import javafx.scene.chart.PieChart;
 
 import java.sql.*;
 
@@ -51,5 +54,23 @@ public class RepositorySales implements SalesRepositoryInterface {
             System.out.println(e.getMessage());
         }
         return false;
+    }
+
+    @Override
+    public void get_sales_Data(ObservableList<PieChart.Data> list) throws  SQLException{
+        String sql = "SELECT c.c_name as name, sum(s.price) as profit FROM cars c inner join sales s on c.numri_serik = s.car_id group by c.c_name";
+        try(Connection conn = ConnectionUtil.getConnection();
+        PreparedStatement stm = conn.prepareStatement(sql);){
+            ResultSet res = stm.executeQuery();
+            while(res.next()){
+                String name = res.getString("name");
+                Double profit = res.getDouble("profit");
+                PieChart.Data data = new PieChart.Data(name,profit);
+                list.add(data);
+            }
+
+        }catch(SQLException se){
+            System.out.println(se.getMessage());
+        }
     }
 }

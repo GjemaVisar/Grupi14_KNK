@@ -1,13 +1,17 @@
 package com.jmc.AutoSalon.Views;
 
 import com.jmc.AutoSalon.Controllers.Admin.AdminController;
+import com.jmc.AutoSalon.Controllers.Admin.AdminDashboardController;
 import com.jmc.AutoSalon.Controllers.Admin.EditCarController;
 import com.jmc.AutoSalon.Controllers.Admin.InsertCarController;
 import com.jmc.AutoSalon.Controllers.Client.ClientController;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.input.KeyCode;
@@ -17,6 +21,7 @@ import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -38,6 +43,8 @@ public class ViewFactory {
     private final ObjectProperty<AdminMenuOptions> adminSelectedMenuItem;
     private AnchorPane createClientView;
     private AnchorPane clientsView;
+
+    private AnchorPane adminDashboard;
 
     private AnchorPane insertCarView;
 
@@ -138,6 +145,16 @@ public class ViewFactory {
         }
         return clientsView;
     }
+    public AnchorPane getAdminDashboardView(){
+        if(this.adminDashboard == null){
+            try {
+                this.adminDashboard = new FXMLLoader(getClass().getResource("/FXML/Admin/admin_dashboard.fxml")).load();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return adminDashboard;
+    }
 
     public AnchorPane getInsertView(){
         if(this.insertCarView == null){
@@ -161,6 +178,8 @@ public class ViewFactory {
     }
 
 
+
+
     public void showAdminWindow(){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/Admin/Admin.fxml"));
         AdminController controller = new AdminController();
@@ -169,23 +188,17 @@ public class ViewFactory {
     }
 
     public void closeWindow(){
-        /* sahere qe shtohet nje pane per editim, rritet edhe shuma. Shuma nis prej zeros
-         kjo variabel na tregon sa stage shtese duhet me i hjek */
         int num_to_delete = InsertCarController.sum;
 
-        //fillimi eshte gjithmone zero, pasi qe te mbyllet login, krijohet stage i ri me indeks zero ne listen open stages
+
         int beginning = 0 ;
 
-        //caktojme limitin per loop, me dit sa anetare duhemi me i fshi, nese jon 4 stages ne varg dihet se 3 jon shtese, pra deri
-        // te indeksi 3, size - 1
         int end = this.open_stages.size()-1;
 
-        // nese ka pane shtese te shkaktuara si ne rastin e car edit, fshiji njehere ato deri sa te mbet me vec stage kryesore
             for(;end>beginning;end--){
                 this.open_stages.remove(this.open_stages.get(end));
                 }
 
-            //stage kryesore fshihet.Shkojme ne login!
             Stage stage = this.open_stages.get(beginning);
             this.closeStage(stage);
     }
@@ -211,6 +224,7 @@ public class ViewFactory {
         stage.show();
         this.open_stages.add(stage);
     }
+
 
     public void terminate_app_esc(){
         this.showAlert("Terminate Program","Are you sure you want to exit?");

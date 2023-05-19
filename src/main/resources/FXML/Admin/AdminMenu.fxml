@@ -10,19 +10,20 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" stylesheets="@../../Styles/ClientMenu.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Admin.AdminMenuController">
-    <AnchorPane prefHeight="749.0" prefWidth="180.0" styleClass="left_container">
-        <VBox prefHeight="80.0" prefWidth="160.0" styleClass="title_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="798.0" prefWidth="189.0" stylesheets="@../../Styles/ClientMenu.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Admin.AdminMenuController">
+    <AnchorPane prefHeight="848.0" prefWidth="184.0" styleClass="left_container">
+        <VBox prefHeight="80.0" prefWidth="160.0" styleClass="title_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="FIEKmotors" />
         </VBox>
         <VBox prefHeight="400.0" prefWidth="160.0" styleClass="menu_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <Button fx:id="dashboard" mnemonicParsing="false" text="Dashboard" />
             <Button fx:id="create_client_btn" mnemonicParsing="false" text="CreateClient" />
             <Button fx:id="clients_btn" mnemonicParsing="false" text="Clients" />
             <Button fx:id="insert_btn" mnemonicParsing="false" text="Insert" />
             <Line endX="120.0" />
             <Button fx:id="logout_btn" mnemonicParsing="false" onAction="#logout" styleClass="alt_menu_btn" text="Logout" />
         </VBox>
-      <MenuBar fx:id="fileBtn" layoutY="67.0" prefHeight="26.0" prefWidth="180.0">
+      <MenuBar fx:id="fileBtn" layoutY="1.0" prefHeight="26.0" prefWidth="189.0">
          <menus>
              <Menu mnemonicParsing="false" text="File">
                  <items>

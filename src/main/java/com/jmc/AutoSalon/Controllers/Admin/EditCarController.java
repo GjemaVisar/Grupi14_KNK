@@ -39,6 +39,8 @@ public class EditCarController implements Initializable {
     @FXML
     private ImageView image;
 
+    public static boolean refresh_status;
+
     private int id_passed;
     private String type;
     private String price;
@@ -72,8 +74,10 @@ public class EditCarController implements Initializable {
         Optional<ButtonType> result = alert.showAndWait();
         if(result.get() == yes){
             this.carService.update_car(this.id_passed,new_type,new_price,new_speed,new_quantity,new_image);
-            Model.getInstance().getViewFactory().closeWindow();
+            alert.close();
+            EditCarController.refresh_status = true;
         }else{
+            EditCarController.refresh_status = false;
             return;
         }
     }
@@ -97,8 +101,10 @@ public class EditCarController implements Initializable {
         Optional<ButtonType> result = alert.showAndWait();
         if(result.get() == yes){
             this.carService.deleteCar(this.id_passed);
-            Model.getInstance().getViewFactory().closeWindow();
+            alert.close();
+            EditCarController.refresh_status = true;
         }else{
+            EditCarController.refresh_status = false;
             return;
         }
     }
@@ -121,12 +127,13 @@ public class EditCarController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println(this.type);
+        System.out.println(this.price);
         this.edit_type.setText(this.type);
         this.edit_price.setText(this.price);
         this.edit_speed.setText(this.speed);
         this.edit_quantity.setText(this.quantity);
         this.edit_image.setText(this.image_edit);
-        //this.image.setImage(new Image((getClass().getResource(InsertCarController.image_to_pass)).toString()));
 
     }
 }

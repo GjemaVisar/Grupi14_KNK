@@ -12,6 +12,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 
 public class userService implements UserServiceInterface {
     private UserRepositoryInterface userRepository;
@@ -51,15 +52,15 @@ public class userService implements UserServiceInterface {
         return RepositoryUser.getByUsername(username);
     }
 
-    public User createClient(String username,String password) throws SQLException {
+    public User createClient(String username,String password,Boolean status) throws SQLException {
         String saltedHash = PasswordHasher.hashPassword(password);
-        Boolean is_admin = true;
         Date date_registered = Date.valueOf(LocalDate.now());
-        CreateUserDto user = new CreateUserDto(username, saltedHash,is_admin, date_registered);
+        CreateUserDto user = new CreateUserDto(username, saltedHash,status, date_registered);
         this.userRepository.insert(user);
         return RepositoryUser.getByUsername(username);
 
     }
+
     @Override
     public void fillUserTable(TableView<User> tbl,Boolean statusi) throws SQLException {
         this.userRepository.getAllUsers(tbl,statusi);

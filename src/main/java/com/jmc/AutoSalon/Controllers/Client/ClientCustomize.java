@@ -100,9 +100,68 @@ public class ClientCustomize implements Initializable {
     @FXML
     private TableColumn<Cars, Date> perditesuarColumn;
 
+    @FXML
+    private Button shqipBtn;
+
+    @FXML
+    private Button englishBtn;
+
+    @FXML
+    private Label cakto_makinen;
+
+    @FXML
+    private Label cakto_modelin;
+
+    @FXML
+    private Label cakto_label;
+
+
+    @FXML
+    private Label cakto_ngjyren;
+
+    @FXML
+    private Label cakto_vitin;
+
+    @FXML
+    private Button kerko;
+
+    @FXML
+    private Button buy;
+
+
+    @FXML
+    private void handleShqipBtn(){
+        Locale.setDefault(new Locale("sq","AL"));
+        this.translate();
+    }
+    @FXML
+    private void handleEnglishBtn(){
+        Locale.setDefault(new Locale("en"));
+        this.translate();
+    }
+
+    private void translate(){
+        Locale currentLocale = Locale.getDefault();
+        ResourceBundle translate = ResourceBundle.getBundle("Translations.content",currentLocale);
+        this.setTranslations(translate);
+    }
+    private void setTranslations(ResourceBundle translate){
+        cakto_makinen.setText(translate.getString("cakto_makinen"));
+        cakto_modelin.setText(translate.getString("cakto_modelin"));
+        cakto_label.setText(translate.getString("cakto_label"));
+        cakto_ngjyren.setText(translate.getString("cakto_ngjyren"));
+        cakto_vitin.setText(translate.getString("cakto_vitin"));
+        kerko.setText(translate.getString("kerko"));
+        buy.setText(translate.getString("buy"));
+
+
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Locale locale = Locale.getDefault();
+        ResourceBundle translate = ResourceBundle.getBundle("Translations.content", locale);
+
         llojiMakines.getItems().addAll("Audi", "BMW", "MercedesBenz");
         modeliMakines.getItems().addAll("SUV", "LUXURY", "SEDAN");
         ngjyrat.getItems().addAll("White", "Black", "Blue", "Grey");
@@ -167,6 +226,7 @@ public class ClientCustomize implements Initializable {
 
                 if(quantity == 0){
                     carName = carName + " (Out of Stock)";
+                    this.tabelaStock.refresh();
                 }
 
                 Cars car = new Cars(carId, carName, carModel, carType, carPrice, carColor, carMaxSpeed, carYear,quantity, carImage, carInsertedOn, carUpdatedOn);
@@ -202,19 +262,14 @@ public class ClientCustomize implements Initializable {
                 carImg.setImage(new Image((getClass().getResource("/Images/" + model + "/" + car.getCarImage())).toString()));
                 descBox.setText(car.toString());
             }
-
-
         }
     }
 
     @FXML
     public void buyButton(ActionEvent event) {
-
             Cars selectedItem = tabelaStock.getSelectionModel().getSelectedItem();
-
             if (selectedItem != null) {
                 int carId = selectedItem.getSerial();
-
                     try{
                         RepositorySales repositorySales = new RepositorySales();
                         if(repositorySales.isQuantityZero(carId)){
@@ -239,24 +294,16 @@ public class ClientCustomize implements Initializable {
                         paymentStage.initOwner(((Node) event.getSource()).getScene().getWindow());
                         paymentStage.showAndWait();
 
-                    boolean paymentSuccessful = clientPaymentController.processPayment();
+                    boolean paymentSuccessful = clientPaymentController.get_status();
                         if (paymentSuccessful) {
+                            paymentStage.close();
                             int userId = this.userService.get_user_id();
                             Date purchaseDate = Date.valueOf(LocalDate.now());
                             double price = selectedItem.getPrice();
 
                             repositorySales.insertSale(userId, carId, purchaseDate, price);
                             repositorySales.decrement_quantity(carId);
-
-                            Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
-                            successAlert.setTitle("Purchase Successful");
-                            successAlert.setHeaderText(null);
-                            successAlert.setContentText("The item has been purchased successfully!");
-                            successAlert.showAndWait();
-
                             tabelaStock.refresh();
-                        } else {
-                            System.out.println("Payment was not successful");
                         }
                     } catch (IOException | SQLException e) {
                         System.out.println();
