@@ -15,8 +15,8 @@
 
 <AnchorPane prefHeight="741.0" prefWidth="1175.0" style="-fx-background-color:  #ADD8E6;" styleClass="clients_container" stylesheets="@../../Styles/Clients.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Admin.ClientsController">
    <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clients" />
-   <ListView fx:id="clients_listview" layoutX="610.0" layoutY="56.0" prefHeight="546.0" prefWidth="516.0" style="-fx-background-color: #ADD8E6;" AnchorPane.leftAnchor="610.0" AnchorPane.topAnchor="56.0" />
-   <TableView fx:id="user_table" editable="true" layoutX="655.0" layoutY="113.0" onMousePressed="#getIdPressed" prefHeight="474.0" prefWidth="412.0">
+   <ListView fx:id="clients_listview" layoutX="427.0" layoutY="56.0" prefHeight="546.0" prefWidth="516.0" style="-fx-background-color: #ADD8E6;" AnchorPane.leftAnchor="427.0" AnchorPane.topAnchor="56.0" />
+   <TableView fx:id="user_table" editable="true" layoutX="480.0" layoutY="103.0" onMousePressed="#getIdPressed" prefHeight="474.0" prefWidth="410.0" style="-fx-background-color: white;">
      <columns>
        <TableColumn fx:id="user_id" prefWidth="75.0" text="User ID" />
        <TableColumn fx:id="username" prefWidth="75.0" text="Username" />
@@ -24,8 +24,8 @@
          <TableColumn fx:id="date_registered" prefWidth="117.5999755859375" text="Date Registered" />
      </columns>
    </TableView>
-   <Button fx:id="deleteBtn" layoutX="833.0" layoutY="56.0" mnemonicParsing="false" onAction="#deleteUser" style="-fx-background-color: white;" text="DELETE" />
-   <ImageView fitHeight="351.0" fitWidth="397.0" layoutX="151.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
+   <Button fx:id="deleteBtn" layoutX="657.0" layoutY="59.0" mnemonicParsing="false" onAction="#deleteUser" style="-fx-background-color: white;" text="DELETE" />
+   <ImageView fitHeight="293.0" fitWidth="386.0" layoutX="901.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../../Images/users.png" />
       </image>
@@ -63,4 +63,9 @@
          </ImageView>
       </children>
    </Pane>
+   <ImageView fitHeight="357.0" fitWidth="342.0" layoutX="62.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../Images/clientss.png" />
+      </image>
+   </ImageView>
 </AnchorPane>
