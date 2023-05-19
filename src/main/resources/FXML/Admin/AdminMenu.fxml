@@ -51,5 +51,4 @@
 <!--            <Button fx:id="report_btn" mnemonicParsing="false" text="Report" />-->
 <!--        </VBox>-->
     </AnchorPane>
-   <Button fx:id="create_client_btn1" mnemonicParsing="false" text="CreateClient" />
 </VBox>

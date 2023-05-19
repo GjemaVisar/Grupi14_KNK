@@ -37,8 +37,12 @@ public class AdminMenuController implements Initializable {
     @FXML
     private Button logout_btn;
 
+
+
     @FXML
     private Button dashboard;
+
+
 
     private final KeyCombination closeAccelerator = new KeyCodeCombination(KeyCode.E, KeyCombination.CONTROL_DOWN);
 

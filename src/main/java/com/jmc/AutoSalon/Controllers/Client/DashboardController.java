@@ -37,13 +37,7 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        ObservableList<PieChart.Data>pieCharData =
-//                FXCollections.observableArrayList(
-//                        new PieChart.Data("Audi", 30),
-//                        new PieChart.Data("BMW", 20),
-//                        new PieChart.Data("MercedesBenz", 15));
 //
-//        pieChart.getData().addAll(pieCharData);
 
     }
     @FXML

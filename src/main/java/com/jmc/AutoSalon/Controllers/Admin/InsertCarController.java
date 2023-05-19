@@ -215,10 +215,8 @@ public class InsertCarController implements Initializable {
         }
 
         Locale locale = Locale.getDefault();
-
-
         ResourceBundle translate = ResourceBundle.getBundle("Translations.content", locale);
-        this.set_translations(translate);
+
 
 
         this.nameCar.getItems().addAll("Audi", "BMW", "MercedesBenz");

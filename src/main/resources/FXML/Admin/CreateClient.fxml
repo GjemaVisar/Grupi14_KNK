@@ -13,19 +13,19 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="741.0" prefWidth="1175.0" style="-fx-background-color:  #ADD8E6;" styleClass="create_client_container" stylesheets="@../../Styles/CreateClient.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Admin.CreateClientController">
-   <Text layoutX="14.0" layoutY="40.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Create New Client  Account" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="24.4609375">
+<AnchorPane fx:id="full" prefHeight="741.0" prefWidth="1175.0" style="-fx-background-color:  #ADD8E6;" styleClass="create_client_container" stylesheets="@../../Styles/CreateClient.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Admin.CreateClientController">
+   <Text fx:id="create_new_client" layoutX="14.0" layoutY="40.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Create New Client  Account" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="24.4609375">
       <font>
          <Font name="Arial Bold" size="24.0" />
       </font></Text>
    <VBox fillWidth="false" layoutX="14.0" layoutY="50.0" prefHeight="700.0" prefWidth="411.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="50.0">
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
+      <Text fx:id="create_username2" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
       <TextField fx:id="username_fld" />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Client Email" />
+      <Text fx:id="create_email" strokeType="OUTSIDE" strokeWidth="0.0" text="Client Email" />
       <TextField fx:id="email_fld" />
-      <Text layoutX="10.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
+      <Text fx:id="create_password2" layoutX="10.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
       <PasswordField fx:id="password_fld" />
-      <Text layoutX="10.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password:" />
+      <Text fx:id="create_cpass2" layoutX="10.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password:" />
       <PasswordField fx:id="cfpassword_fld" layoutX="10.0" layoutY="157.0" />
       <Button fx:id="createClient_btn" mnemonicParsing="false" text="Create New Client" />
       <ImageView fitHeight="264.0" fitWidth="282.0" pickOnBounds="true" preserveRatio="true">
@@ -34,22 +34,22 @@
          </image>
       </ImageView>
    </VBox>
-   <Text layoutX="549.0" layoutY="40.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Create New Admin  Account" wrappingWidth="195.6906280517578">
+   <Text fx:id="create_new_admin" layoutX="549.0" layoutY="40.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Create New Admin  Account" wrappingWidth="195.6906280517578">
       <font>
          <Font name="Arial Bold" size="24.0" />
       </font>
    </Text>
    <VBox fillWidth="false" layoutX="474.0" layoutY="50.0" prefHeight="700.0" prefWidth="411.0">
       <children>
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
+         <Text fx:id="create_username" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
          <TextField fx:id="admin_username" />
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Client Email" />
+         <Text fx:id="admin_emails" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Email" />
          <TextField fx:id="admin_email" />
-         <Text layoutX="10.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
+         <Text fx:id="create_password" layoutX="10.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
          <PasswordField fx:id="admin_pass" />
-         <Text layoutX="10.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password:" />
+         <Text fx:id="create_cpass" layoutX="10.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password:" />
          <PasswordField fx:id="admin_cpass" layoutX="10.0" layoutY="157.0" />
-         <Button mnemonicParsing="false" onAction="#create_admin" text="Create New Admin" />
+         <Button fx:id="create_btn" mnemonicParsing="false" onAction="#create_admin" text="Create New Admin" />
          <ImageView fitHeight="237.0" fitWidth="240.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@../../Images/admin.png" />

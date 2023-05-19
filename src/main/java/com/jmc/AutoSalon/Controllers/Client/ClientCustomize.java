@@ -100,9 +100,68 @@ public class ClientCustomize implements Initializable {
     @FXML
     private TableColumn<Cars, Date> perditesuarColumn;
 
+    @FXML
+    private Button shqipBtn;
+
+    @FXML
+    private Button englishBtn;
+
+    @FXML
+    private Label cakto_makinen;
+
+    @FXML
+    private Label cakto_modelin;
+
+    @FXML
+    private Label cakto_label;
+
+
+    @FXML
+    private Label cakto_ngjyren;
+
+    @FXML
+    private Label cakto_vitin;
+
+    @FXML
+    private Button kerko;
+
+    @FXML
+    private Button buy;
+
+
+    @FXML
+    private void handleShqipBtn(){
+        Locale.setDefault(new Locale("sq","AL"));
+        this.translate();
+    }
+    @FXML
+    private void handleEnglishBtn(){
+        Locale.setDefault(new Locale("en"));
+        this.translate();
+    }
+
+    private void translate(){
+        Locale currentLocale = Locale.getDefault();
+        ResourceBundle translate = ResourceBundle.getBundle("Translations.content",currentLocale);
+        this.setTranslations(translate);
+    }
+    private void setTranslations(ResourceBundle translate){
+        cakto_makinen.setText(translate.getString("cakto_makinen"));
+        cakto_modelin.setText(translate.getString("cakto_modelin"));
+        cakto_label.setText(translate.getString("cakto_label"));
+        cakto_ngjyren.setText(translate.getString("cakto_ngjyren"));
+        cakto_vitin.setText(translate.getString("cakto_vitin"));
+        kerko.setText(translate.getString("kerko"));
+        buy.setText(translate.getString("buy"));
+
+
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Locale locale = Locale.getDefault();
+        ResourceBundle translate = ResourceBundle.getBundle("Translations.content", locale);
+
         llojiMakines.getItems().addAll("Audi", "BMW", "MercedesBenz");
         modeliMakines.getItems().addAll("SUV", "LUXURY", "SEDAN");
         ngjyrat.getItems().addAll("White", "Black", "Blue", "Grey");
