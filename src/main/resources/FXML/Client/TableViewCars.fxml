@@ -10,10 +10,10 @@
 
 <AnchorPane fx:id="mainPane" prefHeight="857.0" prefWidth="1302.0" style="-fx-background-color: #ADD8E6;;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Client.tableCarsController">
     <children>
-        <Pagination fx:id="mainPage" layoutX="165.0" layoutY="144.0" maxPageIndicatorCount="5" prefHeight="504.0" prefWidth="785.0" />
-        <AnchorPane layoutX="165.0" layoutY="144.0" prefHeight="458.0" prefWidth="785.0">
+        <Pagination fx:id="mainPage" layoutX="165.0" layoutY="144.0" maxPageIndicatorCount="5" prefHeight="504.0" prefWidth="1050.0" />
+        <AnchorPane layoutX="165.0" layoutY="144.0" mouseTransparent="true">
             <children>
-                <FlowPane fx:id="flowPane" prefHeight="458.0" prefWidth="785.0" />
+                <FlowPane fx:id="flowPane" prefHeight="458.0" prefWidth="1050.0" />
             </children>
         </AnchorPane>
         <ButtonBar fx:id="btnBar" layoutX="165.0" layoutY="76.0" prefHeight="41.0" prefWidth="475.0">

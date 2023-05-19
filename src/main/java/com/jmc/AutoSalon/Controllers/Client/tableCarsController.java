@@ -27,7 +27,6 @@ public class tableCarsController implements Initializable {
     public Pagination mainPage;
     private final int rowsPerPage = 2;
     public AnchorPane mainPane;
-    public FlowPane anchorPane;
     public Button audiBtn;
     public Button bmwBtn;
     public Button mercBtn;
