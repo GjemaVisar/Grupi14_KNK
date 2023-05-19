@@ -27,7 +27,7 @@
          <menus>
              <Menu mnemonicParsing="false" text="File">
                  <items>
-                     <MenuItem fx:id="closeBtn" mnemonicParsing="false" onAction="#closeWindow" text=" Close CTRL+E">
+                     <MenuItem fx:id="closeBtn" mnemonicParsing="false" onAction="#closeWindow" text=" Close ">
                          <accelerator>
                              <KeyCodeCombination alt="UP" code="E" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
                          </accelerator>

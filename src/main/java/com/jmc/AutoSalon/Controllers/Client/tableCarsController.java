@@ -3,6 +3,7 @@ package com.jmc.AutoSalon.Controllers.Client;
 import com.jmc.AutoSalon.Models.Cars;
 import com.jmc.AutoSalon.Models.Model;
 import com.jmc.AutoSalon.Models.dto.carFilter;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -11,15 +12,22 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.control.DatePicker;
+import javafx.util.Callback;
 
 import java.net.URL;
 import java.sql.*;
+import java.time.LocalDate;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class tableCarsController implements Initializable {
@@ -133,6 +141,8 @@ class CustomPane extends Pane {
         this.draw(car);
     }
     public void draw(Cars car) {
+
+
         Image carImg = new Image((getClass().getResource("/Images/" + car.getModel() + "/" + car.getCarImage())).toString(), 300, 225, false, false);
         ImageView imgV = new ImageView(carImg);
         Label label = new Label(car.toString());
@@ -149,14 +159,47 @@ class CustomPane extends Pane {
                 "    -fx-padding: 12 30 12 30;\n" +
                 "    -fx-text-fill: white;");
 
-        btn.setOnAction((new EventHandler() {
-            @Override
-            public void handle(Event event) {
-                System.out.println("You clicked: " + car);
-            }
-        }));
+
+        btn.setOnAction(event -> {
+            // Krijimi i dialogut per kalendar
+            Dialog<LocalDate> dialog = new Dialog<>();
+            dialog.setTitle("Choose Test Drive Date");
+
+            // Shto DatePicler ne kalendar
+            DatePicker datePicker = new DatePicker();
+            dialog.getDialogPane().setContent(datePicker);
+
+            // Me shtu submit buttonin
+            ButtonType submitButtonType = new ButtonType("Submit", ButtonBar.ButtonData.OK_DONE);
+            dialog.getDialogPane().getButtonTypes().addAll(ButtonType.CANCEL, submitButtonType);
+            Button submitButton = (Button) dialog.getDialogPane().lookupButton(submitButtonType);
+            submitButton.disableProperty().bind(datePicker.valueProperty().isNull());
+
+            // Convert the result to a LocalDate object me morr vleren
+            dialog.setResultConverter(dialogButton -> {
+                if (dialogButton == submitButtonType) {
+                    return datePicker.getValue();
+                }
+                return null;
+            });
+
+            // Show the dialog and handle the result
+            // qitu nashta duhet me ndrru me this ne repository
+            Optional<LocalDate> result = dialog.showAndWait();
+            result.ifPresent(date -> {
+                // Handle the selected date
+                System.out.println("Selected date: " + date);
+                // Additional code...
+            });
+        });
+
+
         label.setLayoutX(450);
         label.setLayoutY(112.5);
+
+        // Create a new Pane to hold the button
+
         super.getChildren().addAll(imgV, label, btn);
     }
+
 }
