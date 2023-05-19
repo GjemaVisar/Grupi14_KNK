@@ -303,7 +303,6 @@ public class ClientCustomize implements Initializable {
 
                             repositorySales.insertSale(userId, carId, purchaseDate, price);
                             repositorySales.decrement_quantity(carId);
-                            tabelaStock.refresh();
                         }
                     } catch (IOException | SQLException e) {
                         System.out.println();
