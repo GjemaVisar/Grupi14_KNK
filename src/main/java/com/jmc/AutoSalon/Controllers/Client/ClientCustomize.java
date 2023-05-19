@@ -167,6 +167,7 @@ public class ClientCustomize implements Initializable {
 
                 if(quantity == 0){
                     carName = carName + " (Out of Stock)";
+                    this.tabelaStock.refresh();
                 }
 
                 Cars car = new Cars(carId, carName, carModel, carType, carPrice, carColor, carMaxSpeed, carYear,quantity, carImage, carInsertedOn, carUpdatedOn);
@@ -202,8 +203,6 @@ public class ClientCustomize implements Initializable {
                 carImg.setImage(new Image((getClass().getResource("/Images/" + model + "/" + car.getCarImage())).toString()));
                 descBox.setText(car.toString());
             }
-
-
         }
     }
 

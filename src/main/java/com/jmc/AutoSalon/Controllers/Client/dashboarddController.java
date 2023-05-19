@@ -69,8 +69,8 @@ public class dashboarddController implements Initializable {
         price_column.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         tabela_view.getItems().addAll(carsList);
+        tabela_view.refresh();
 
-        this.tabela_view.refresh();
     }
 
     public void showMostSoldCars(){
