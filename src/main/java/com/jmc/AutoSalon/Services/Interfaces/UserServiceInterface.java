@@ -10,7 +10,7 @@ import java.util.List;
 public interface UserServiceInterface {
     User login(String username,String password) throws SQLException;
     User signup(String username, String password) throws SQLException;
-    User createClient(String username, String password) throws SQLException;
+    User createClient(String username, String password,Boolean status) throws SQLException;
 
     void fillUserTable(TableView<User> tbl,Boolean statusi) throws SQLException;
 

@@ -8,6 +8,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
@@ -41,25 +42,6 @@
             <TextField fx:id="imageCar" />
          </children>
       </VBox>
-      <StackPane layoutX="662.0" layoutY="4.0" prefHeight="69.0" prefWidth="71.0">
-         <children>
-            <Button fx:id="shqipBtn" mnemonicParsing="false" onAction="#handleShqipBtn" prefHeight="35.0" prefWidth="108.0" style="-fx-background-color: black;" text="Shqip" textFill="#f5f2f2">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Button>
-         </children>
-      </StackPane>
-      <StackPane layoutX="759.0" layoutY="4.0" prefHeight="69.0" prefWidth="83.0">
-         <children>
-            <Button fx:id="englishBtn" mnemonicParsing="false" onAction="#handleEnglishBtn" prefHeight="34.0" prefWidth="83.0" style="-fx-background-color: black;" text="English" textFill="#f5f2f2">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Button>
-         </children>
-      </StackPane>
-      <Line endX="7.0" endY="-22.99999237060547" layoutX="740.0" layoutY="131.0" startX="7.0" startY="-116.0" />
       <Button fx:id="addCarBtn" layoutX="374.0" layoutY="49.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#addCar" prefHeight="35.0" prefWidth="123.0" text="Add Car" />
       <Text fx:id="insert_car_lbl" layoutX="414.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-style: bold;" text="Insert a new Car">
          <stroke>
@@ -96,15 +78,38 @@
             <Image url="@../../Images/kerri-removebg-preview.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="44.0" layoutX="679.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../Images/alb.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="31.0" fitWidth="59.0" layoutX="775.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../Images/english.png" />
-         </image>
-      </ImageView>
+      <Pane layoutX="1091.0" prefHeight="150.0" prefWidth="216.0">
+         <children>
+            <StackPane layoutX="14.0" layoutY="14.0" prefHeight="69.0" prefWidth="71.0">
+               <children>
+                  <Button fx:id="shqipBtn" mnemonicParsing="false" onAction="#handleShqipBtn" prefHeight="35.0" prefWidth="108.0" style="-fx-background-color: black;" text="Shqip" textFill="#f5f2f2">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </StackPane>
+            <ImageView fitHeight="35.0" fitWidth="44.0" layoutX="28.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/alb.png" />
+               </image>
+            </ImageView>
+            <Line endX="7.0" endY="-22.99999237060547" layoutX="91.0" layoutY="140.0" startX="7.0" startY="-116.0" />
+            <StackPane layoutX="119.0" layoutY="14.0" prefHeight="69.0" prefWidth="83.0">
+               <children>
+                  <Button fx:id="englishBtn" mnemonicParsing="false" onAction="#handleEnglishBtn" prefHeight="34.0" prefWidth="83.0" style="-fx-background-color: black;" text="English" textFill="#f5f2f2">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </StackPane>
+            <ImageView fitHeight="31.0" fitWidth="59.0" layoutX="131.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/english.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

@@ -59,7 +59,7 @@ public class AdminMenuController implements Initializable {
         create_client_btn.setOnAction(event -> this.onCreateClient());
         clients_btn.setOnAction(event -> this.onClients());
         insert_btn.setOnAction(event -> this.onInsert());
-        dashboard.setOnAction(event -> {this.onDashboard();});
+        dashboard.setOnAction(event -> this.onDashboard());
 
     }
 

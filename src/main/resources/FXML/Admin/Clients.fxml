@@ -7,6 +7,10 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="741.0" prefWidth="1175.0" style="-fx-background-color:  #ADD8E6;" styleClass="clients_container" stylesheets="@../../Styles/Clients.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Admin.ClientsController">
@@ -26,4 +30,37 @@
          <Image url="@../../Images/users.png" />
       </image>
    </ImageView>
+   <Pane layoutX="1101.0" layoutY="10.0" prefHeight="150.0" prefWidth="216.0">
+      <children>
+         <StackPane layoutX="14.0" layoutY="14.0" prefHeight="69.0" prefWidth="71.0">
+            <children>
+               <Button fx:id="shqipBtn" mnemonicParsing="false" onAction="#handleShqipBtn" prefHeight="35.0" prefWidth="108.0" style="-fx-background-color: black;" text="Shqip" textFill="#f5f2f2">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+               </Button>
+            </children>
+         </StackPane>
+         <ImageView fitHeight="35.0" fitWidth="44.0" layoutX="28.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../Images/alb.png" />
+            </image>
+         </ImageView>
+         <Line endX="7.0" endY="-22.99999237060547" layoutX="91.0" layoutY="140.0" startX="7.0" startY="-116.0" />
+         <StackPane layoutX="119.0" layoutY="14.0" prefHeight="69.0" prefWidth="83.0">
+            <children>
+               <Button fx:id="englishBtn" mnemonicParsing="false" onAction="#handleEnglishBtn" prefHeight="34.0" prefWidth="83.0" style="-fx-background-color: black;" text="English" textFill="#f5f2f2">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+               </Button>
+            </children>
+         </StackPane>
+         <ImageView fitHeight="31.0" fitWidth="59.0" layoutX="131.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../Images/english.png" />
+            </image>
+         </ImageView>
+      </children>
+   </Pane>
 </AnchorPane>

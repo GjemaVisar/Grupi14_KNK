@@ -47,6 +47,13 @@ public class ClientsController implements Initializable {
     private TableColumn<User, Date> date_registered;
 
     @FXML
+    private Button shqipBtn;
+
+    @FXML
+    private Button englishBtn;
+
+
+    @FXML
     public void getIdPressed(MouseEvent e){
         if(e.isPrimaryButtonDown() && e.getClickCount()==1){
             this.user_table.getSelectionModel().selectedItemProperty().addListener((obs,oldSelect,newSelect)->{
@@ -79,6 +86,7 @@ public class ClientsController implements Initializable {
 
             this.user_list.remove(selectedUser);
 
+
             this.user_table.refresh();
         }else{
             return;
@@ -104,8 +112,15 @@ public class ClientsController implements Initializable {
         }
     }
 
+    @FXML
+    public void handleShqipBtn(){
 
+    }
 
+    @FXML
+    public void handleEnglishBtn(){
+
+    }
 
 
 

@@ -44,6 +44,7 @@ public class ClientPaymentController {
 
         boolean paymentSuccessful = isValidAccountCredentials(account, bank_nr,cvv);
         if(paymentSuccessful){
+            this.status = true;
             Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
             successAlert.setTitle("Purchase Successful");
             successAlert.setHeaderText(null);

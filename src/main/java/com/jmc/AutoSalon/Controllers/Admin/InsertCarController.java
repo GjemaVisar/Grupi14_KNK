@@ -188,38 +188,12 @@ public class InsertCarController implements Initializable {
     public void getIdPressed(MouseEvent e){
         this.car_table.refresh();
         if(e.isPrimaryButtonDown() && e.getClickCount()==2){
-        InsertCarController.sum += 1;
-            this.car_table.getSelectionModel().selectedItemProperty().addListener((obs,oldSelect,newSelect)->{
-                if(newSelect != null){
-                    InsertCarController.id_to_edit = newSelect.getSerial();
-                    InsertCarController.type_to_edit = newSelect.getType();
-                    InsertCarController.price_to_edit = String.valueOf(newSelect.getPrice());
-                    InsertCarController.speed_to_edit = String.valueOf(newSelect.getMaxSpeed());
-                    InsertCarController.quantity_to_edit = String.valueOf(newSelect.getQuantity());
-                    InsertCarController.image_to_edit  = newSelect.getCarImage();
-
-                    String model = newSelect.getModel();
-
-                    if(Objects.equals(model, "SUV")){
-                         model = "suv";
-                    }else if(Objects.equals(model, "SEDAN")){
-                         model = "Sedan";
-                    }else{
-                         model = "LUXURY";
-                    }
-
-                    InsertCarController.image_to_pass = "/Images/" + model + "/" + newSelect.getCarImage();
-
-
-                }
-
-            });
+            InsertCarController.sum += 1;
             Model.getInstance().getViewFactory().showEditCarWindow();
-
-
         }
-        this.car_table.refresh();
-
+        if(EditCarController.refresh_status) {
+            this.car_table.refresh();
+        }
     }
 
 
@@ -259,6 +233,29 @@ public class InsertCarController implements Initializable {
                 } catch (Exception e) {
                     Model.getInstance().getViewFactory().showAlert("Error on insertion", "Please fill out fields correctly");
                 }
+            }
+        });
+
+        car_table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelect, newSelect) -> {
+            if (newSelect != null) {
+                InsertCarController.id_to_edit = newSelect.getSerial();
+                InsertCarController.type_to_edit = newSelect.getType();
+                InsertCarController.price_to_edit = String.valueOf(newSelect.getPrice());
+                InsertCarController.speed_to_edit = String.valueOf(newSelect.getMaxSpeed());
+                InsertCarController.quantity_to_edit = String.valueOf(newSelect.getQuantity());
+                InsertCarController.image_to_edit = newSelect.getCarImage();
+
+                String model = newSelect.getModel();
+
+                if (Objects.equals(model, "SUV")) {
+                    model = "suv";
+                } else if (Objects.equals(model, "SEDAN")) {
+                    model = "Sedan";
+                } else {
+                    model = "LUXURY";
+                }
+
+                InsertCarController.image_to_pass = "/Images/" + model + "/" + newSelect.getCarImage();
             }
         });
 
