@@ -13,7 +13,7 @@
     </left>
     
     <center>
-        <fx:include source="Dashboard.fxml"/>
+        <fx:include source="dashboardd.fxml"/>
     </center>
 
 </BorderPane>

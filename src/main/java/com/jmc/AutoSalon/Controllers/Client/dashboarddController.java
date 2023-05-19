@@ -8,20 +8,26 @@ import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TitledPane;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.VBox;
 
 
 import java.net.URL;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class dashboarddController implements Initializable {
     public TitledPane tabelaBlerjet;
+    public FlowPane mostSoldCarsFlowPane;
     private UserServiceInterface userService;
     @FXML
     public Label username_lbl;
@@ -32,6 +38,7 @@ public class dashboarddController implements Initializable {
     public TableColumn<Cars, Integer> year_column;
     public TableColumn<Cars, Double> price_column;
     public User user;
+    public Cars cars;
     public dashboarddController(){
         this.userService = new userService();
     }
@@ -41,6 +48,7 @@ public class dashboarddController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             populateCarsTable();
+            showMostSoldCars();
             bindData();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -61,6 +69,44 @@ public class dashboarddController implements Initializable {
         price_column.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         tabela_view.getItems().addAll(carsList);
+
+        this.tabela_view.refresh();
     }
 
+    public void showMostSoldCars(){
+        mostSoldCarsFlowPane.getChildren().clear();
+
+        try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3333/knk2023", "root", "root");
+            Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT car_image, c_name, car_model FROM cars ORDER BY quantity ASC LIMIT 3;")) {
+
+            while(resultSet.next()){
+                String car_image = resultSet.getString("car_image");
+                String car_name = resultSet.getString("c_name");
+                String car_model = resultSet.getString("car_model");
+
+                try{
+
+                Image image = new Image((getClass().getResource("/Images/" + car_model + "/" + car_image)).toString());
+                ImageView imageView = new ImageView(image);
+                imageView.setFitWidth(250);
+                imageView.setFitHeight(300);
+
+                Label nameLabel = new Label(car_name);
+
+                VBox carBox = new VBox(imageView, nameLabel);
+                carBox.setAlignment(Pos.CENTER);
+                carBox.setSpacing(30);
+
+                mostSoldCarsFlowPane.getChildren().add(carBox);
+                }catch (IllegalArgumentException e){
+                    System.err.println("Error loading image: " + car_image);
+                    e.printStackTrace();
+                }
+            }
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 }

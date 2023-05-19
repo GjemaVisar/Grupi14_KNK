@@ -2,7 +2,7 @@ module com.jmc.AutoSalon {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
-    requires de.jensd.fx.glyphs.fontawesome;
+    requires de.jensd.fx.glyphs.commons;
 
     requires org.controlsfx.controls;
     requires org.kordamp.bootstrapfx.core;

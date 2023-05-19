@@ -43,7 +43,7 @@
       </VBox>
       <StackPane layoutX="662.0" layoutY="4.0" prefHeight="69.0" prefWidth="71.0">
          <children>
-            <Button fx:id="shqipBtn" mnemonicParsing="false" onAction="#handleShqipBtn" prefHeight="30.0" prefWidth="78.0" style="-fx-background-color: black;" text="Shqip" textFill="#f5f2f2">
+            <Button fx:id="shqipBtn" mnemonicParsing="false" onAction="#handleShqipBtn" prefHeight="35.0" prefWidth="108.0" style="-fx-background-color: black;" text="Shqip" textFill="#f5f2f2">
                <font>
                   <Font size="15.0" />
                </font>
@@ -59,7 +59,7 @@
             </Button>
          </children>
       </StackPane>
-      <Line endX="7.0" endY="-65.0" layoutX="740.0" layoutY="131.0" startX="7.0" startY="-116.0" />
+      <Line endX="7.0" endY="-22.99999237060547" layoutX="740.0" layoutY="131.0" startX="7.0" startY="-116.0" />
       <Button fx:id="addCarBtn" layoutX="374.0" layoutY="49.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#addCar" prefHeight="35.0" prefWidth="123.0" text="Add Car" />
       <Text fx:id="insert_car_lbl" layoutX="414.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-style: bold;" text="Insert a new Car">
          <stroke>
@@ -79,7 +79,7 @@
             </LinearGradient>
          </stroke>
       </Text>
-      <TableView fx:id="car_table" layoutX="374.0" layoutY="122.0" onMousePressed="#getIdPressed" prefHeight="260.0" prefWidth="602.0">
+      <TableView fx:id="car_table" layoutX="378.0" layoutY="160.0" onMousePressed="#getIdPressed" prefHeight="274.0" prefWidth="602.0">
         <columns>
           <TableColumn fx:id="name_col" prefWidth="75.0" text="Name" />
           <TableColumn fx:id="model_col" prefWidth="75.0" text="Model" />
@@ -91,9 +91,19 @@
             <TableColumn fx:id="image_col" prefWidth="75.0" text="Image" />
         </columns>
       </TableView>
-      <ImageView fitHeight="342.0" fitWidth="383.0" layoutX="483.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="306.0" fitWidth="322.0" layoutX="503.0" layoutY="437.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/kerri-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="44.0" layoutX="679.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Images/alb.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="31.0" fitWidth="59.0" layoutX="775.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Images/english.png" />
          </image>
       </ImageView>
    </children>
