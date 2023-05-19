@@ -3,6 +3,10 @@ package com.jmc.AutoSalon.Controllers.Client;
 import com.jmc.AutoSalon.Models.Cars;
 import com.jmc.AutoSalon.Models.Model;
 import com.jmc.AutoSalon.Models.dto.carFilter;
+import com.jmc.AutoSalon.Services.Interfaces.TestDriveServiceInterface;
+import com.jmc.AutoSalon.Services.Interfaces.UserServiceInterface;
+import com.jmc.AutoSalon.Services.TestDriveService;
+import com.jmc.AutoSalon.Services.userService;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -31,6 +35,9 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class tableCarsController implements Initializable {
+
+
+
     @FXML
     public Pagination mainPage;
     private final int rowsPerPage = 2;
@@ -134,8 +141,12 @@ public class tableCarsController implements Initializable {
 }
 
 class CustomPane extends Pane {
+    private TestDriveServiceInterface testDriveService;
+    private UserServiceInterface userService;
     public CustomPane(double width, double height ,Cars car) {
         super();
+        this.testDriveService = new TestDriveService();
+        this.userService = new userService();
         super.setWidth(width);
         super.setHeight(height);
         this.draw(car);
@@ -188,7 +199,8 @@ class CustomPane extends Pane {
             Optional<LocalDate> result = dialog.showAndWait();
             result.ifPresent(date -> {
                 // Handle the selected date
-                System.out.println("Selected date: " + date);
+                //System.out.println("Selected date: " + date);
+                this.testDriveService.add_test_drive(this.userService.get_user_id(),car.getSerial(),Date.valueOf(date));
                 // Additional code...
             });
         });

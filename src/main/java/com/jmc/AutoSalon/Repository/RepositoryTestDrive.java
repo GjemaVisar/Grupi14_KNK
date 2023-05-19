@@ -7,7 +7,7 @@ import java.sql.*;
 
 public class RepositoryTestDrive implements TestDriveRepositoryInterface {
     @Override
-    public void insertTestDrive(int user_id, int car_id, Date date_picked) throws SQLException {
+    public void insertTestDrive(int user_id, int car_id, Date date_picked) {
         String sql = "INSERT INTO testing_appointment(user_id,car_id,data_rezervimit) VALUES (?,?,?)";
         try(Connection conn = ConnectionUtil.getConnection();
             PreparedStatement stm = conn.prepareStatement(sql);) {
@@ -21,7 +21,7 @@ public class RepositoryTestDrive implements TestDriveRepositoryInterface {
     }
 
     @Override
-    public boolean is_date_car_busy(int car_id, Date date_picked) throws SQLException {
+    public boolean is_date_car_busy(int car_id, Date date_picked) {
         String sql = "SELECT * from testing_appointment WHERE car_id = ? and data_rezervimit = ?";
         try(Connection conn = ConnectionUtil.getConnection();
         PreparedStatement stm = conn.prepareStatement(sql);){

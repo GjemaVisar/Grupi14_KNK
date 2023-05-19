@@ -20,15 +20,18 @@ public class TestDriveService implements TestDriveServiceInterface {
         LocalDate today_date = LocalDate.now();
         if(date_picked.toLocalDate().isBefore(today_date)){
             TestDriveService.PopupMessage = "You cannot choose date from the past. Please choose today or dates in the future!";
+            System.out.println(TestDriveService.PopupMessage);
             return;
         }
         boolean status = this.testDriveRepo.is_date_car_busy(car,date_picked);
         if(status){
-            this.testDriveRepo.insertTestDrive(user,car,date_picked);
-            TestDriveService.PopupMessage = "Reservation made successfuly. We wait for you at our offices!";
-        }else{
             TestDriveService.PopupMessage = "Unfortunately there already is a reservation for this car and date. Feel free" +
                     "to choose other days!";
+            System.out.println(TestDriveService.PopupMessage);
+        }else{
+            this.testDriveRepo.insertTestDrive(user,car,date_picked);
+            TestDriveService.PopupMessage = "Reservation made successfuly. We wait for you at our offices!";
+            System.out.println(TestDriveService.PopupMessage);
         }
     }
 }
