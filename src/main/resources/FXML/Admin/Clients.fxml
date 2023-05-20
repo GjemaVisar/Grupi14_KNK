@@ -13,10 +13,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="741.0" prefWidth="1175.0" style="-fx-background-color:  #ADD8E6;" styleClass="clients_container" stylesheets="@../../Styles/Clients.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Admin.ClientsController">
+<AnchorPane maxHeight="750.0" maxWidth="1004.0" minHeight="750.0" minWidth="1000.0" prefHeight="750.0" prefWidth="1000.0" style="-fx-background-color:  #ADD8E6;" styleClass="clients_container" stylesheets="@../../Styles/Clients.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Admin.ClientsController">
    <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clients" />
-   <ListView fx:id="clients_listview" layoutX="427.0" layoutY="56.0" prefHeight="546.0" prefWidth="516.0" style="-fx-background-color: #ADD8E6;" AnchorPane.leftAnchor="427.0" AnchorPane.topAnchor="56.0" />
-   <TableView fx:id="user_table" editable="true" layoutX="480.0" layoutY="103.0" onMousePressed="#getIdPressed" prefHeight="474.0" prefWidth="410.0" style="-fx-background-color: white;">
+   <ListView fx:id="clients_listview" layoutX="462.0" layoutY="67.0" prefHeight="535.0" prefWidth="481.0" style="-fx-background-color: #ADD8E6;" AnchorPane.leftAnchor="462.0" AnchorPane.topAnchor="67.0" />
+   <TableView fx:id="user_table" editable="true" layoutX="43.0" layoutY="102.0" onMousePressed="#getIdPressed" prefHeight="474.0" prefWidth="410.0" style="-fx-background-color: white;">
      <columns>
        <TableColumn fx:id="user_id" prefWidth="75.0" text="User ID" />
        <TableColumn fx:id="username" prefWidth="75.0" text="Username" />
@@ -24,13 +24,13 @@
          <TableColumn fx:id="date_registered" prefWidth="117.5999755859375" text="Date Registered" />
      </columns>
    </TableView>
-   <Button fx:id="deleteBtn" layoutX="657.0" layoutY="59.0" mnemonicParsing="false" onAction="#deleteUser" style="-fx-background-color: white;" text="DELETE" />
-   <ImageView fitHeight="293.0" fitWidth="386.0" layoutX="901.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
+   <Button fx:id="deleteBtn" layoutX="44.0" layoutY="59.0" mnemonicParsing="false" onAction="#deleteUser" style="-fx-background-color: white;" text="DELETE" />
+   <ImageView fitHeight="293.0" fitWidth="386.0" layoutX="492.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../../Images/users.png" />
       </image>
    </ImageView>
-   <Pane layoutX="1101.0" layoutY="10.0" prefHeight="150.0" prefWidth="216.0">
+   <Pane layoutX="577.0" layoutY="-4.0" prefHeight="150.0" prefWidth="216.0">
       <children>
          <StackPane layoutX="14.0" layoutY="14.0" prefHeight="69.0" prefWidth="71.0">
             <children>
@@ -63,7 +63,7 @@
          </ImageView>
       </children>
    </Pane>
-   <ImageView fitHeight="357.0" fitWidth="342.0" layoutX="62.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fitHeight="224.0" fitWidth="274.0" layoutX="565.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../../Images/clientss.png" />
       </image>

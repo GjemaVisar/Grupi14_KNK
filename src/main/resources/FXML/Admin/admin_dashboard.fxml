@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="main_pane" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Admin.AdminDashboardController">
+<AnchorPane fx:id="main_pane" prefHeight="750.0" prefWidth="1000.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Admin.AdminDashboardController">
    <children>
       <PieChart fx:id="pie_chart" maxHeight="387.0" maxWidth="455.0" minHeight="328.0" minWidth="338.0" prefHeight="387.0" prefWidth="409.0" style="-fx-background-color: white;" title="Sales based on Car Type" AnchorPane.bottomAnchor="33.0" AnchorPane.rightAnchor="30.0" />
       <HBox layoutX="28.0" layoutY="28.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="940.0" AnchorPane.bottomAnchor="487.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="50.0">

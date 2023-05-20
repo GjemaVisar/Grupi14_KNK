@@ -8,12 +8,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 
-<AnchorPane fx:id="mainPane" prefHeight="857.0" prefWidth="1302.0" style="-fx-background-color: #ADD8E6;;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Client.tableCarsController">
+<AnchorPane fx:id="mainPane" maxWidth="1100.0" minWidth="1100.0" prefHeight="750.0" prefWidth="1100.0" style="-fx-background-color: #ADD8E6;;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Client.tableCarsController">
     <children>
-        <Pagination fx:id="mainPage" layoutX="165.0" layoutY="144.0" maxPageIndicatorCount="5" prefHeight="504.0" prefWidth="1050.0" />
+        <Pagination fx:id="mainPage" layoutX="165.0" layoutY="144.0" maxPageIndicatorCount="5" prefHeight="504.0" prefWidth="820.0" />
         <AnchorPane layoutX="165.0" layoutY="144.0" mouseTransparent="true">
             <children>
-                <FlowPane fx:id="flowPane" prefHeight="458.0" prefWidth="1050.0" />
+                <FlowPane fx:id="flowPane" layoutX="-8.0" prefHeight="458.0" prefWidth="828.0" />
             </children>
         </AnchorPane>
         <ButtonBar fx:id="btnBar" layoutX="165.0" layoutY="76.0" prefHeight="41.0" prefWidth="475.0">
@@ -26,7 +26,7 @@
         <Button fx:id="suvBtn" layoutX="35.0" layoutY="187.0" mnemonicParsing="false" onAction="#setSUV" prefHeight="41.0" prefWidth="104.0" style="-fx-background-color: #000000,        linear-gradient(#7ebcea, #2f4b8f),        linear-gradient(#426ab7, #263e75),        linear-gradient(#395cab, #223768); -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white;" text="SUV" />
         <Button fx:id="luxBtn" layoutX="35.0" layoutY="297.0" mnemonicParsing="false" onAction="#setL" style="-fx-background-color: #000000,        linear-gradient(#7ebcea, #2f4b8f),        linear-gradient(#426ab7, #263e75),        linear-gradient(#395cab, #223768); -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white;" text="LUXURY" />
         <Button fx:id="sdnBtn" layoutX="35.0" layoutY="406.0" mnemonicParsing="false" onAction="#setSdn" prefHeight="41.0" prefWidth="104.0" style="-fx-background-color: #000000,        linear-gradient(#7ebcea, #2f4b8f),        linear-gradient(#426ab7, #263e75),        linear-gradient(#395cab, #223768); -fx-background-insets: 0,1,2,3; -fx-background-radius: 3,2,2,2; -fx-padding: 12 30 12 30; -fx-text-fill: white;" text="SEDAN" />
-      <ImageView fitHeight="156.0" fitWidth="308.0" layoutX="873.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="156.0" fitWidth="308.0" layoutX="675.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/audi-bmw-mercedes-logo-clanokW-removebg-preview.png" />
          </image>

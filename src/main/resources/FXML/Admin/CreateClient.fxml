@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="full" prefHeight="741.0" prefWidth="1175.0" style="-fx-background-color:  #ADD8E6;" styleClass="create_client_container" stylesheets="@../../Styles/CreateClient.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Admin.CreateClientController">
+<AnchorPane fx:id="full" maxHeight="750.0" maxWidth="1000.0" minHeight="750.0" minWidth="1000.0" prefHeight="750.0" prefWidth="1000.0" style="-fx-background-color:  #ADD8E6;" styleClass="create_client_container" stylesheets="@../../Styles/CreateClient.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Admin.CreateClientController">
    <Text fx:id="create_new_client" layoutX="14.0" layoutY="40.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Create New Client  Account" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="24.4609375">
       <font>
          <Font name="Arial Bold" size="24.0" />
@@ -57,7 +57,7 @@
          </ImageView>
       </children>
    </VBox>
-   <Pane layoutX="1101.0" layoutY="10.0" prefHeight="150.0" prefWidth="216.0">
+   <Pane layoutX="745.0" layoutY="14.0" prefHeight="150.0" prefWidth="216.0">
       <children>
          <StackPane layoutX="14.0" layoutY="14.0" prefHeight="69.0" prefWidth="71.0">
             <children>
