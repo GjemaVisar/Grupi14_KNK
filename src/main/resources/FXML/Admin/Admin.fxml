@@ -12,7 +12,7 @@
     </left>
 
     <center>
-        <fx:include source="CreateClient.fxml"/>
+        <fx:include source="admin_dashboard.fxml"/>
     </center>
 
 </BorderPane>

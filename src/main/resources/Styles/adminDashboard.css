@@ -4,7 +4,7 @@
         -fx-effect: dropshadow(three-pass-box, #AAAAAA, 10, 0, 0, 10);
 }
 
-.username_lbl, .label, .cars_available, .active_clients {
+.username_lbl, .label1, .label2, .cars_available, .active_clients {
         -fx-font-size: 2.6em;
         -fx-font-family: "Calibri Light";
 }
