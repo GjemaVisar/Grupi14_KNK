@@ -77,7 +77,7 @@ public class dashboarddController implements Initializable {
 
         try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3333/knk2023", "root", "root");
             Statement statement = conn.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT car_image, c_name, car_model FROM cars ORDER BY quantity ASC LIMIT 3;")) {
+            ResultSet resultSet = statement.executeQuery("SELECT car_image ,car_model, c_name FROM cars WHERE numri_serik in  ( SELECT car_id FROM sales GROUP BY car_id ORDER BY COUNT(*) DESC);")) {
 
             while(resultSet.next()){
                 String car_image = resultSet.getString("car_image");
