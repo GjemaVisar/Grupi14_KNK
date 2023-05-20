@@ -78,12 +78,12 @@ public class dashboarddController implements Initializable {
         try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3333/knk2023", "root", "root");
             Statement statement = conn.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT car_image ,car_model, c_name FROM cars WHERE numri_serik in  ( SELECT car_id FROM sales GROUP BY car_id ORDER BY COUNT(*) DESC);")) {
-
-            while(resultSet.next()){
+            int count = 0;
+            while(resultSet.next() && count < 3){
                 String car_image = resultSet.getString("car_image");
                 String car_name = resultSet.getString("c_name");
                 String car_model = resultSet.getString("car_model");
-
+                count++;
                 try{
 
                 Image image = new Image((getClass().getResource("/Images/" + car_model + "/" + car_image)).toString());
