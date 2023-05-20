@@ -202,6 +202,7 @@ class CustomPane extends Pane {
                 //System.out.println("Selected date: " + date);
                 this.testDriveService.add_test_drive(this.userService.get_user_id(),car.getSerial(),Date.valueOf(date));
                 // Additional code...
+
             });
         });
 

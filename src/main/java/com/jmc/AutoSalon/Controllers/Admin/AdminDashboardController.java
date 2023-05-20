@@ -13,9 +13,15 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.chart.PieChart;
+import javafx.scene.chart.*;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAdjusters;
+
 
 import java.net.URL;
 import java.sql.Connection;
@@ -30,13 +36,14 @@ public class AdminDashboardController implements Initializable {
     public Label active_clients;
     public Label cars_available;
     @FXML
-    private PieChart pie_chart;
+    private LineChart<String, Number> reservationsChart;
 
     @FXML
     private AnchorPane main_pane;
 
     private SalesServiceInterface sales_service;
     private UserServiceInterface userService;
+    private PieChart pie_chart;
 
 
     public AdminDashboardController(){
@@ -44,26 +51,37 @@ public class AdminDashboardController implements Initializable {
         this.userService = new userService();
     }
 
-    public PieChart get_pie(){
-        return this.pie_chart;
-    }
+//    public LineChart<String, Integer> getReservationsChart(){
+//        return this.reservationsChart;
+//    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.add_pie();
+        initializeChart();
+        add_pie();
 
         try {
             bindData();
             displayActiveClients();
             displayNumberOfCars();
+            displayReservationsPerDayOfWeek();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
 
+    private void initializeChart() {
+        CategoryAxis xAxis = new CategoryAxis();
+        NumberAxis yAxis = new NumberAxis();
+        xAxis.setLabel("Day of Week");
+        yAxis.setLabel("Number of Reservations");
+        reservationsChart = new LineChart<>(xAxis, yAxis);
+        main_pane.getChildren().add(reservationsChart);
     }
 
     private void add_pie(){
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
+        pie_chart = new PieChart(pieChartData); // Initialize the pie_chart field
         try {
             this.sales_service.create_pie_chart(pieChartData);
         } catch (SQLException e) {
@@ -102,7 +120,7 @@ public class AdminDashboardController implements Initializable {
         int countCars = 0;
 
         try(Connection conn = ConnectionUtil.getConnection();
-        PreparedStatement statement = conn.prepareStatement(sql)){
+            PreparedStatement statement = conn.prepareStatement(sql)){
             ResultSet resultSet = statement.executeQuery();
 
             if(resultSet.next()){
@@ -115,6 +133,34 @@ public class AdminDashboardController implements Initializable {
         }
     }
 
+    public void displayReservationsPerDayOfWeek() throws SQLException {
+        String sql = "SELECT COUNT(*) AS Total, DAYNAME(data_rezervimit) AS DayOfWeek " +
+                "FROM testing_appointment " +
+                "WHERE data_rezervimit >= ? " +
+                "GROUP BY WEEKDAY(data_rezervimit)";
 
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
 
+        try (Connection conn = ConnectionUtil.getConnection();
+             PreparedStatement statement = conn.prepareStatement(sql)) {
+
+            LocalDate lastWeekMonday = LocalDate.now().minusWeeks(1).with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY));
+            statement.setString(1, lastWeekMonday.format(DateTimeFormatter.ISO_DATE));
+
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                String dayOfWeek = resultSet.getString("DayOfWeek");
+                int total = resultSet.getInt("Total");
+
+                // Adjust the day of week labels to start from Monday
+                int dayIndex = (DayOfWeek.valueOf(dayOfWeek.toUpperCase()).getValue() + 5) % 7;
+                String adjustedDayOfWeek = DayOfWeek.of(dayIndex + 1).toString();
+
+                series.getData().add(new XYChart.Data<>(adjustedDayOfWeek, total));
+            }
+
+            reservationsChart.getData().add(series);
+        }
+    }
 }
