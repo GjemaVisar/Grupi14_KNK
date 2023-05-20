@@ -86,18 +86,18 @@ public class dashboarddController implements Initializable {
                 count++;
                 try{
 
-                Image image = new Image((getClass().getResource("/Images/" + car_model + "/" + car_image)).toString());
-                ImageView imageView = new ImageView(image);
-                imageView.setFitWidth(250);
-                imageView.setFitHeight(300);
-                imageView.setPreserveRatio(true);
-                Label nameLabel = new Label(car_name);
+                    Image image = new Image((getClass().getResource("/Images/" + car_model + "/" + car_image)).toString());
+                    ImageView imageView = new ImageView(image);
+                    imageView.setFitWidth(250);
+                    imageView.setFitHeight(300);
+                    imageView.setPreserveRatio(true);
+                    Label nameLabel = new Label(car_name);
 
-                VBox carBox = new VBox(imageView, nameLabel);
-                carBox.setAlignment(Pos.CENTER);
-                carBox.setSpacing(30);
+                    VBox carBox = new VBox(imageView, nameLabel);
+                    carBox.setAlignment(Pos.CENTER);
+                    carBox.setSpacing(30);
 
-                mostSoldCarsFlowPane.getChildren().add(carBox);
+                    mostSoldCarsFlowPane.getChildren().add(carBox);
                 }catch (IllegalArgumentException e){
                     System.err.println("Error loading image: " + car_image);
                     e.printStackTrace();
