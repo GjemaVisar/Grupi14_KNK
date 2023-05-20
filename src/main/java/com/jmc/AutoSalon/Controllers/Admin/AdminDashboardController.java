@@ -4,7 +4,9 @@ import com.jmc.AutoSalon.Repository.Interfaces.SalesRepositoryInterface;
 import com.jmc.AutoSalon.Repository.RepositorySales;
 import com.jmc.AutoSalon.Services.ConnectionUtil;
 import com.jmc.AutoSalon.Services.Interfaces.SalesServiceInterface;
+import com.jmc.AutoSalon.Services.Interfaces.TestDriveServiceInterface;
 import com.jmc.AutoSalon.Services.Interfaces.UserServiceInterface;
+import com.jmc.AutoSalon.Services.TestDriveService;
 import com.jmc.AutoSalon.Services.salesService;
 import com.jmc.AutoSalon.Services.userService;
 import javafx.beans.binding.Bindings;
@@ -31,6 +33,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AdminDashboardController implements Initializable {
+    private TestDriveServiceInterface testDriveService;
 
     public Label username_lbl;
     public Label active_clients;
@@ -38,45 +41,50 @@ public class AdminDashboardController implements Initializable {
     @FXML
     private LineChart<String, Number> reservationsChart;
 
+    private XYChart.Series<String,Number> series = new XYChart.Series<>();
+
     @FXML
     private AnchorPane main_pane;
 
     private SalesServiceInterface sales_service;
     private UserServiceInterface userService;
+
+    @FXML
     private PieChart pie_chart;
 
 
     public AdminDashboardController(){
         this.sales_service = new salesService();
         this.userService = new userService();
+        this.testDriveService = new TestDriveService();
     }
 
-//    public LineChart<String, Integer> getReservationsChart(){
-//        return this.reservationsChart;
-//    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        initializeChart();
         add_pie();
-
         try {
             bindData();
             displayActiveClients();
             displayNumberOfCars();
-            displayReservationsPerDayOfWeek();
+            initializeChart();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    private void initializeChart() {
+    private void initializeChart() throws SQLException {
         CategoryAxis xAxis = new CategoryAxis();
         NumberAxis yAxis = new NumberAxis();
         xAxis.setLabel("Day of Week");
         yAxis.setLabel("Number of Reservations");
         reservationsChart = new LineChart<>(xAxis, yAxis);
+
+        this.testDriveService.fill_xy_chart(this.series);
+        this.reservationsChart.getData().add(this.series);
+
         main_pane.getChildren().add(reservationsChart);
+
     }
 
     private void add_pie(){
@@ -133,34 +141,5 @@ public class AdminDashboardController implements Initializable {
         }
     }
 
-    public void displayReservationsPerDayOfWeek() throws SQLException {
-        String sql = "SELECT COUNT(*) AS Total, DAYNAME(data_rezervimit) AS DayOfWeek " +
-                "FROM testing_appointment " +
-                "WHERE data_rezervimit >= ? " +
-                "GROUP BY WEEKDAY(data_rezervimit)";
 
-        XYChart.Series<String, Number> series = new XYChart.Series<>();
-
-        try (Connection conn = ConnectionUtil.getConnection();
-             PreparedStatement statement = conn.prepareStatement(sql)) {
-
-            LocalDate lastWeekMonday = LocalDate.now().minusWeeks(1).with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY));
-            statement.setString(1, lastWeekMonday.format(DateTimeFormatter.ISO_DATE));
-
-            ResultSet resultSet = statement.executeQuery();
-
-            while (resultSet.next()) {
-                String dayOfWeek = resultSet.getString("DayOfWeek");
-                int total = resultSet.getInt("Total");
-
-                // Adjust the day of week labels to start from Monday
-                int dayIndex = (DayOfWeek.valueOf(dayOfWeek.toUpperCase()).getValue() + 5) % 7;
-                String adjustedDayOfWeek = DayOfWeek.of(dayIndex + 1).toString();
-
-                series.getData().add(new XYChart.Data<>(adjustedDayOfWeek, total));
-            }
-
-            reservationsChart.getData().add(series);
-        }
-    }
 }
