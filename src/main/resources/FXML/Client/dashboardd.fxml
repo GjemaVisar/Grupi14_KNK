@@ -2,6 +2,7 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -36,6 +37,8 @@
                <TableColumn fx:id="price_column" prefWidth="75.0" text="Car_price" />
             </columns>
          </TableView>
+         <Button layoutX="14.0" layoutY="180.0" mnemonicParsing="false" onAction="#refreshBtn" prefHeight="30.0" prefWidth="96.0" text="Refresh" />
+         <FontAwesomeIconView glyphName="REFRESH" layoutX="20.0" layoutY="199.0" />
       </AnchorPane>
    </TitledPane>
    <HBox fx:id="hbox_container" layoutX="50.0" layoutY="350.0" prefHeight="300.0" prefWidth="800.0" styleClass="hbox_container" stylesheets="@../../Styles/userDashboard.css" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="350.0">

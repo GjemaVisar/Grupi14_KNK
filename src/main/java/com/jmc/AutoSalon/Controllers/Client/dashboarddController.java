@@ -9,10 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TitledPane;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -28,6 +25,7 @@ import java.util.ResourceBundle;
 public class dashboarddController implements Initializable {
     public TitledPane tabelaBlerjet;
     public FlowPane mostSoldCarsFlowPane;
+    public Button refresh_btn;
     private UserServiceInterface userService;
     @FXML
     public Label username_lbl;
@@ -50,6 +48,7 @@ public class dashboarddController implements Initializable {
             populateCarsTable();
             showMostSoldCars();
             bindData();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -69,7 +68,7 @@ public class dashboarddController implements Initializable {
         price_column.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         tabela_view.getItems().addAll(carsList);
-        tabela_view.refresh();
+
 
     }
 
@@ -106,6 +105,14 @@ public class dashboarddController implements Initializable {
             }
 
         }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void refreshBtn(ActionEvent event) {
+        try {
+            populateCarsTable();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
