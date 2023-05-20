@@ -77,6 +77,7 @@ public class ClientMenuController implements Initializable {
             Platform.exit();
         }
     }
+
     @FXML
     public void aboutUs(ActionEvent event) {
         try {
@@ -88,4 +89,5 @@ public class ClientMenuController implements Initializable {
             e.printStackTrace();
         }
     }
+
 }

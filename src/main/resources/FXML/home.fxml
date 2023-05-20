@@ -19,7 +19,7 @@
    <children>
       <ImageView fitHeight="608.0" fitWidth="944.0" layoutX="234.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Images/welcome.jpg" />
+            <Image url="@../Images/dashboard_page.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="120.0" fitWidth="239.0" layoutX="360.0" pickOnBounds="true" preserveRatio="true" />
