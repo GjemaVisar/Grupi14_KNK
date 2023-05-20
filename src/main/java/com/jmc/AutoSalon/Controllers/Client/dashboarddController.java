@@ -90,7 +90,7 @@ public class dashboarddController implements Initializable {
                 ImageView imageView = new ImageView(image);
                 imageView.setFitWidth(250);
                 imageView.setFitHeight(300);
-
+                imageView.setPreserveRatio(true);
                 Label nameLabel = new Label(car_name);
 
                 VBox carBox = new VBox(imageView, nameLabel);

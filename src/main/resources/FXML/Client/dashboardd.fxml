@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane prefHeight="700.0" prefWidth="850.0" style="-fx-background-color: #ADD8E6;" stylesheets="@../../Styles/userDashboard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Client.dashboarddController">
+<AnchorPane prefHeight="704.0" prefWidth="997.0" style="-fx-background-color: #ADD8E6;" stylesheets="@../../Styles/userDashboard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.AutoSalon.Controllers.Client.dashboarddController">
    <BorderPane fx:id="account" layoutX="65.0" layoutY="36.0" prefHeight="200.0" prefWidth="250.0" styleClass="account" stylesheets="@../../Styles/userDashboard.css" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="40.0">
       <bottom>
          <Label fx:id="username_lbl" styleClass="username_lbl" stylesheets="@../../Styles/userDashboard.css" text="Hi, Client" BorderPane.alignment="CENTER">
@@ -43,8 +43,8 @@
    </TitledPane>
    <HBox fx:id="hbox_container" layoutX="50.0" layoutY="350.0" prefHeight="300.0" prefWidth="800.0" styleClass="hbox_container" stylesheets="@../../Styles/userDashboard.css" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="350.0">
       <children>
-         <ScrollPane hbarPolicy="AS_NEEDED" prefHeight="306.0" prefWidth="1050.0">
-            <FlowPane fx:id="mostSoldCarsFlowPane" alignment="TOP_LEFT" prefHeight="200" prefWidth="750.0" />
+         <ScrollPane hbarPolicy="AS_NEEDED" prefHeight="318.0" prefWidth="910.0">
+            <FlowPane fx:id="mostSoldCarsFlowPane" alignment="TOP_LEFT" prefHeight="322.0" prefWidth="863.0" />
          </ScrollPane>
       </children>
    </HBox>

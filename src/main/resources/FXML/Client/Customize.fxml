@@ -28,8 +28,11 @@
       <Label fx:id="cakto_vitin" layoutX="45.0" layoutY="293.0" prefHeight="27.0" prefWidth="166.0" text="Cakto vitin e prodhimit :" />
       <ComboBox fx:id="llojiMakines" layoutX="143.0" layoutY="81.0" prefHeight="32.0" prefWidth="195.0" style="-fx-background-color: lightgrey;" />
       <ComboBox fx:id="modeliMakines" layoutX="143.0" layoutY="131.0" prefHeight="32.0" prefWidth="195.0" />
+
       <ImageView fx:id="carImg" fitHeight="246.0" fitWidth="374.0" layoutX="373.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
-         <Image url="@../../Images/Sedan/benziCostumize.jpg" />
+         <image>
+            <Image url="@../../Images/Sedan/benziCostumize.jpg" />
+         </image>
       </ImageView>
       <TextArea fx:id="descBox" layoutX="772.0" layoutY="89.0" prefHeight="224.0" prefWidth="358.0" style="-fx-color: red;" styleClass="descBox" stylesheets="@../../Styles/Customize.css" text="MERCEDES BENZ C 300 2023                                          &#10;Cmimi : 75.000 $ &#10;&#10;&#10;Vetura C300 eshte e vitit 2023 posedon 00km. &#10;Ngjyra e hirte metalike.&#10;E ardhur nga Zvicrra.&#10;">
          <font>

@@ -128,7 +128,6 @@ public class ClientCustomize implements Initializable {
     @FXML
     private Button buy;
 
-
     @FXML
     private void handleShqipBtn(){
         Locale.setDefault(new Locale("sq","AL"));
@@ -154,7 +153,10 @@ public class ClientCustomize implements Initializable {
         kerko.setText(translate.getString("kerko"));
         buy.setText(translate.getString("buy"));
 
+    }
 
+    public ImageView getCarImg() {
+        return carImg;
     }
 
     @Override
@@ -185,8 +187,6 @@ public class ClientCustomize implements Initializable {
                 new PropertyValueFactory<Cars, Date>("insertedOn"));
         perditesuarColumn.setCellValueFactory(
                 new PropertyValueFactory<Cars, Date>("updatedOn"));
-
-
     }
 
     @FXML
@@ -309,7 +309,5 @@ public class ClientCustomize implements Initializable {
                     }
             }
     }
-
-
 
 }
