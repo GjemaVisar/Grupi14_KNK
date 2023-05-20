@@ -38,10 +38,9 @@ public class AdminDashboardController implements Initializable {
     public Label username_lbl;
     public Label active_clients;
     public Label cars_available;
-    @FXML
     private LineChart<String, Number> reservationsChart;
 
-    private XYChart.Series<String,Number> series = new XYChart.Series<>();
+    private XYChart.Series<String,Number> series = new XYChart.Series<String,Number>();
 
     @FXML
     private AnchorPane main_pane;
@@ -52,6 +51,8 @@ public class AdminDashboardController implements Initializable {
     @FXML
     private PieChart pie_chart;
 
+    @FXML
+    private AnchorPane line_pane;
 
     public AdminDashboardController(){
         this.sales_service = new salesService();
@@ -78,18 +79,19 @@ public class AdminDashboardController implements Initializable {
         NumberAxis yAxis = new NumberAxis();
         xAxis.setLabel("Day of Week");
         yAxis.setLabel("Number of Reservations");
-        reservationsChart = new LineChart<>(xAxis, yAxis);
+        this.reservationsChart = new LineChart<String,Number>(xAxis, yAxis);
 
         this.testDriveService.fill_xy_chart(this.series);
         this.reservationsChart.getData().add(this.series);
 
-        main_pane.getChildren().add(reservationsChart);
+
+        this.line_pane.getChildren().add(reservationsChart);
 
     }
 
     private void add_pie(){
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
-        pie_chart = new PieChart(pieChartData); // Initialize the pie_chart field
+        //pie_chart = new PieChart(pieChartData); // Initialize the pie_chart field
         try {
             this.sales_service.create_pie_chart(pieChartData);
         } catch (SQLException e) {

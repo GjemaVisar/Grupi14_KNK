@@ -49,6 +49,7 @@
             </AnchorPane>
          </children>
       </HBox>
+      <AnchorPane fx:id="line_pane" layoutX="71.0" layoutY="400.0" prefHeight="280.0" prefWidth="314.0" />
    </children>
    <effect>
       <Glow />
