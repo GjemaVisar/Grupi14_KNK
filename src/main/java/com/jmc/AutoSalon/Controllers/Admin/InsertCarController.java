@@ -175,7 +175,7 @@ public class InsertCarController implements Initializable {
                 this.colorCar.setValue(null);
                 this.nameCar.setValue(null);
                 this.modelCar.setValue(null);
-                System.out.println("Car inserted successfuly");
+                Model.getInstance().getViewFactory().showConfirm("Successful insert","Car inserted successfuly");
             } else {
                 Model.getInstance().getViewFactory().showAlert("Error on insertion", "Car exists");
             }
@@ -188,7 +188,6 @@ public class InsertCarController implements Initializable {
 
     @FXML
     public void getIdPressed(MouseEvent e){
-        this.car_table.refresh();
         if(e.isPrimaryButtonDown() && e.getClickCount()==2){
             InsertCarController.sum += 1;
             Model.getInstance().getViewFactory().showEditCarWindow();
@@ -197,6 +196,7 @@ public class InsertCarController implements Initializable {
             this.car_table.refresh();
         }
     }
+
 
 
 

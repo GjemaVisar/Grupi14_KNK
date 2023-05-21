@@ -63,6 +63,15 @@ public class ViewFactory {
 
         alert.showAndWait();
     }
+
+    public void showConfirm(String title,String message){
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Confirmed");
+        alert.setHeaderText(title);
+        alert.setContentText(message);
+
+        alert.showAndWait();
+    }
     public AccountType getLoginAccountType(){
         return this.loginAccountType;
     }
@@ -169,8 +178,6 @@ public class ViewFactory {
 
     public void showEditCarWindow(){
         this.edit_page = true;
-        //llogarit indeksin aktual te listes
-        //kur mbyllet stage i edit car remove aq anetare sa iu kane shtuar
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/Admin/edit_car.fxml"));
         EditCarController controller = new EditCarController();
         fxmlLoader.setController(controller);

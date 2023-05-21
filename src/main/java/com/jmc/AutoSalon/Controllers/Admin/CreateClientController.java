@@ -142,7 +142,7 @@ public class CreateClientController implements Initializable {
                     email_fld.setText("");
                     password_fld.setText("");
                     cfpassword_fld.setText("");
-                    System.out.println("User inserted successfully");
+                    Model.getInstance().getViewFactory().showConfirm("Successful insert","User inserted successfully");
                 } catch (SQLException se) {
                     System.out.println("Could not create user: " + se.getMessage());
                 }
@@ -173,7 +173,7 @@ public class CreateClientController implements Initializable {
                     admin_email.setText("");
                     admin_pass.setText("");
                     admin_cpass.setText("");
-                    System.out.println("Admin inserted successfully");
+                    Model.getInstance().getViewFactory().showConfirm("Successful insert","Admin inserted successfully");
                 } catch (SQLException se) {
                     System.out.println("Could not create admin: " + se.getMessage());
                 }

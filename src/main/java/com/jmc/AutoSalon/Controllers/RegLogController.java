@@ -88,7 +88,8 @@ public class RegLogController implements Initializable {
                 this.emailTxt.setText("");
                 this.passTxt.setText("");
                 this.cpassTxt.setText("");
-                System.out.println("User inserted successfully");
+                Model.getInstance().getViewFactory().showConfirm("Inserted!","User inserted Successfuly");
+
             } catch (SQLException se) {
                 System.out.println("Could not create user: " + se.getMessage());
             }
