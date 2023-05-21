@@ -1,32 +1,28 @@
 package com.jmc.AutoSalon.Controllers.Client;
 
 import com.jmc.AutoSalon.Models.Model;
-import com.jmc.AutoSalon.Views.AccountType;
 import com.jmc.AutoSalon.Views.ClientMenuOptions;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.scene.text.Text;
-
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ClientMenuController implements Initializable {
 
-    public Text fiekLbl;
+    @FXML
+    private Text fiekLbl;
     @FXML
     private Button dashboard_btn;
     @FXML

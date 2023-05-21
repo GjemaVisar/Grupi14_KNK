@@ -35,6 +35,8 @@ import java.util.ResourceBundle;
 
 public class InsertCarController implements Initializable {
 
+    @FXML
+    private Button refreshbtn_id;
     private CarServiceInterface carService;
 
     public InsertCarController() {
@@ -294,4 +296,9 @@ public class InsertCarController implements Initializable {
         this.translate();
     }
 
+    @FXML
+    public void refreshBtn(ActionEvent event) throws SQLException {
+        car_table.getItems().clear();
+        this.carService.fillCarTable(this.car_table);
+    }
 }

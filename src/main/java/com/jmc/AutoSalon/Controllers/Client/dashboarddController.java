@@ -23,18 +23,29 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class dashboarddController implements Initializable {
-    public TitledPane tabelaBlerjet;
-    public FlowPane mostSoldCarsFlowPane;
-    public Button refresh_btn;
+    @FXML
+    private TitledPane tabelaBlerjet;
+    @FXML
+    private FlowPane mostSoldCarsFlowPane;
+    @FXML
+    private Button refresh_btn;
+    @FXML
     private UserServiceInterface userService;
     @FXML
-    public Label username_lbl;
-    public TableView<Cars> tabela_view;
-    public TableColumn<Cars, String> name_column;
-    public TableColumn<Cars, String> model_column;
-    public TableColumn<Cars, String> type_column;
-    public TableColumn<Cars, Integer> year_column;
-    public TableColumn<Cars, Double> price_column;
+    private Label username_lbl;
+    @FXML
+    private TableView<Cars> tabela_view;
+    @FXML
+    private TableColumn<Cars, String> name_column;
+    @FXML
+    private TableColumn<Cars, String> model_column;
+    @FXML
+    private TableColumn<Cars, String> type_column;
+    @FXML
+    private TableColumn<Cars, Integer> year_column;
+    @FXML
+    private TableColumn<Cars, Double> price_column;
+
     public User user;
     public Cars cars;
     public dashboarddController(){
@@ -59,6 +70,7 @@ public class dashboarddController implements Initializable {
     }
 
     private void populateCarsTable() throws SQLException {
+        tabela_view.getItems().clear();
         List<Cars> carsList = this.userService.your_car();
 
         name_column.setCellValueFactory(new PropertyValueFactory<>("name"));

@@ -1,14 +1,9 @@
 package com.jmc.AutoSalon.Controllers.Client;
 
 import com.jmc.AutoSalon.Models.Cars;
-import com.jmc.AutoSalon.Models.Model;
-import com.jmc.AutoSalon.Models.User;
 import com.jmc.AutoSalon.Repository.RepositorySales;
-import com.jmc.AutoSalon.Repository.RepositoryUser;
 import com.jmc.AutoSalon.Services.Interfaces.UserServiceInterface;
 import com.jmc.AutoSalon.Services.userService;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,14 +19,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Locale;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ClientCustomize implements Initializable {
@@ -42,29 +34,24 @@ public class ClientCustomize implements Initializable {
         this.userService = new userService();
     }
 
-    public ImageView carImg;
-    public TextArea descBox;
+    @FXML
+    private ImageView carImg;
+    @FXML
+    private TextArea descBox;
     @FXML
     private AnchorPane costumizePane;
-
     @FXML
     private ComboBox<String> llojiMakines;
-
     @FXML
     private ComboBox<String> modeliMakines;
     @FXML
     private ComboBox<String> ngjyrat;
-
-
     @FXML
     private CheckBox viti20;
-
     @FXML
     private CheckBox viti21;
-
     @FXML
     private CheckBox viti22;
-
     @FXML
     private CheckBox viti23;
     @FXML

@@ -46,8 +46,6 @@ public class LoginController implements Initializable {
 
     @FXML
     private TextField username_lbl;
-
-
     @FXML
     private PasswordField password_lbl;
     @FXML
@@ -57,16 +55,12 @@ public class LoginController implements Initializable {
 
     @FXML
     private Label login_lbl;
-
     @FXML
     private Label newHere_lbl;
-
     @FXML
     private Button register_btn;
-
     @FXML
     private Label error_lbl;
-
     @FXML
     private AnchorPane fullStage;
 

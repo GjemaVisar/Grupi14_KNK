@@ -35,11 +35,15 @@ import java.util.ResourceBundle;
 public class AdminDashboardController implements Initializable {
     private TestDriveServiceInterface testDriveService;
 
-    public Label username_lbl;
-    public Label active_clients;
-    public Label cars_available;
+    @FXML
+    private Label username_lbl;
+    @FXML
+    private Label active_clients;
+    @FXML
+    private Label cars_available;
+    @FXML
     private LineChart<String, Number> reservationsChart;
-
+    @FXML
     private XYChart.Series<String,Number> series = new XYChart.Series<String,Number>();
 
     @FXML

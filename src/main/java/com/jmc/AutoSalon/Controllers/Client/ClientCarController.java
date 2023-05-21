@@ -6,19 +6,27 @@ import javafx.scene.layout.FlowPane;
 
 public class ClientCarController {
     @FXML
-    public FlowPane suvPaneM;
+    private FlowPane suvPaneM;
     @FXML
-    public FlowPane luxPaneM;
+    private FlowPane luxPaneM;
     @FXML
-    public FlowPane sedanPaneM;
-    public FlowPane sedanPaneA;
-    public FlowPane luxPaneA;
-    public FlowPane suvPaneA;
-    public FlowPane sedanPaneB;
-    public FlowPane luxPaneB;
-    public FlowPane suvPaneB;
-    public Button home_btn;//na duhet per me dal ne home
-    public Button cars_btn;
+    private FlowPane sedanPaneM;
+    @FXML
+    private FlowPane sedanPaneA;
+    @FXML
+    private FlowPane luxPaneA;
+    @FXML
+    private FlowPane suvPaneA;
+    @FXML
+    private FlowPane sedanPaneB;
+    @FXML
+    private FlowPane luxPaneB;
+    @FXML
+    private FlowPane suvPaneB;
+    @FXML
+    private Button home_btn;//na duhet per me dal ne home
+    @FXML
+    private Button cars_btn;
 
     public void suvSwitchM(ActionEvent actionEvent) {
         switchPanes("M", 1);

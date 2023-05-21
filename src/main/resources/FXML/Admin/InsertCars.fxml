@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TableColumn?>
@@ -111,5 +112,7 @@
             </ImageView>
          </children>
       </Pane>
+      <Button fx:id="refreshbtn_id" onAction="#refreshBtn" layoutX="378.0" layoutY="448.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="128.0" text="Refresh" />
+      <FontAwesomeIconView fill="WHITE" glyphName="REFRESH" layoutX="390.0" layoutY="472.0" size="20" />
    </children>
 </AnchorPane>

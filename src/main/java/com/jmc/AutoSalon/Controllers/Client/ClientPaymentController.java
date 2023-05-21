@@ -1,19 +1,11 @@
 package com.jmc.AutoSalon.Controllers.Client;
 
 import com.jmc.AutoSalon.Models.Model;
-import com.jmc.AutoSalon.Models.User;
-import com.jmc.AutoSalon.Services.Interfaces.UserServiceInterface;
-import com.jmc.AutoSalon.Services.userService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-
-import java.sql.Date;
-import java.time.LocalDate;
 
 public class ClientPaymentController {
 
@@ -24,13 +16,10 @@ public class ClientPaymentController {
     }
     @FXML
     private TextField acc_name;
-
     @FXML
     private TextField bank_number;
-
     @FXML
     private TextField cvv_text;
-
     @FXML
     private Button submit_btn;
 

@@ -37,18 +37,25 @@ import java.util.ResourceBundle;
 public class tableCarsController implements Initializable {
 
 
-
     @FXML
     public Pagination mainPage;
     private final int rowsPerPage = 2;
     public AnchorPane mainPane;
+    @FXML
     public Button audiBtn;
+    @FXML
     public Button bmwBtn;
+    @FXML
     public Button mercBtn;
+    @FXML
     public Button suvBtn;
+    @FXML
     public Button luxBtn;
+    @FXML
     public Button sdnBtn;
+    @FXML
     public FlowPane flowPane;
+    @FXML
     public ButtonBar btnBar;
     ObservableList<Cars>carsTable = FXCollections.observableArrayList();
     String name = "audi";

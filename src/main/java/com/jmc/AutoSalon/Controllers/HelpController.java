@@ -26,74 +26,48 @@ public class HelpController implements Initializable {
     private ScrollPane scrollpane;
     @FXML
     private AnchorPane help;
-
     @FXML
     private Button shqipBtn;
-
     @FXML
     private Button englishBtn;
-
-
-
     @FXML
     private Label tekstihyrje;
-
     @FXML
     private Text tekstidyte;
-
     @FXML
     private Text tekstitrete;
-
     @FXML
     private TextField dashboard;
-
     @FXML
     private Text tekstidashboard;
-
     @FXML
     private Text teksticostumize;
-
     @FXML
     private ImageView costumize_helpic;
-
     @FXML
     private ImageView foto_dashboard;
-
     @FXML
     private TextField costumize_help;
-
-
-
     @FXML
     private TextField cars_help;
-
     @FXML
     private Text teksticars;
-
     @FXML
     private ImageView carsfotohelp;
-
     @FXML
     private TextField payment_help;
-
     @FXML
     private Text tekstipaymentform;
-
     @FXML
     private ImageView payment_foto;
-
     @FXML
     private Text tekstikontakt;
-
     @FXML
     private ImageView email;
-
     @FXML
     private ImageView call;
-
     @FXML
     private Text tekstipaymentform11;
-
     @FXML
     private Text number;
     @FXML
